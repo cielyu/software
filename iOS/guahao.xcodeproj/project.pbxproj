@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */; };
+		1F651D321BC3A9F8005CADDD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D311BC3A9F8005CADDD /* MainVC.swift */; };
+		1F651D371BC3A9F8005CADDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D361BC3A9F8005CADDD /* Assets.xcassets */; };
+		1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */; };
+		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
+		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F651D411BC3A9F8005CADDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F651D241BC3A9F8005CADDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F651D2B1BC3A9F8005CADDD;
+			remoteInfo = guahao;
+		};
+		1F651D4C1BC3A9F8005CADDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F651D241BC3A9F8005CADDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F651D2B1BC3A9F8005CADDD;
+			remoteInfo = guahao;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F651D2C1BC3A9F8005CADDD /* guahao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guahao.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F651D311BC3A9F8005CADDD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		1F651D361BC3A9F8005CADDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F651D391BC3A9F8005CADDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F651D3B1BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F651D401BC3A9F8005CADDD /* guahaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guahaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F651D441BC3A9F8005CADDD /* guahaoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoTests.swift; sourceTree = "<group>"; };
+		1F651D461BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guahaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoUITests.swift; sourceTree = "<group>"; };
+		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F651D291BC3A9F8005CADDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D3D1BC3A9F8005CADDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D481BC3A9F8005CADDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F651D231BC3A9F8005CADDD = {
+			isa = PBXGroup;
+			children = (
+				1F651D2E1BC3A9F8005CADDD /* guahao */,
+				1F651D431BC3A9F8005CADDD /* guahaoTests */,
+				1F651D4E1BC3A9F8005CADDD /* guahaoUITests */,
+				1F651D2D1BC3A9F8005CADDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F651D2D1BC3A9F8005CADDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F651D2C1BC3A9F8005CADDD /* guahao.app */,
+				1F651D401BC3A9F8005CADDD /* guahaoTests.xctest */,
+				1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F651D2E1BC3A9F8005CADDD /* guahao */ = {
+			isa = PBXGroup;
+			children = (
+				1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */,
+				1F651D311BC3A9F8005CADDD /* MainVC.swift */,
+				1F651D5D1BC3AA92005CADDD /* Other */,
+			);
+			path = guahao;
+			sourceTree = "<group>";
+		};
+		1F651D431BC3A9F8005CADDD /* guahaoTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F651D441BC3A9F8005CADDD /* guahaoTests.swift */,
+				1F651D461BC3A9F8005CADDD /* Info.plist */,
+			);
+			path = guahaoTests;
+			sourceTree = "<group>";
+		};
+		1F651D4E1BC3A9F8005CADDD /* guahaoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */,
+				1F651D511BC3A9F8005CADDD /* Info.plist */,
+			);
+			path = guahaoUITests;
+			sourceTree = "<group>";
+		};
+		1F651D5D1BC3AA92005CADDD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1F651D361BC3A9F8005CADDD /* Assets.xcassets */,
+				1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */,
+				1F651D3B1BC3A9F8005CADDD /* Info.plist */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F651D2B1BC3A9F8005CADDD /* guahao */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F651D541BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahao" */;
+			buildPhases = (
+				1F651D281BC3A9F8005CADDD /* Sources */,
+				1F651D291BC3A9F8005CADDD /* Frameworks */,
+				1F651D2A1BC3A9F8005CADDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = guahao;
+			productName = guahao;
+			productReference = 1F651D2C1BC3A9F8005CADDD /* guahao.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F651D3F1BC3A9F8005CADDD /* guahaoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F651D571BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoTests" */;
+			buildPhases = (
+				1F651D3C1BC3A9F8005CADDD /* Sources */,
+				1F651D3D1BC3A9F8005CADDD /* Frameworks */,
+				1F651D3E1BC3A9F8005CADDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F651D421BC3A9F8005CADDD /* PBXTargetDependency */,
+			);
+			name = guahaoTests;
+			productName = guahaoTests;
+			productReference = 1F651D401BC3A9F8005CADDD /* guahaoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1F651D4A1BC3A9F8005CADDD /* guahaoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F651D5A1BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoUITests" */;
+			buildPhases = (
+				1F651D471BC3A9F8005CADDD /* Sources */,
+				1F651D481BC3A9F8005CADDD /* Frameworks */,
+				1F651D491BC3A9F8005CADDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F651D4D1BC3A9F8005CADDD /* PBXTargetDependency */,
+			);
+			name = guahaoUITests;
+			productName = guahaoUITests;
+			productReference = 1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F651D241BC3A9F8005CADDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Jeff;
+				TargetAttributes = {
+					1F651D2B1BC3A9F8005CADDD = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					1F651D3F1BC3A9F8005CADDD = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 1F651D2B1BC3A9F8005CADDD;
+					};
+					1F651D4A1BC3A9F8005CADDD = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 1F651D2B1BC3A9F8005CADDD;
+					};
+				};
+			};
+			buildConfigurationList = 1F651D271BC3A9F8005CADDD /* Build configuration list for PBXProject "guahao" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F651D231BC3A9F8005CADDD;
+			productRefGroup = 1F651D2D1BC3A9F8005CADDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F651D2B1BC3A9F8005CADDD /* guahao */,
+				1F651D3F1BC3A9F8005CADDD /* guahaoTests */,
+				1F651D4A1BC3A9F8005CADDD /* guahaoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F651D2A1BC3A9F8005CADDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */,
+				1F651D371BC3A9F8005CADDD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D3E1BC3A9F8005CADDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D491BC3A9F8005CADDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F651D281BC3A9F8005CADDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F651D321BC3A9F8005CADDD /* MainVC.swift in Sources */,
+				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D3C1BC3A9F8005CADDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F651D471BC3A9F8005CADDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F651D421BC3A9F8005CADDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F651D2B1BC3A9F8005CADDD /* guahao */;
+			targetProxy = 1F651D411BC3A9F8005CADDD /* PBXContainerItemProxy */;
+		};
+		1F651D4D1BC3A9F8005CADDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F651D2B1BC3A9F8005CADDD /* guahao */;
+			targetProxy = 1F651D4C1BC3A9F8005CADDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F651D391BC3A9F8005CADDD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F651D521BC3A9F8005CADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F651D531BC3A9F8005CADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F651D551BC3A9F8005CADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = guahao/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahao;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F651D561BC3A9F8005CADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = guahao/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahao;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1F651D581BC3A9F8005CADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = guahaoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahaoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/guahao.app/guahao";
+			};
+			name = Debug;
+		};
+		1F651D591BC3A9F8005CADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = guahaoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahaoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/guahao.app/guahao";
+			};
+			name = Release;
+		};
+		1F651D5B1BC3A9F8005CADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = guahaoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahaoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = guahao;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1F651D5C1BC3A9F8005CADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = guahaoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahaoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = guahao;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F651D271BC3A9F8005CADDD /* Build configuration list for PBXProject "guahao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F651D521BC3A9F8005CADDD /* Debug */,
+				1F651D531BC3A9F8005CADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F651D541BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F651D551BC3A9F8005CADDD /* Debug */,
+				1F651D561BC3A9F8005CADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1F651D571BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F651D581BC3A9F8005CADDD /* Debug */,
+				1F651D591BC3A9F8005CADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1F651D5A1BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F651D5B1BC3A9F8005CADDD /* Debug */,
+				1F651D5C1BC3A9F8005CADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F651D241BC3A9F8005CADDD /* Project object */;
+}
