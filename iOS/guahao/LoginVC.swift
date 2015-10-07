@@ -8,18 +8,21 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor.whiteColor()
+        setupSubviews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-
+    func setupSubviews() {
+        
+    }
 }
 

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */; };
-		1F651D321BC3A9F8005CADDD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D311BC3A9F8005CADDD /* MainVC.swift */; };
+		1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D311BC3A9F8005CADDD /* LoginVC.swift */; };
 		1F651D371BC3A9F8005CADDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D361BC3A9F8005CADDD /* Assets.xcassets */; };
 		1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */; };
 		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		1F651D2C1BC3A9F8005CADDD /* guahao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guahao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F651D311BC3A9F8005CADDD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		1F651D311BC3A9F8005CADDD /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1F651D361BC3A9F8005CADDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F651D391BC3A9F8005CADDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F651D3B1BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */,
-				1F651D311BC3A9F8005CADDD /* MainVC.swift */,
+				1F651D311BC3A9F8005CADDD /* LoginVC.swift */,
 				1F651D5D1BC3AA92005CADDD /* Other */,
 			);
 			path = guahao;
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F651D321BC3A9F8005CADDD /* MainVC.swift in Sources */,
+				1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */,
 				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +477,7 @@
 				1F651D561BC3A9F8005CADDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F651D571BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +486,7 @@
 				1F651D591BC3A9F8005CADDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F651D5A1BC3A9F8005CADDD /* Build configuration list for PBXNativeTarget "guahaoUITests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +495,7 @@
 				1F651D5C1BC3A9F8005CADDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
