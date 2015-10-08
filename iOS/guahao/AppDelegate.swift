@@ -53,12 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if isAutoLogin {
                 // TODO: 这里应该跳到挂号界面
                 let loginVC = LoginVC()
-                let nav = UINavigationController(rootViewController: loginVC)
-                window?.rootViewController = nav
+                window?.rootViewController = loginVC
             }else {
                 let loginVC = LoginVC()
-                let nav = UINavigationController(rootViewController: loginVC)
-                window?.rootViewController = nav
+                window?.rootViewController = loginVC
             }
             return
         }
@@ -78,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // MARK: 登陆出错
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isAutoLogin")
             let loginVC = LoginVC()
-            nav = UINavigationController(rootViewController: loginVC)
+            window?.rootViewController = loginVC
         case 3:
             // MARK: 挂号界面，登陆成功
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAutoLogin")
