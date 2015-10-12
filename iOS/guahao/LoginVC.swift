@@ -150,6 +150,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             endRegister()
         }else {
             print("login")
+            let loadingView = ZFLoadingView()
+            dispatch_async(dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL)) {
+                loadingView.show(InView: self.view, withTips: "正在登陆..")
+                NSThread.sleepForTimeInterval(3)
+                loadingView.hide()
+                dispatch_async(dispatch_get_main_queue()) {
+                    NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 1)
+                }
+            }
         }
     }
     

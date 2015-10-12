@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: 注册“登陆状态”通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("loginStateChanged:"), name: "loginStateChanged", object: nil)
-        let autoLogin = NSUserDefaults.standardUserDefaults().boolForKey("isAutoLogin")
-        isAutoLogin = autoLogin
+        isAutoLogin = NSUserDefaults.standardUserDefaults().boolForKey("isAutoLogin")
         loginStateChanged(nil)
         
         window?.makeKeyAndVisible()
@@ -60,31 +59,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             return
         }
-        var nav: UINavigationController?
+        
         switch _obj {
         case 0:
             // MARK: 登陆失败
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isAutoLogin")
             let loginVC = LoginVC()
-            nav = UINavigationController(rootViewController: loginVC)
+            window?.rootViewController = loginVC
             // TODO: 登陆失败应该有提示框
+            
         case 1:
             // MARK: 登陆界面，登陆成功
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAutoLogin")
             // TODO: 这里应该跳到挂号界面
+            let mainVC = MainVC()
+            let nav = UINavigationController(rootViewController: mainVC)
+            window?.rootViewController = nav
         case 2:
             // MARK: 登陆出错
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isAutoLogin")
             let loginVC = LoginVC()
             window?.rootViewController = loginVC
+            
         case 3:
             // MARK: 挂号界面，登陆成功
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAutoLogin")
         default:
             break
-        }
-        if let nav = nav {
-            window?.rootViewController = nav
         }
     }
 }
