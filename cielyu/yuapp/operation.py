@@ -1,6 +1,7 @@
 __author__ = 'Administrator'
 from django.http import HttpResponse
 from models import Appuser, Hospital, Apptouser, Doctor, Usertodoctor
+import datetime
 
 #user's register and login
 def register(request):
@@ -76,18 +77,54 @@ def searchdoctor(request):
     else:
         return HttpResponse("the doctor is not found.")
 
+#hospital
+def want(request):
+    name = request.POST.get("doctor")
+    hospital = request.POST.get("hospital")
+    department = request.POST.get("department")
+    date = request.POST.get("date")
+    period = request.POST.get("period")
+    if name and date and period and hospital and department:
+        ac_list = Doctor.objects.all()
+        for ac in ac_list:
+            if ac.dname == name and ac.hospital == hospital and ac.department == department:
+                aa = Apptouser(docname=name, date=date, period=period, num=50, ahospital=hospital, adepartment=department)
+                aa.save()
+                return HttpResponse("add doctor to the appointment success.")
+            else:
+                return HttpResponse("failed.")
+    else:
+        return HttpResponse("the messages are absence.")
+
 
 def appointment(request):
+    username = request.POST.get("username")
     dname = request.POST.get("dname")
     date = request.POST.get("date")
     period = request.POST.get("period")
-    pass
+    hospital = request.POST.get("hospital")
+    department = request.POST.get("department")
+    if username and dname and date and period and hospital and department:
+        aa = Apptouser.objects.get(docname=dname, date=date, period=period, ahospital=hospital, adepartment=department)
+        aa.num -= 1
+        aa.save()
+        ab = Usertodoctor(username=username, udname=dname, ddate=date, dperiod=period, dhospital=hospital, ddepartment=department)
+        ab.save()
+        return HttpResponse("appointment success.")
+    else:
+        return HttpResponse("appoint failed.")
 
 
 def usercheck(request):
-    pass
+    username = request.POST.get("username")
+    if username:
+        aa = Usertodoctor.objects.filter(username=username)
+        return HttpResponse(aa)
 
 
 def hospitalcheck(request):
-    pass
+    hospital = request.POST.get("hospital")
+    if hospital:
+        aa = Usertodoctor.objects.filter(dhospital=hospital, date=datetime.date.today)
+        return HttpResponse(aa)
 
