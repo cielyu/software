@@ -13,14 +13,13 @@ class GHCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        label = UILabel(frame: CGRectMake(0, 0, 34, 21))
+        label = UILabel(frame: CGRectMake(0, 0, 68, 21))
         label.textAlignment = .Center
         label.center = CGPointMake(frame.width / 2, frame.height / 2)
         
         contentView.addSubview(label)
         
-        contentView.layer.borderColor = UIColor.blueColor().CGColor
-        contentView.layer.borderWidth = 1
+        selectedBackgroundView = GHCollectionViewCellBackgroudView(frame: frame)
     }
 
     required init?(coder aDecoder: NSCoder) {

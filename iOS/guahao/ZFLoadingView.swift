@@ -28,12 +28,14 @@ class ZFLoadingView {
         centerView.addSubview(indicatorView)
     }
     
-    func show(InView view: UIView, withTips text: String?) {
-        if NSThread.isMainThread() {
-            showInMainThread(view, text: text)
-        }else {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.showInMainThread(view, text: text)
+    func show(InView view: UIView?, withTips text: String?) {
+        if let view = view {
+            if NSThread.isMainThread() {
+                showInMainThread(view, text: text)
+            }else {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.showInMainThread(view, text: text)
+                }
             }
         }
     }

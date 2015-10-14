@@ -17,6 +17,7 @@
 		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1FCD83361BCBA63C00C5ECD3 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83351BCBA63C00C5ECD3 /* ZFLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		1FCD83381BCBA67D00C5ECD3 /* myString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83371BCBA67D00C5ECD3 /* myString.swift */; settings = {ASSET_TAGS = (); }; };
+		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FCD83351BCBA63C00C5ECD3 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FCD83371BCBA67D00C5ECD3 /* myString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myString.swift; sourceTree = "<group>"; };
+		1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCellBackgroudView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */,
+				1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */,
 				1FCD83351BCBA63C00C5ECD3 /* ZFLoadingView.swift */,
 			);
 			name = View;
@@ -289,6 +292,7 @@
 			files = (
 				1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */,
 				1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */,
+				1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */,
 				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
 				1FCD83361BCBA63C00C5ECD3 /* ZFLoadingView.swift in Sources */,
 				1FCD83381BCBA67D00C5ECD3 /* myString.swift in Sources */,

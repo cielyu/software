@@ -24,9 +24,9 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     func setupSubviews() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .Vertical
-//        layout.itemSize = CGSizeMake(100, 100)
         layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 50
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsetsMake(5, 0, 0, 0)
         
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.whiteColor()
@@ -46,14 +46,17 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(120, 120)
+        return CGSizeMake(100, 100)
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GHCollectionViewCell
-        cell.label.text = "\(indexPath.row)"
+        cell.label.text = "挂号\(indexPath.row)"
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    }
     
 }
