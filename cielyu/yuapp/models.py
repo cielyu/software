@@ -36,8 +36,8 @@ class Apptouser(models.Model):
     date = models.DateField()
     period = models.CharField(max_length=30)
     num = models.CharField(max_length=30)
-    ahospital = models.CharField(max_length=30)
-    adepartment = models.CharField(max_length=30)
+    ahospital = models.CharField(null=True, max_length=30)
+    adepartment = models.CharField(null=True, max_length=30)
 
     def __unicode__(self):
         return self.docname
@@ -48,8 +48,8 @@ class Usertodoctor(models.Model):
     udname = models.CharField(max_length=30)
     ddate = models.DateField()
     dperiod = models.CharField(max_length=30)
-    dhospital = models.CharField(max_length=30)
-    ddepartment = models.CharField(max_length=30)
+    dhospital = models.CharField(null=True, max_length=30)
+    ddepartment = models.CharField(null=True, max_length=30)
 
     def __unicode__(self):
         return self.username

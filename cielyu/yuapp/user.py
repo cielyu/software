@@ -1,17 +1,23 @@
 __author__ = 'Administrator'
+from models import Appuser, Apptouser, Doctor, Usertodoctor
 from django.http import HttpResponse
-from models import Appuser, Hospital, Apptouser, Doctor, Usertodoctor
-import datetime
 
-#user's register and login
+
 def register(request):
     name = request.POST.get("name")
     pad = request.POST.get("password")
     tel = request.POST.get("tel")
     addr = request.POST.get("addr")
-    user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel)
-    user.save()
-    return HttpResponse("register success.")
+    ac_list = Appuser.objects.all()
+    for ac in ac_list:
+        if ac.uname == name:
+            return HttpResponse("the username is registered.")
+        elif ac.utel == tel:
+            return HttpResponse("the phone is registered.")
+        else:
+            user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel)
+            user.save()
+            return HttpResponse("register success.")
 
 
 def login(request):
@@ -23,36 +29,6 @@ def login(request):
             return HttpResponse("login success.")
         else:
             return HttpResponse("user's name or password is wrong.")
-
-
-#hospital's register and login
-def hregister(request):
-    name = request.POST.get("name")
-    pad = request.POST.get("password")
-    tel = request.POST.get("tel")
-    ho = Hospital(hname=name, hpad=pad, htel=tel)
-    ho.save()
-    return HttpResponse("hosptial register success.")
-
-
-def hlogin(request):
-    name = request.POST.get("name")
-    pad = request.POST.get("password")
-    ac_list = Hospital.objects.all()
-    for ac in ac_list:
-        if ac.hname == name and ac.hpad == pad:
-            return HttpResponse("login success.")
-        else:
-            return HttpResponse("hospital's name or password is wrong.")
-
-
-def adddoctor(request):
-    name = request.POST.get("name")
-    dh = request.POST.get("hospital")
-    de = request.POST.get("department")
-    d = Doctor(dname=name, hospital=dh, department=de)
-    d.save()
-    return HttpResponse("add doctor success.")
 
 
 def searchdoctor(request):
@@ -77,25 +53,6 @@ def searchdoctor(request):
     else:
         return HttpResponse("the doctor is not found.")
 
-#hospital
-def want(request):
-    name = request.POST.get("doctor")
-    hospital = request.POST.get("hospital")
-    department = request.POST.get("department")
-    date = request.POST.get("date")
-    period = request.POST.get("period")
-    if name and date and period and hospital and department:
-        ac_list = Doctor.objects.all()
-        for ac in ac_list:
-            if ac.dname == name and ac.hospital == hospital and ac.department == department:
-                aa = Apptouser(docname=name, date=date, period=period, num=50, ahospital=hospital, adepartment=department)
-                aa.save()
-                return HttpResponse("add doctor to the appointment success.")
-            else:
-                return HttpResponse("failed.")
-    else:
-        return HttpResponse("the messages are absence.")
-
 
 def appointment(request):
     username = request.POST.get("username")
@@ -119,12 +76,5 @@ def usercheck(request):
     username = request.POST.get("username")
     if username:
         aa = Usertodoctor.objects.filter(username=username)
-        return HttpResponse(aa)
-
-
-def hospitalcheck(request):
-    hospital = request.POST.get("hospital")
-    if hospital:
-        aa = Usertodoctor.objects.filter(dhospital=hospital, date=datetime.date.today)
         return HttpResponse(aa)
 
