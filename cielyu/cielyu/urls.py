@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from yuapp.user import login, register, searchdoctor, usercheck, appointment
+from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/$', login),
+    url(r'^register/$', register),
+    url(r'^searchdoctor/$', searchdoctor),
+    url(r'^usercheck/$', usercheck),
+    url(r'^appointment/$', appointment),
+    url(r'^hlogin/$', hlogin),
+    url(r'^hregister/$', hregister),
+    url(r'^adddoctor/$', adddoctor),
+    url(r'^want/$', want),
+    url(r'^hospitalcheck/$', hospitalcheck),
+    url(r'^doctorcheck/$', doctorcheck),
 ]
