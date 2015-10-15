@@ -18,9 +18,10 @@ from django.contrib import admin
 from yuapp.user import login, register, searchdoctor, usercheck, appointment
 from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/$', login),
+    url(r'^login/', login),
     url(r'^register/$', register),
     url(r'^searchdoctor/$', searchdoctor),
     url(r'^usercheck/$', usercheck),

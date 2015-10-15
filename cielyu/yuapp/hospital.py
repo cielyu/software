@@ -1,6 +1,6 @@
 __author__ = 'Administrator'
 from models import Hospital, Apptouser, Doctor, Usertodoctor
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import datetime
 
 
@@ -11,11 +11,11 @@ def hregister(request):
     ac_list = Hospital.objects.all()
     for ac in ac_list:
         if ac.hname == name and ac.htel == tel:
-            return HttpResponse("the hospital id registered.")
+            return JsonResponse({'status': 'failed'}, safe=False)
         else:
             ho = Hospital(hname=name, hpad=pad, htel=tel)
             ho.save()
-            return HttpResponse("hosptial register success.")
+            return JsonResponse({'status': 'success'}, safe=False)
 
 
 def hlogin(request):
@@ -24,9 +24,9 @@ def hlogin(request):
     ac_list = Hospital.objects.all()
     for ac in ac_list:
         if ac.hname == name and ac.hpad == pad:
-            return HttpResponse("login success.")
+            return JsonResponse({'status': 'success'}, safe=False)
         else:
-            return HttpResponse("hospital's name or password is wrong.")
+            return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def adddoctor(request):
@@ -35,7 +35,7 @@ def adddoctor(request):
     de = request.POST.get("department")
     d = Doctor(dname=name, hospital=dh, department=de)
     d.save()
-    return HttpResponse("add doctor success.")
+    return JsonResponse({'status': 'success'}, safe=False)
 
 
 def want(request):
@@ -50,11 +50,11 @@ def want(request):
             if ac.dname == name and ac.hospital == hospital and ac.department == department:
                 aa = Apptouser(docname=name, date=date, period=period, num=50,ahospital=hospital,adepartment=department)
                 aa.save()
-                return HttpResponse("add doctor to the appointment success.")
+                return JsonResponse({'status': 'success'}, safe=False)
             else:
-                return HttpResponse("failed.")
+                return JsonResponse({'status': 'failed'}, safe=False)
     else:
-        return HttpResponse("the messages are absence.")
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def hospitalcheck(request):
