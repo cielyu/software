@@ -27,8 +27,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
         view.backgroundColor = UIColor.whiteColor()
         setupSubviews()
+        
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let userno = NSUserDefaults.standardUserDefaults().valueForKey("userno") as? String
+        if let userno = userno {
+            usernoTF.text = userno
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -149,15 +157,40 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if isRegistering {
             endRegister()
         }else {
-            print("login")
-            let loadingView = ZFLoadingView()
-            dispatch_async(dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL)) {
-                loadingView.show(InView: self.view, withTips: "正在登陆..")
-                NSThread.sleepForTimeInterval(3)
-                loadingView.hide()
-                dispatch_async(dispatch_get_main_queue()) {
-                    NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 1)
+            if let userno = usernoTF.text, psw = passwordTF.text {
+                dispatch_async(dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL)) {
+                    let loadingView = ZFLoadingView()
+                    loadingView.show(InView: self.view, withTips: "正在登陆..")
+                    
+                    //保存用户数据
+                    let standUD = NSUserDefaults.standardUserDefaults()
+                    standUD.setValue(userno, forKey: "userno")
+                    
+                    // TODO: 登陆post
+                    let url = "http://192.168.137.1:8000/login/"
+                    let param = ["name": userno, "password": psw]
+                    ZFHttpRequest.postRequest(
+                        toUrl: url,
+                        withParameter: param,
+                        success: { (json) -> () in
+                            
+                            let encryptedPsw = NSString(string: psw).RC4_crypt("phoenix")
+                            standUD.setValue(encryptedPsw, forKey: "psw")
+                            loadingView.hide()
+                            print(json)
+                        },
+                        failure: { (error) -> () in
+                            
+                            loadingView.hide()
+                    })
+                    
+                    
+//                    dispatch_async(dispatch_get_main_queue()) {
+//                        NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 1)
+//                    }
                 }
+            }else {
+                
             }
         }
     }
@@ -168,7 +201,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
         
         if isRegistering {
-            print("register")
+            // TODO: 注册
+            let param = ["name": "apple", "password": "123456", "tel": "13610162838", "addr": "广东广州"]
+            ZFHttpRequest.postRequest(
+                toUrl: "http://192.168.137.1:8000/register/",
+                withParameter: param,
+                success: { (json) -> () in
+                    print(json)
+                },
+                failure: { (error) -> () in
+                    MessageToast.toast(self.view, message: "failed", keyBoardHeight: 0, finishBlock: nil)
+            })
         }else {
             beginRegister()
         }
@@ -280,6 +323,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 self.registerBtn.alpha = 1
                             },
                             completion: { (fnish) -> Void in
+                                self.passwordTF.returnKeyType = .Done
                                 self.isRegistering = false
                                 self.isAnimating = false
                         })

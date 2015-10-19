@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ZFLoadingView {
+class ZFLoadingView: NSObject {
     private var backView: UIView!
     private var centerView: UIView
     private var indicatorView: UIActivityIndicatorView
     private var tipsLabel: UILabel?
     var isLoading = false
     
-    init() {
+    override init() {
         //用来放菊花的放在中间的黑色View
         centerView = UIView(frame: CGRectMake(0, 0, 80, 80))
         centerView.layer.cornerRadius = 5
@@ -45,29 +45,32 @@ class ZFLoadingView {
         backView.alpha = 0
         backView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         //提示信息
-        if text != nil && text != "" {
-            let textWidth = text!.widthForDisplaying(UIFont.systemFontOfSize(17))
+        if let text = text {
+            let font = UIFont(name: "Helvetica-Bold", size: 15)
+            let textWidth = text.widthForDisplaying(font!)
             var displayWidth: CGFloat
             let screenWidth = UIScreen.mainScreen().bounds.width
             if textWidth > screenWidth {
                 displayWidth = screenWidth - 20
+            }else if textWidth > 60 && textWidth < screenWidth {
+                displayWidth = textWidth + 20
             }else {
-                displayWidth = textWidth
+                displayWidth = 80
             }
             //修正centerView的宽度，和菊花的位置
-            centerView.frame.size.width = displayWidth + 20
+            centerView.frame.size.width = displayWidth
             indicatorView.center = CGPointMake(centerView.frame.width / 2, centerView.frame.height / 2 - 8)
             if tipsLabel == nil {
                 tipsLabel = UILabel(frame: CGRectMake(0, 0, displayWidth, 21))
                 tipsLabel?.textAlignment = .Center
-                tipsLabel?.font = UIFont(name: "Helvetica-Bold", size: 15)
+                tipsLabel?.font = font
                 tipsLabel?.textColor = UIColor.whiteColor()
                 centerView.addSubview(tipsLabel!)
             }
             tipsLabel?.frame.size.width = displayWidth
             tipsLabel?.center = CGPointMake(
                 centerView.frame.width / 2,
-                centerView.frame.height - 18.5)
+                centerView.frame.height - 15.5)
             tipsLabel?.text = text
             
         }
@@ -78,9 +81,9 @@ class ZFLoadingView {
         
         indicatorView.startAnimating()
         view.addSubview(backView)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3) {
             self.backView.alpha = 1
-        })
+        }
         isLoading = true
     }
     
@@ -90,9 +93,9 @@ class ZFLoadingView {
                 if self.backView.superview != nil {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.backView.alpha = 0
-                    }, completion: { (finish) -> Void in
-                        self.indicatorView.stopAnimating()
-                        self.backView.removeFromSuperview()
+                        }, completion: { (finish) -> Void in
+                            self.indicatorView.stopAnimating()
+                            self.backView.removeFromSuperview()
                     })
                 }
             }

@@ -13,7 +13,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        title = "UICollectionView"
+        title = "类别"
         setupSubviews()
     }
     
