@@ -47,7 +47,7 @@ extension NSString: RC4 {
             
             let t = (s_i + s_j) % 256
             let y = UInt16(s[t].intValue)
-
+            
             let ch = self.characterAtIndex(x) as unichar
             let ch_y = ch ^ y
             

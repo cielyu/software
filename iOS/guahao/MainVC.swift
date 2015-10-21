@@ -15,6 +15,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         view.backgroundColor = UIColor.whiteColor()
         title = "类别"
         setupSubviews()
+        setRightButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +38,11 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         view.addSubview(collectionView)
     }
     
+    func setRightButtonItem() {
+        let rightBtn = UIBarButtonItem(title: "注销", style: .Plain, target: self, action: Selector("cancelLogin:"))
+        navigationItem.rightBarButtonItem = rightBtn
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -57,6 +63,10 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    }
+    
+    func cancelLogin(button: UIButton) {
+        NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 4, userInfo: nil)
     }
     
 }

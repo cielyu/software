@@ -8,7 +8,12 @@
 
 import UIKit
 
-extension String {
+protocol ZFString {
+    func removeFirstSpaceString() -> String
+    func widthForDisplaying(font: UIFont) -> CGFloat
+}
+
+extension String: ZFString {
     // MARK: 移除首个为空格的字符
     func removeFirstSpaceString() -> String {
         if self == "" {

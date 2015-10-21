@@ -13,15 +13,17 @@
 		1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */; };
 		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
 		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
+		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; settings = {ASSET_TAGS = (); }; };
-		1FA939071BCFA68300A16D14 /* RC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939061BCFA68300A16D14 /* RC4.swift */; settings = {ASSET_TAGS = (); }; };
 		1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */; settings = {ASSET_TAGS = (); }; };
 		1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */; settings = {ASSET_TAGS = (); }; };
 		1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */; settings = {ASSET_TAGS = (); }; };
 		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		1FCD83381BCBA67D00C5ECD3 /* myString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83371BCBA67D00C5ECD3 /* myString.swift */; settings = {ASSET_TAGS = (); }; };
 		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; settings = {ASSET_TAGS = (); }; };
+		1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */; settings = {ASSET_TAGS = (); }; };
+		1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672F1BD4A73100A4375F /* ZFString+String.swift */; settings = {ASSET_TAGS = (); }; };
+		1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE467331BD52B2500A4375F /* GuahaoLoginView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,15 +56,17 @@
 		1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guahaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoUITests.swift; sourceTree = "<group>"; };
 		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLabelWithTextField.swift; sourceTree = "<group>"; };
 		1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAlertShow.swift; sourceTree = "<group>"; };
-		1FA939061BCFA68300A16D14 /* RC4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RC4.swift; sourceTree = "<group>"; };
 		1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHttpRequest.swift; sourceTree = "<group>"; };
 		1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToast.swift; sourceTree = "<group>"; };
 		1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCell.swift; sourceTree = "<group>"; };
-		1FCD83371BCBA67D00C5ECD3 /* myString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myString.swift; sourceTree = "<group>"; };
 		1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCellBackgroudView.swift; sourceTree = "<group>"; };
+		1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RC4+NSString.swift"; sourceTree = "<group>"; };
+		1FE4672F1BD4A73100A4375F /* ZFString+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZFString+String.swift"; sourceTree = "<group>"; };
+		1FE467331BD52B2500A4375F /* GuahaoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuahaoLoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +147,9 @@
 		1FA939081BCFA83300A16D14 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				1FA939061BCFA68300A16D14 /* RC4.swift */,
+				1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */,
+				1FE4672F1BD4A73100A4375F /* ZFString+String.swift */,
 				1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */,
-				1FCD83371BCBA67D00C5ECD3 /* myString.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -153,6 +157,8 @@
 		1FCD83391BCBAE4E00C5ECD3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FE467331BD52B2500A4375F /* GuahaoLoginView.swift */,
+				1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */,
 				1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */,
 				1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */,
 				1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */,
@@ -312,15 +318,17 @@
 			files = (
 				1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */,
 				1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */,
+				1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */,
+				1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */,
 				1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */,
 				1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */,
 				1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */,
 				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
 				1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */,
+				1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */,
 				1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */,
-				1FA939071BCFA68300A16D14 /* RC4.swift in Sources */,
-				1FCD83381BCBA67D00C5ECD3 /* myString.swift in Sources */,
 				1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */,
+				1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
