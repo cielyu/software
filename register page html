@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>注册页面</title>
+ </head>
+ <body bgcolor=#ccffcc>
+<br><br>
+ <a href="http://xyy.gdut.edu.cn/new/"target="_blank">
+  <center><img src="F:/学习/github/84A58PICzBZ.jpg" width="200" height="200" border="0" alt=""></center>
+  </a>
+  <br>
+  
+  <div class="theCenterBox" style="">
+    <style>
+
+
+
+
+</style>
+
+ <center><div class="theLoginBox" style="width:657px">
+    <div class="loginTxt">注册账号</div></center>
+    <form id="leftForm" action="reg.html" method="post">
+      <div class="theLoginArea" id="loginBox">
+        <p style="position: relative;">
+          <center><label for="LoginForm_email">医院名称：</label>
+          <input placeholder="请输入您的邮箱" name="LoginForm[email]" id="LoginForm_email" type="text" maxlength="255" /></center>
+          
+        <p style="position: relative;">
+          <center><label for="LoginForm_password">密码：</label>
+          <input placeholder="请输入您的密码" name="LoginForm[password]" id="LoginForm_password" type="password" maxlength="16" /></center>
+        
+        <p style="position: relative;">
+          <center><label for="LoginForm_checksum">确认密码：</label>
+          <input placeholder="请再次输入密码" name="LoginForm[checksum]" id="LoginForm_checksum" type="text" value="" /></center>
+          
+        <div class="loginSubmitBnt">
+          <div class="reg_submit">
+            <center><p class="userSubmit"><input type="submit" name="theSubmitButton" value="提交"></p></center>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  </div>
+  
+ 
+</div>
+ </body>
+</html>
