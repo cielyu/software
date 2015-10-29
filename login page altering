@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+   <br>
+  <br>  
+  <br>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>登陆</title>
+ </head>
+ <body bgcolor=#ccffcc>
+
+ <a href="http://xyy.gdut.edu.cn/new/"target="_blank">
+  <center><img src="F:/学习/github/84A58PICzBZ.jpg" width="200" height="200" border="0" alt=""></center>
+  </a>
+  <br>
+  <center><strong>挂号系统</strong></center>
+  <br>
+
+  <section class="container">
+    <div class="login">
+	 <form method="post" action="index.html"> 
+<center><p><input type="text" name="login" value=""placeholder="账号/邮箱/用户名" /><p></center> 
+<center><p><input type="text" name="password"value=""placeholder="密码" /><p></center>
+<center><p class="remember_me"></center>
+          <label>
+            <center><input type="checkbox" name="remember_me" id="remember_me">
+           记住密码</center>
+          </label>
+        </p>
+		<center><p class="submit"><input type="submit" name="commit" value="登录"></p></center>
+</form>
+ </div>
+
+   <div class="login-help">
+      <center><p><a href="index.html">忘记密码?</a>&nbsp;<a href="file:///C:/Users/zy/Desktop/Untitled4.html" title="马上注册">马上注册</a></p></center>
+   </div>
+</section>
+<div style="text-align:center;">
+ </body>
+</html>
