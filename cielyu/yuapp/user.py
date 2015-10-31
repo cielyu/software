@@ -15,20 +15,24 @@ def register(request):
             return JsonResponse({'status': 'failed'}, safe=False)
     user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel)
     user.save()
-    return JsonResponse({'status': 'success'}, safe=False)
+    for ac in ac_list:
+        if ac.uname == name and ac.utel == tel and ac.upad == pad and ac.uaddr == addr:
+            return JsonResponse({'status': 'success'}, safe=False)
+    else:
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def login(request):
-    print "ok"
+    #print "ok"
     if request.method != 'POST':
-        print "not post"
+        #print "not post"
         return HttpResponse("get")
     else:
-        print "post"
+        #print "post"
         name = request.POST.get("name")
-        print name
+        #print name
         pad = request.POST.get("password")
-        print pad
+        #print pad
         ac_list = Appuser.objects.all()
         for ac in ac_list:
             if ac.uname == name and ac.upad == pad:
@@ -41,26 +45,13 @@ def login(request):
 
 
 def searchdoctor(request):
-    name = request.POST.get("doctorname", "")
     dhospital = request.POST.get("hospital", "")
     ddepartment = request.POST.get("department", "")
-    ac_list = Doctor.objects.all()
     if dhospital and ddepartment:
-        if not name:
-            for ac in ac_list:
-                if ac.hospital == dhospital and ac.department == ddepartment:
-                    return HttpResponse(ac)
-        else:
-            for ac in ac_list:
-                if ac.hospital == dhospital and ac.department == ddepartment and ac.dname == name:
-                    return HttpResponse(ac)
-    elif name:
-        if not dhospital and not ddepartment:
-            for ac in ac_list:
-                if ac.dname == name:
-                    return HttpResponse(ac)
+        aa = serializers.serialize("json", Doctor.objects.filter(hospital=dhospital, department=ddepartment))
+        return HttpResponse(aa)
     else:
-        return HttpResponse("the doctor is not found.")
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def appointment(request):
@@ -88,3 +79,26 @@ def usercheck(request):
         return HttpResponse(aa)
 
 
+def document(request):
+    name = request.POST.get("username")
+    pad = request.POST.get("password")
+    if name and pad:
+        aa = Appuser.objects.get(uname=name, upad=pad)
+        ab = aa.toJSON()
+        return HttpResponse(ab)
+    else:
+        data = {'status': 'failed'}
+        return JsonResponse(data, safe=False)
+
+
+def revise(request):
+    name = request.POST.get("username")
+    pad = request.POST.get("password")
+    tel = request.POST.get("tel")
+    addr = request.POST.get("addr")
+    nname = request.POST.get("newname")
+    npad = request.POST.get("newpad")
+    ntel = request.POST.get("newtel")
+    naddr = request.POST.get("newaddr")
+    aa = Appuser.objects.get(uname=name, upad=pad, utel=tel, uaddr=addr).update(uname=nname, upad=npad, utel=ntel, uaddr=naddr)
+    return JsonResponse({'status': 'success'}, safe=False)

@@ -1,5 +1,5 @@
 from django.db import models
-
+import json
 # Create your models here.
 
 
@@ -11,6 +11,9 @@ class Appuser(models.Model):
 
     def __unicode__(self):
         return self.uname
+
+    def toJSON(self):
+        return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))
 
 
 class Hospital(models.Model):
@@ -30,6 +33,9 @@ class Doctor(models.Model):
     def __unicode__(self):
         return self.dname
 
+    def toJSON(self):
+        return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))
+
 
 class Apptouser(models.Model):
     docname = models.CharField(max_length=30)
@@ -42,6 +48,9 @@ class Apptouser(models.Model):
     def __unicode__(self):
         return self.docname
 
+    def toJSON(self):
+        return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))
+
 
 class Usertodoctor(models.Model):
     username = models.CharField(max_length=30)
@@ -53,3 +62,6 @@ class Usertodoctor(models.Model):
 
     def __unicode__(self):
         return self.username
+
+    def toJSON(self):
+        return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))
