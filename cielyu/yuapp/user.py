@@ -1,6 +1,7 @@
 __author__ = 'Administrator'
 from models import Appuser, Apptouser, Doctor, Usertodoctor
 from django.http import HttpResponse, JsonResponse
+from django.core import serializers
 
 
 def register(request):
@@ -83,6 +84,7 @@ def appointment(request):
 def usercheck(request):
     username = request.POST.get("username")
     if username:
-        aa = Usertodoctor.objects.filter(username=username, )
+        aa = serializers.serialize("json", Usertodoctor.objects.filter(username=username))
         return HttpResponse(aa)
+
 

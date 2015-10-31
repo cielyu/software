@@ -2,6 +2,7 @@ __author__ = 'Administrator'
 from models import Hospital, Apptouser, Doctor, Usertodoctor
 from django.http import HttpResponse, JsonResponse
 import datetime
+from django.core import serializers
 
 
 def hregister(request):
@@ -60,7 +61,7 @@ def want(request):
 def hospitalcheck(request):
     hospital = request.POST.get("hospital")
     if hospital:
-        aa = Usertodoctor.objects.filter(dhospital=hospital, date=datetime.date.today)
+        aa = serializers.serialize("json", Usertodoctor.objects.filter(dhospital=hospital, date=datetime.date.today))
         return HttpResponse(aa)
 
 
@@ -69,5 +70,5 @@ def doctorcheck(request):
     name = request.POST.get("doctor")
     department = request.POST.get("department")
     if hospital and name and department:
-        aa = Usertodoctor.objects.filter(dhospital=hospital,udname=name,date=datetime.date.today,ddepartment=department)
+        aa = serializers.serialize("json", Usertodoctor.objects.filter(dhospital=hospital,udname=name,date=datetime.date.today,ddepartment=department))
         return HttpResponse(aa)
