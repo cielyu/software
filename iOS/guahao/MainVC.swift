@@ -27,7 +27,9 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         layout.scrollDirection = .Vertical
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsetsMake(5, 0, 0, 0)
+        let sizeWidth = (view.frame.width - 40) / 3
+        layout.itemSize = CGSizeMake(sizeWidth, sizeWidth)
+        layout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10)
         
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.whiteColor()
@@ -48,12 +50,12 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(100, 100)
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        return CGSizeMake(100, 100)
+//    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GHCollectionViewCell

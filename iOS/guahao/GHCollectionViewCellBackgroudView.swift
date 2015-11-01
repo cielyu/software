@@ -9,8 +9,10 @@
 import UIKit
 
 class GHCollectionViewCellBackgroudView: UIView {
+    private let bgColor: UIColor
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, bgColor: UIColor) {
+        self.bgColor = bgColor
         super.init(frame: frame)
         backgroundColor = UIColor.whiteColor()
     }
@@ -23,8 +25,8 @@ class GHCollectionViewCellBackgroudView: UIView {
         let ctx = UIGraphicsGetCurrentContext()
         CGContextSaveGState(ctx)
         let path = UIBezierPath(roundedRect: rect, cornerRadius: 5)
-        path.lineWidth = 3
-        UIColor(red: 0.529, green: 0.808, blue: 0.922, alpha: 1).setFill()
+        path.lineWidth = 0
+        bgColor.setFill()
         path.fill()
         CGContextRestoreGState(ctx)
     }

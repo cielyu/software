@@ -60,6 +60,14 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
     
     func login() {
         print("登陆")
+        dispatch_async(dispatch_queue_create("login", DISPATCH_QUEUE_SERIAL)) {
+            let loading = ZFLoadingView()
+            loading.show(InView: self.view, withTips: "正在登陆...")
+            dispatch_async(dispatch_get_main_queue()) {
+                NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 1)
+            }
+            loading.hide()
+        }
     }
     func register() {
         print("注册")

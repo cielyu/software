@@ -7,22 +7,35 @@
 //
 
 import UIKit
+import SnapKit
 
 class GHCollectionViewCell: UICollectionViewCell {
     var label: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        label = UILabel(frame: CGRectMake(0, 0, 68, 21))
+        label = UILabel()
         label.textAlignment = .Center
-        label.center = CGPointMake(frame.width / 2, frame.height / 2)
+        label.numberOfLines = 2
         
         contentView.addSubview(label)
-        
-        selectedBackgroundView = GHCollectionViewCellBackgroudView(frame: frame)
+        label.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(contentView).inset(8)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backgroundView = GHCollectionViewCellBackgroudView(
+            frame: frame,
+            bgColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.4))
+        selectedBackgroundView = GHCollectionViewCellBackgroudView(
+            frame: frame,
+            bgColor: UIColor(red: 0.529, green: 0.808, blue: 0.922, alpha: 1))
     }
 }

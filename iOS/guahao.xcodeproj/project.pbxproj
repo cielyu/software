@@ -13,17 +13,18 @@
 		1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */; };
 		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
 		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
-		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; settings = {ASSET_TAGS = (); }; };
-		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
-		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; settings = {ASSET_TAGS = (); }; };
-		1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */; settings = {ASSET_TAGS = (); }; };
-		1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */; settings = {ASSET_TAGS = (); }; };
-		1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */; settings = {ASSET_TAGS = (); }; };
-		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; settings = {ASSET_TAGS = (); }; };
-		1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */; settings = {ASSET_TAGS = (); }; };
-		1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672F1BD4A73100A4375F /* ZFString+String.swift */; settings = {ASSET_TAGS = (); }; };
-		1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE467331BD52B2500A4375F /* GuahaoLoginView.swift */; settings = {ASSET_TAGS = (); }; };
+		1F94A9F21BE4F27F00A4D896 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; };
+		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; };
+		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; };
+		1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */; };
+		1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */; };
+		1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */; };
+		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; };
+		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; };
+		1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */; };
+		1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672F1BD4A73100A4375F /* ZFString+String.swift */; };
+		1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE467331BD52B2500A4375F /* GuahaoLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,56 @@
 			remoteGlobalIDString = 1F651D2B1BC3A9F8005CADDD;
 			remoteInfo = guahao;
 		};
+		1F94A9E71BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = "SnapKit iOS";
+		};
+		1F94A9E91BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB37A1AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX";
+		};
+		1F94A9EB1BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit iOS Tests";
+		};
+		1F94A9ED1BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECDB3841AC0C9D4006BBC11;
+			remoteInfo = "SnapKit OSX Tests";
+		};
+		1F94A9EF1BE4F26B00A4D896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
+			remoteInfo = "SnapKit iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F94A9F11BE4F26E00A4D896 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F94A9F21BE4F27F00A4D896 /* SnapKit.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F651D2C1BC3A9F8005CADDD /* guahao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guahao.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +106,7 @@
 		1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guahaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoUITests.swift; sourceTree = "<group>"; };
 		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = guahao/SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 		1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLabelWithTextField.swift; sourceTree = "<group>"; };
 		1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAlertShow.swift; sourceTree = "<group>"; };
@@ -99,6 +150,7 @@
 			children = (
 				1F651D2E1BC3A9F8005CADDD /* guahao */,
 				1F651D431BC3A9F8005CADDD /* guahaoTests */,
+				1F94A9F31BE4F2B500A4D896 /* Framework */,
 				1F651D4E1BC3A9F8005CADDD /* guahaoUITests */,
 				1F651D2D1BC3A9F8005CADDD /* Products */,
 			);
@@ -142,6 +194,25 @@
 				1F651D511BC3A9F8005CADDD /* Info.plist */,
 			);
 			path = guahaoUITests;
+			sourceTree = "<group>";
+		};
+		1F94A9E11BE4F25E00A4D896 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */,
+				1F94A9EA1BE4F25E00A4D896 /* SnapKit.framework */,
+				1F94A9EC1BE4F25E00A4D896 /* SnapKit iOS Tests.xctest */,
+				1F94A9EE1BE4F25E00A4D896 /* SnapKit OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F94A9F31BE4F2B500A4D896 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 		1FA939081BCFA83300A16D14 /* Class */ = {
@@ -197,10 +268,12 @@
 				1F651D281BC3A9F8005CADDD /* Sources */,
 				1F651D291BC3A9F8005CADDD /* Frameworks */,
 				1F651D2A1BC3A9F8005CADDD /* Resources */,
+				1F94A9F11BE4F26E00A4D896 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F94A9F01BE4F26B00A4D896 /* PBXTargetDependency */,
 			);
 			name = guahao;
 			productName = guahao;
@@ -276,6 +349,12 @@
 			mainGroup = 1F651D231BC3A9F8005CADDD;
 			productRefGroup = 1F651D2D1BC3A9F8005CADDD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F94A9E11BE4F25E00A4D896 /* Products */;
+					ProjectRef = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F651D2B1BC3A9F8005CADDD /* guahao */,
@@ -284,6 +363,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 1F94A9E71BE4F25E00A4D896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F94A9EA1BE4F25E00A4D896 /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 1F94A9E91BE4F25E00A4D896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F94A9EC1BE4F25E00A4D896 /* SnapKit iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit iOS Tests.xctest";
+			remoteRef = 1F94A9EB1BE4F25E00A4D896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F94A9EE1BE4F25E00A4D896 /* SnapKit OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit OSX Tests.xctest";
+			remoteRef = 1F94A9ED1BE4F25E00A4D896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F651D2A1BC3A9F8005CADDD /* Resources */ = {
@@ -360,6 +470,11 @@
 			isa = PBXTargetDependency;
 			target = 1F651D2B1BC3A9F8005CADDD /* guahao */;
 			targetProxy = 1F651D4C1BC3A9F8005CADDD /* PBXContainerItemProxy */;
+		};
+		1F94A9F01BE4F26B00A4D896 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SnapKit iOS";
+			targetProxy = 1F94A9EF1BE4F26B00A4D896 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
