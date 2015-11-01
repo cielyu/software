@@ -13,7 +13,7 @@ class MainVC: ZFSlideViewController {
     override func viewDidLoad() {
         leftVC = LeftVC()
         middleVC = UINavigationController(rootViewController: MiddleVC())
-        leftViewWidth = 150
+        leftViewWidth = 200
         
         super.viewDidLoad()
     }

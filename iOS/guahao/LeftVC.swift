@@ -9,7 +9,7 @@
 import UIKit
 
 class LeftVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var dataSource = ["姓名", "个人资料", "修改密码", "设置"]
+    var dataSource = ["姓名", "个人资料", "修改密码", "注销", "设置"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class LeftVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             make.top.equalTo(view).offset(20)
             make.left.equalTo(view.snp_left)
             make.bottom.equalTo(view.snp_bottom)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
         }
     }
     
@@ -50,6 +50,12 @@ class LeftVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        if indexPath.row == 3 {
+            cancelRegister()
+        }
+    }
+    
+    func cancelRegister() {
+        NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 4)
     }
 }
