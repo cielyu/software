@@ -9,7 +9,7 @@ class Appuser(models.Model):
     uaddr = models.CharField(max_length=30)
     utel = models.CharField(max_length=30)
     isblack = models.BooleanField(default=False)
-    udate = models.DateTimeField(null=True,auto_now=True)
+    udate = models.DateTimeField(null=True, auto_now=True)
 
     def __unicode__(self):
         return self.uname
@@ -65,6 +65,16 @@ class Usertodoctor(models.Model):
 
     def __unicode__(self):
         return self.username
+
+    def toJSON(self):
+        return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))
+
+
+class Hospitallist(models.Model):
+    honame = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.honame
 
     def toJSON(self):
         return json.dumps(dict([(attr, getattr(self, attr))for attr in [f.name for f in self._meta.fields]]))

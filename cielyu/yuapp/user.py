@@ -1,5 +1,5 @@
 __author__ = 'Administrator'
-from models import Appuser, Apptouser, Doctor, Usertodoctor
+from models import Appuser, Apptouser, Doctor, Usertodoctor, Hospital, Hospitallist
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import datetime
@@ -14,13 +14,9 @@ def register(request):
     for ac in ac_list:
         if ac.uname == name or ac.utel == tel:
             return JsonResponse({'status': 'failed'}, safe=False)
-    user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel)
+    user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel, isblack=False, udate=datetime.datetime.now())
     user.save()
-    for ac in ac_list:
-        if ac.uname == name and ac.utel == tel and ac.upad == pad and ac.uaddr == addr:
-            return JsonResponse({'status': 'success'}, safe=False)
-    else:
-        return JsonResponse({'status': 'failed'}, safe=False)
+    return JsonResponse({'status': 'success'}, safe=False)
 
 
 def login(request):
@@ -33,11 +29,15 @@ def login(request):
         for ac in ac_list:
             if ac.uname == name and ac.upad == pad:
                 cc = Appuser.objects.get(uname=name, upad=pad)
-                if cc.isblack is True:
-                    if datetime.datetime.now()-cc.udate > 7:
-                        cc.isblack = False
+                if cc.isblack == '1':
+                    if (datetime.datetime.now()-cc.udate).days >= 7:
+                        cc = Appuser(uname=name, upad=pad).update(isblack='0')
                         cc.save()
+                        data = {'status': 'success', 'black ': 'False'}
+                        return JsonResponse(data, safe=False)
                     else:
+                        #aa = datetime.datetime.now()-cc.udate
+                        #ab = aa.strftime("%Y-%m-%d %H:%I:%S")
                         data = {'status': 'success', 'black': 'True'}
                         return JsonResponse(data, safe=False)
                 else:
@@ -110,3 +110,8 @@ def revise(request):
     aa = Appuser.objects.get(uname=name, upad=pad, utel=tel, uaddr=addr).update(uname=nname, upad=npad, utel=ntel, uaddr=naddr)
     aa.save()
     return JsonResponse({'status': 'success'}, safe=False)
+
+
+def getlist(request):
+    aa = serializers.serialize("json", Hospitallist.objects.all())
+    return HttpResponse(aa)
