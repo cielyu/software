@@ -2,6 +2,7 @@ __author__ = 'Administrator'
 from models import Appuser, Apptouser, Doctor, Usertodoctor
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
+import datetime
 
 
 def register(request):
@@ -23,24 +24,26 @@ def register(request):
 
 
 def login(request):
-    #print "ok"
     if request.method != 'POST':
-        #print "not post"
         return HttpResponse("get")
     else:
-        #print "post"
         name = request.POST.get("name")
-        #print name
         pad = request.POST.get("password")
-        #print pad
         ac_list = Appuser.objects.all()
         for ac in ac_list:
             if ac.uname == name and ac.upad == pad:
-                data = {'status': 'success'}
-                return JsonResponse(data, safe=False)
+                cc = Appuser.objects.get(uname=name, upad=pad)
+                if cc.isblack is True:
+                    if datetime.datetime.now()-cc.udate > 7:
+                        cc.isblack = False
+                        cc.save()
+                    else:
+                        data = {'status': 'success', 'black': 'True'}
+                        return JsonResponse(data, safe=False)
+                else:
+                    data = {'status': 'success', 'black ': 'False'}
+                    return JsonResponse(data, safe=False)
         data = {'status': 'failed'}
-        #return HttpResponse(json.dumps(data), content_type="application/json")
-        #return HttpResponse("user's name or password is wrong.")
         return JsonResponse(data, safe=False)
 
 
@@ -62,12 +65,16 @@ def appointment(request):
     hospital = request.POST.get("hospital")
     department = request.POST.get("department")
     if username and dname and date and period and hospital and department:
-        aa = Apptouser.objects.get(docname=dname, date=date, period=period, ahospital=hospital, adepartment=department)
-        aa.num -= 1
-        aa.save()
-        ab = Usertodoctor(username=username, udname=dname, ddate=date, dperiod=period, dhospital=hospital, ddepartment=department)
-        ab.save()
-        return JsonResponse({'status': 'success'}, safe=False)
+        ac = Appuser.objects.get(uname=username)
+        if ac.isblack is False:
+            aa = Apptouser.objects.get(docname=dname, date=date, period=period, ahospital=hospital, adepartment=department)
+            aa.num -= 1
+            aa.save()
+            ab = Usertodoctor(username=username, udname=dname, ddate=date, dperiod=period, dhospital=hospital, ddepartment=department)
+            ab.save()
+            return JsonResponse({'status': 'success'}, safe=False)
+        else:
+            return JsonResponse({'status': 'failed'}, safe=False)
     else:
         return JsonResponse({'status': 'failed'}, safe=False)
 
@@ -101,4 +108,5 @@ def revise(request):
     ntel = request.POST.get("newtel")
     naddr = request.POST.get("newaddr")
     aa = Appuser.objects.get(uname=name, upad=pad, utel=tel, uaddr=addr).update(uname=nname, upad=npad, utel=ntel, uaddr=naddr)
+    aa.save()
     return JsonResponse({'status': 'success'}, safe=False)

@@ -8,6 +8,8 @@ class Appuser(models.Model):
     upad = models.CharField(max_length=30)
     uaddr = models.CharField(max_length=30)
     utel = models.CharField(max_length=30)
+    isblack = models.BooleanField(default=False)
+    udate = models.DateTimeField(null=True,auto_now=True)
 
     def __unicode__(self):
         return self.uname
@@ -59,6 +61,7 @@ class Usertodoctor(models.Model):
     dperiod = models.CharField(max_length=30)
     dhospital = models.CharField(null=True, max_length=30)
     ddepartment = models.CharField(null=True, max_length=30)
+    ugood = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.username
