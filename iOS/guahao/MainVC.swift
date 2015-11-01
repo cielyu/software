@@ -2,73 +2,23 @@
 //  MainVC.swift
 //  guahao
 //
-//  Created by Jeff Wong on 15/10/11.
+//  Created by Jeff Wong on 15/11/1.
 //  Copyright © 2015年 Jeff. All rights reserved.
 //
 
 import UIKit
 
-class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainVC: ZFSlideViewController {
     
     override func viewDidLoad() {
+        leftVC = LeftVC()
+        middleVC = UINavigationController(rootViewController: MiddleVC())
+        leftViewWidth = 150
+        
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        title = "类别"
-        setupSubviews()
-        setRightButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func setupSubviews() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        let sizeWidth = (view.frame.width - 40) / 3
-        layout.itemSize = CGSizeMake(sizeWidth, sizeWidth)
-        layout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10)
-        
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerClass(GHCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
-        view.addSubview(collectionView)
-    }
-    
-    func setRightButtonItem() {
-        let rightBtn = UIBarButtonItem(title: "注销", style: .Plain, target: self, action: Selector("cancelLogin:"))
-        navigationItem.rightBarButtonItem = rightBtn
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSizeMake(100, 100)
-//    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GHCollectionViewCell
-        cell.label.text = "挂号\(indexPath.row)"
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-    }
-    
-    func cancelLogin(button: UIButton) {
-        NSNotificationCenter.defaultCenter().postNotificationName("loginStateChanged", object: 4, userInfo: nil)
-    }
-    
 }

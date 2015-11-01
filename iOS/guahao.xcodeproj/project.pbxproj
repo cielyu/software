@@ -14,12 +14,15 @@
 		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
 		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
 		1F94A9F21BE4F27F00A4D896 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F94A9F91BE5BD2400A4D896 /* ZFSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */; };
+		1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */; };
+		1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */; };
 		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; };
 		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; };
 		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; };
 		1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */; };
 		1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */; };
-		1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */; };
+		1FCD83321BCAA9EF00C5ECD3 /* MiddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */; };
 		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; };
 		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; };
 		1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */; };
@@ -107,12 +110,15 @@
 		1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoUITests.swift; sourceTree = "<group>"; };
 		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = guahao/SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
+		1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFSlideViewController.swift; sourceTree = "<group>"; };
+		1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftVC.swift; sourceTree = "<group>"; };
+		1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLabelWithTextField.swift; sourceTree = "<group>"; };
 		1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAlertShow.swift; sourceTree = "<group>"; };
 		1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHttpRequest.swift; sourceTree = "<group>"; };
 		1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToast.swift; sourceTree = "<group>"; };
-		1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleVC.swift; sourceTree = "<group>"; };
 		1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCellBackgroudView.swift; sourceTree = "<group>"; };
 		1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RC4+NSString.swift"; sourceTree = "<group>"; };
@@ -243,7 +249,10 @@
 			isa = PBXGroup;
 			children = (
 				1F651D311BC3A9F8005CADDD /* LoginVC.swift */,
-				1FCD83311BCAA9EF00C5ECD3 /* MainVC.swift */,
+				1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */,
+				1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */,
+				1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */,
+				1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -427,9 +436,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */,
-				1FCD83321BCAA9EF00C5ECD3 /* MainVC.swift in Sources */,
+				1FCD83321BCAA9EF00C5ECD3 /* MiddleVC.swift in Sources */,
+				1F94A9F91BE5BD2400A4D896 /* ZFSlideViewController.swift in Sources */,
 				1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */,
 				1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */,
+				1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */,
 				1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */,
 				1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */,
 				1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */,
@@ -437,6 +448,7 @@
 				1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */,
 				1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */,
 				1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */,
+				1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */,
 				1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */,
 				1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */,
 			);

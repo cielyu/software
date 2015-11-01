@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if isAutoLogin {
                 // TODO: 这里应该跳到挂号界面
                 let mainVC = MainVC()
-                window?.rootViewController = UINavigationController(rootViewController: mainVC)
+                window?.rootViewController = mainVC
             }else {
                 let loginVC = LoginVC()
                 window?.rootViewController = loginVC
@@ -78,8 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAutoLogin")
             // TODO: 这里应该跳到挂号界面
             let mainVC = MainVC()
-            let nav = UINavigationController(rootViewController: mainVC)
-            window?.rootViewController = nav
+            window?.rootViewController = mainVC
         case 2:
             // MARK: 登陆出错
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isAutoLogin")

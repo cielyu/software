@@ -17,8 +17,8 @@ class GHCollectionViewCell: UICollectionViewCell {
         label = UILabel()
         label.textAlignment = .Center
         label.numberOfLines = 2
-        
         contentView.addSubview(label)
+        
         label.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(contentView).inset(8)
         }
@@ -33,7 +33,7 @@ class GHCollectionViewCell: UICollectionViewCell {
         
         backgroundView = GHCollectionViewCellBackgroudView(
             frame: frame,
-            bgColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.4))
+            bgColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.3))
         selectedBackgroundView = GHCollectionViewCellBackgroudView(
             frame: frame,
             bgColor: UIColor(red: 0.529, green: 0.808, blue: 0.922, alpha: 1))
