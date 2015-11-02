@@ -3,7 +3,7 @@ from models import Appuser, Apptouser, Doctor, Usertodoctor, Hospital, Hospitall
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import datetime
-import json
+from django.contrib import sessions
 
 
 def register(request):
