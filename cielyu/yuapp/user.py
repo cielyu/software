@@ -3,6 +3,7 @@ from models import Appuser, Apptouser, Doctor, Usertodoctor, Hospital, Hospitall
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import datetime
+import json
 
 
 def register(request):
@@ -36,15 +37,43 @@ def login(request):
                         data = {'status': 'success', 'black ': 'False'}
                         return JsonResponse(data, safe=False)
                     else:
-                        #aa = datetime.datetime.now()-cc.udate
-                        #ab = aa.strftime("%Y-%m-%d %H:%I:%S")
-                        data = {'status': 'success', 'black': 'True'}
+                        aa = (datetime.datetime.now()-cc.udate).days
+                        ab = str(aa)
+                        data = {'status': 'success', 'black': 'True', 'day': ab}
                         return JsonResponse(data, safe=False)
                 else:
                     data = {'status': 'success', 'black ': 'False'}
                     return JsonResponse(data, safe=False)
         data = {'status': 'failed'}
         return JsonResponse(data, safe=False)
+
+
+def checkdata(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    aa = Appuser.objects.get(uname=username, upad=password)
+    data = {'name': aa.uname, 'pad': aa.upad, 'tel': aa.utel, 'address': aa.uaddr}
+    return JsonResponse(data, safe=False)
+
+
+def modify(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    newpad = request.POST.get("newpassword")
+    newtel = request.POST.get("newnumber")
+    newaddr = request.POST.get("newaddress")
+    aa = Appuser.objects.get(uname=username, upad=password)
+    if newpad:
+        aa.upad = newpad
+        aa.save()
+    if newtel:
+        aa.utel = newtel
+        aa.save()
+    if newaddr:
+        aa.uaddr = newaddr
+        aa.save()
+    data = {'status': 'success'}
+    return JsonResponse(data, safe=False)
 
 
 def searchdoctor(request):
@@ -66,7 +95,7 @@ def appointment(request):
     department = request.POST.get("department")
     if username and dname and date and period and hospital and department:
         ac = Appuser.objects.get(uname=username)
-        if ac.isblack is False:
+        if ac.isblack == '0':
             aa = Apptouser.objects.get(docname=dname, date=date, period=period, ahospital=hospital, adepartment=department)
             aa.num -= 1
             aa.save()
@@ -86,32 +115,47 @@ def usercheck(request):
         return HttpResponse(aa)
 
 
-def document(request):
-    name = request.POST.get("username")
-    pad = request.POST.get("password")
-    if name and pad:
-        aa = Appuser.objects.get(uname=name, upad=pad)
-        ab = aa.toJSON()
-        return HttpResponse(ab)
-    else:
-        data = {'status': 'failed'}
-        return JsonResponse(data, safe=False)
+#def document(request):
+#    name = request.POST.get("username")
+#    pad = request.POST.get("password")
+#    if name and pad:
+#        aa = Appuser.objects.get(uname=name, upad=pad)
+#        ab = aa.toJSON()
+#        return HttpResponse(ab)
+#    else:
+#        data = {'status': 'failed'}
+#        return JsonResponse(data, safe=False)
 
 
-def revise(request):
-    name = request.POST.get("username")
-    pad = request.POST.get("password")
-    tel = request.POST.get("tel")
-    addr = request.POST.get("addr")
-    nname = request.POST.get("newname")
-    npad = request.POST.get("newpad")
-    ntel = request.POST.get("newtel")
-    naddr = request.POST.get("newaddr")
-    aa = Appuser.objects.get(uname=name, upad=pad, utel=tel, uaddr=addr).update(uname=nname, upad=npad, utel=ntel, uaddr=naddr)
-    aa.save()
-    return JsonResponse({'status': 'success'}, safe=False)
+#def revise(request):
+#    name = request.POST.get("username")
+#    pad = request.POST.get("password")
+#    tel = request.POST.get("tel")
+#    addr = request.POST.get("addr")
+#    nname = request.POST.get("newname")
+#    npad = request.POST.get("newpad")
+#    ntel = request.POST.get("newtel")
+#    naddr = request.POST.get("newaddr")
+#    aa = Appuser.objects.get(uname=name, upad=pad, utel=tel, uaddr=addr).update(uname=nname, upad=npad, utel=ntel, uaddr=naddr)
+#    aa.save()
+#    return JsonResponse({'status': 'success'}, safe=False)
 
 
 def getlist(request):
-    aa = serializers.serialize("json", Hospitallist.objects.all())
-    return HttpResponse(aa)
+    #aa = serializers.serialize("json", Hospitallist.objects.all())
+    aa = {}
+    bb = Hospital.objects.all()
+    for b in bb:
+        map(lambda x: aa.setdefault(b.hname), b.hname)
+    return JsonResponse(aa, safe=False)
+
+
+def getdepartment(request):
+    name = request.POST.get("hospital")
+    aa = {}
+    bb = Doctor.objects.filter(hospital=name)
+    for b in bb:
+        map(lambda x: aa.setdefault(b.department), b.department)
+    return JsonResponse(aa, safe=False)
+
+

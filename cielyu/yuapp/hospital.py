@@ -9,34 +9,43 @@ def hregister(request):
     name = request.POST.get("name")
     pad = request.POST.get("password")
     tel = request.POST.get("tel")
-    ac_list = Hospital.objects.all()
-    for ac in ac_list:
-        if ac.hname == name and ac.htel == tel:
-            return JsonResponse({'status': 'failed'}, safe=False)
-        else:
-            ho = Hospital(hname=name, hpad=pad, htel=tel)
-            ho.save()
-            return JsonResponse({'status': 'success'}, safe=False)
+    if name and pad and tel:
+        ac_list = Hospital.objects.all()
+        for ac in ac_list:
+            if ac.hname == name and ac.htel == tel:
+                return JsonResponse({'status': 'failed'}, safe=False)
+            else:
+                ho = Hospital(hname=name, hpad=pad, htel=tel)
+                ho.save()
+                return JsonResponse({'status': 'success'}, safe=False)
+    else:
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def hlogin(request):
     name = request.POST.get("name")
     pad = request.POST.get("password")
-    ac_list = Hospital.objects.all()
-    for ac in ac_list:
-        if ac.hname == name and ac.hpad == pad:
-            return JsonResponse({'status': 'success'}, safe=False)
-        else:
-            return JsonResponse({'status': 'failed'}, safe=False)
+    if name and pad:
+        ac_list = Hospital.objects.all()
+        for ac in ac_list:
+            if ac.hname == name and ac.hpad == pad:
+                return JsonResponse({'status': 'success'}, safe=False)
+            else:
+                return JsonResponse({'status': 'failed'}, safe=False)
+    else:
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def adddoctor(request):
     name = request.POST.get("name")
     dh = request.POST.get("hospital")
     de = request.POST.get("department")
-    d = Doctor(dname=name, hospital=dh, department=de)
-    d.save()
-    return JsonResponse({'status': 'success'}, safe=False)
+    if name and dh and de:
+        d = Doctor(dname=name, hospital=dh, department=de)
+        d.save()
+        return JsonResponse({'status': 'success'}, safe=False)
+    else:
+        return JsonResponse({'status': 'failed'}, safe=False)
 
 
 def want(request):

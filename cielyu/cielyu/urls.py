@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from yuapp.user import login, register, searchdoctor, usercheck, appointment, getlist
+from yuapp.user import login, register, searchdoctor, usercheck, appointment, getlist, getdepartment
 from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck
 
 
@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^hospitalcheck/$', hospitalcheck),
     url(r'^doctorcheck/$', doctorcheck),
     url(r'^getlist/$', getlist),
+    url(r'^getdepartment/$', getdepartment),
 ]
