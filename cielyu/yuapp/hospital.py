@@ -3,6 +3,7 @@ from models import Hospital, Apptouser, Doctor, Usertodoctor, Appuser
 from django.http import HttpResponse, JsonResponse
 import datetime
 from django.core import serializers
+from django import template
 
 
 def hregister(request):

@@ -81,8 +81,13 @@ def searchdoctor(request):
     dhospital = request.POST.get("hospital", "")
     ddepartment = request.POST.get("department", "")
     if dhospital and ddepartment:
-        aa = serializers.serialize("json", Doctor.objects.filter(hospital=dhospital, department=ddepartment))
-        return HttpResponse(aa)
+        #aa = serializers.serialize("json", Doctor.objects.filter(hospital=dhospital, department=ddepartment))
+        # HttpResponse(aa)
+        aa = []
+        bb = Doctor.objects.filter(hospital=dhospital, department=ddepartment)
+        for b in bb:
+            aa.append(b.dname)
+            return JsonResponse(aa, safe=False)
     else:
         return JsonResponse({'status': 'failed'}, safe=False)
 
@@ -144,19 +149,21 @@ def usercheck(request):
 
 def getlist(request):
     #aa = serializers.serialize("json", Hospitallist.objects.all())
-    aa = {}
+    aa = []
     bb = Hospital.objects.all()
     for b in bb:
-        map(lambda x: aa.setdefault(b.hname), b.hname)
+       # map(lambda x: aa.setdefault(b.hname), b.hname)
+        aa.append(b.hname)
     return JsonResponse(aa, safe=False)
 
 
 def getdepartment(request):
     name = request.POST.get("hospital")
-    aa = {}
+    aa = []
     bb = Doctor.objects.filter(hospital=name)
     for b in bb:
-        map(lambda x: aa.setdefault(b.department), b.department)
+        #map(lambda x: aa.setdefault(b.department), b.department)
+        aa.append(b.department)
     return JsonResponse(aa, safe=False)
 
 
