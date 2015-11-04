@@ -22,11 +22,10 @@ class ZFAlertShow {
         if NSThread.isMainThread() {
             show(title, message: msg, vc: vc)
         }else {
-            dispatch_sync(dispatch_get_main_queue()) {
+            dispatch_async(dispatch_get_main_queue()) {
                 self.show(title, message: msg, vc: vc)
             }
         }
-        
     }
     
     private func show(title: String?, message: String, vc: UIViewController) {

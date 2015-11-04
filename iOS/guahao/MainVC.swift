@@ -8,11 +8,33 @@
 
 import UIKit
 
+enum MainVCType {
+    case Hospital
+    case Department
+    case Doctor
+}
+
 class MainVC: ZFSlideViewController {
+    var type: MainVCType = .Hospital
+    var paramValue1: String?
+    var paramValue2: String?
     
     override func viewDidLoad() {
-        leftVC = LeftVC()
-        middleVC = UINavigationController(rootViewController: MiddleVC())
+        defer {
+            paramValue1 = nil
+            paramValue2 = nil
+        }
+        
+        let left = LeftVC()
+        left.rootVC = self
+        let middle = MiddleVC(type: type)
+        middle.paramValue1 = paramValue1
+        middle.paramValue2 = paramValue2
+        middle.rootVC = self
+        
+        leftVC = left
+        middleVC = UINavigationController(rootViewController: middle)
+        
         leftViewWidth = 200
         
         super.viewDidLoad()

@@ -29,6 +29,7 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
     private var againView: ZFLabelWithTextField?
     private var telView: ZFLabelWithTextField?
     private var addrView: ZFLabelWithTextField?
+    private var mailView: ZFLabelWithTextField?
     
     private var isRegistering = false
     private var isAnimating = false
@@ -205,16 +206,25 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
                 separateLinePosition: .Top)
             addrView?.setLabelText("住址")
             addrTF?.placeholder = "请输入你的住址"
-            addrTF?.returnKeyType = .Done
+            addrTF?.returnKeyType = .Next
             addrTF?.delegate = self
             
+            mailView = ZFLabelWithTextField(
+                frame: CGRectMake(0, addrView!.frame.maxY, addrView!.frame.width, 0),
+                separateLinePosition: .Top)
+            mailView?.setLabelText("邮箱")
+            mailTF?.placeholder = "请输入邮箱"
+            mailTF?.returnKeyType = .Done
+            mailTF?.delegate = self
+            
             // MARK: register view
-            registerView = UIView(frame: CGRectMake(0, loginView.frame.maxY, loginView.frame.width, addrView!.frame.maxY))
+            registerView = UIView(frame: CGRectMake(0, loginView.frame.maxY, loginView.frame.width, mailView!.frame.maxY))
             registerView?.alpha = 0
             
             registerView?.addSubview(againView!)
             registerView?.addSubview(telView!)
             registerView?.addSubview(addrView!)
+            registerView?.addSubview(mailView!)
         }
     }
     
@@ -323,8 +333,11 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
         }else if textField == telTF {
             addrTF?.becomeFirstResponder()
         }else if textField == addrTF {
-            addrTF?.resignFirstResponder()
+            mailTF?.becomeFirstResponder()
+        }else if textField == mailTF {
+            mailTF?.resignFirstResponder()
         }
+        
         return true
     }
     
@@ -343,5 +356,8 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
     }
     var addrTF: UITextField? {
         return addrView?.textField
+    }
+    var mailTF: UITextField? {
+        return mailView?.textField
     }
 }

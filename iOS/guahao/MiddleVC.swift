@@ -1,37 +1,49 @@
 //
-//  MainVC.swift
+//  Middle2VC.swift
 //  guahao
 //
-//  Created by Jeff Wong on 15/10/11.
+//  Created by Jeff Wong on 15/11/4.
 //  Copyright © 2015年 Jeff. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-struct Hospital {
-    var hospital: String
+class MiddleVC: BaseCollectionVC {
+    weak var rootVC: MainVC?
     
-    static func serialization(dict: [String: NSObject]) -> Hospital {
-        if let fields = dict["fields"] as? [String: String], let honame = fields["honame"] {
-            return Hospital(hospital: honame)
-        }else {
-            return Hospital(hospital: "")
-        }
+    var dataSource: [Category]?
+    
+    var type: MainVCType
+    var paramValue1: String?
+    var paramValue2: String?
+    
+    init(type: MainVCType) {
+        self.type = type
+        super.init()
     }
-}
 
-class MiddleVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var collectionView: UICollectionView!
-    
-    var dataSource: [Hospital]?
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        title = "类别"
-        setupSubviews()
+        switch type {
+        case .Hospital:
+            title = "选择医院"
+        case .Department:
+            title = "选择类别"
+            setupLeftBackButtonItem()
+        case .Doctor:
+            title = "预约医生"
+            setupLeftBackButtonItem()
+        }
+        
         setRightButtonItem()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,51 +53,48 @@ class MiddleVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func setupSubviews() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        let sizeWidth = (view.frame.width - 40) / 3
-        layout.itemSize = CGSizeMake(sizeWidth, sizeWidth)
-        layout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10)
+    override func setupSubviews() {
+        super.setupSubviews()
         
-        collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerClass(GHCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
-        view.addSubview(collectionView)
-        
-        collectionView.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(UIEdgeInsetsMake(64, 0, 0, 0))
-        }
+        collectionView?.registerClass(GHCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     func setRightButtonItem() {
-        let rightBtn = UIBarButtonItem(title: "刷新", style: .Plain, target: self, action: Selector("refreshData:"))
+        let rightBtn = UIBarButtonItem(title: "刷新", style: .Plain, target: self, action: Selector("postRequest"))
         navigationItem.rightBarButtonItem = rightBtn
+    }
+    
+    func setupLeftBackButtonItem() {
+        let leftBtn = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: Selector("back"))
+        navigationItem.leftBarButtonItem = leftBtn
+    }
+    
+    func back() {
+        rootVC?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: 网络请求
     func postRequest() {
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "加载中...")
+        
+        let url = RequestHelper.sharedInstance.getPostURL(type)
+        let (param, success) = RequestHelper.sharedInstance.getPostParam(type, hospital: paramValue1, department: paramValue2)
+        guard success else {
+            ZFAlertShow.sharedInstance.showAlert("错误", message: "缺少参数！", inViewController: self)
+            return
+        }
+        
         dispatch_async(dispatch_queue_create("hospital", DISPATCH_QUEUE_SERIAL)) {
             ZFHttpRequest.postRequest(
-                toUrl: "http://192.168.137.1:8000/getlist/",
-                withParameter: nil,
+                toUrl: url,
+                withParameter: param,
                 success: { (json) -> () in
-                    if let hospitalArr = json as? [[String: NSObject]] {
-                            self.dataSource = hospitalArr.map { Hospital.serialization($0) }
-                            dispatch_async(dispatch_get_main_queue()) {
-                                self.collectionView.reloadData()
-                            }
+                    if let list = json as? [String] {
+                        self.dataSource = list.map { Category.serialization($0) }
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.collectionView?.reloadData()
+                        }
                     }else {
                         MessageToast.toast(self.view, message: "加载失败！", keyBoardHeight: 0, finishBlock: nil)
                     }
@@ -98,27 +107,42 @@ class MiddleVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    // MARK: 注销
-    func refreshData(button: UIButton) {
-        postRequest()
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    // MARK: collectionView Delegate & DataSource
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource == nil ? 0 : dataSource!.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GHCollectionViewCell
-        cell.label.text = dataSource?[indexPath.row].hospital
+        cell.label.text = dataSource?[indexPath.row].name
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        let vcToPresent = MainVC()
+        switch type {
+        case .Hospital:
+            vcToPresent.type = .Department
+            vcToPresent.paramValue1 = dataSource?[indexPath.row].name
+        case .Department:
+            vcToPresent.type = .Doctor
+            vcToPresent.paramValue1 = paramValue1
+            vcToPresent.paramValue2 = dataSource?[indexPath.row].name
+        case .Doctor:
+            rootVC?.presentViewController(BookVC(), animated: true, completion: nil)
+            break
+        }
+        switch type {
+        case .Hospital, .Department:
+            rootVC?.presentViewController(vcToPresent, animated: true, completion: nil)
+        default:
+            break
+        }
         
     }
 }
