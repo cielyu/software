@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // MARK: 如果是空的，就是AppDelegate直接调用的
             if isAutoLogin {
                 // TODO: 这里应该跳到挂号界面
-                let mainVC = MainVC()
+                let mainVC = UINavigationController(rootViewController: MainVC(type: .Hospital))
                 window?.rootViewController = mainVC
             }else {
                 let loginVC = LoginVC()
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // MARK: 登陆界面，登陆成功
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAutoLogin")
             // TODO: 这里应该跳到挂号界面
-            let mainVC = MainVC()
+            let mainVC = UINavigationController(rootViewController: MainVC(type: .Hospital))
             window?.rootViewController = mainVC
         case 2:
             // MARK: 登陆出错
