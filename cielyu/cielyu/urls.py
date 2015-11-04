@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from yuapp.user import login, register, searchdoctor, usercheck, appointment, getlist, getdepartment
 from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck
-
+from yuapp.findpad import getpad
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -34,4 +34,5 @@ urlpatterns = [
     url(r'^doctorcheck/$', doctorcheck),
     url(r'^getlist/$', getlist),
     url(r'^getdepartment/$', getdepartment),
+    url(r'^getpad/$', getpad),
 ]

@@ -11,11 +11,12 @@ def register(request):
     pad = request.POST.get("password")
     tel = request.POST.get("tel")
     addr = request.POST.get("addr")
+    mail = request.POST.get("mail")
     ac_list = Appuser.objects.all()
     for ac in ac_list:
         if ac.uname == name or ac.utel == tel:
             return JsonResponse({'status': 'failed'}, safe=False)
-    user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel, isblack=False, udate=datetime.datetime.now())
+    user = Appuser(uname=name, upad=pad, uaddr=addr, utel=tel, isblack=False, udate=datetime.datetime.now(), umail=mail)
     user.save()
     return JsonResponse({'status': 'success'}, safe=False)
 

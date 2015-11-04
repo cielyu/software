@@ -10,6 +10,7 @@ class Appuser(models.Model):
     utel = models.CharField(max_length=30)
     isblack = models.BooleanField(default=False)
     udate = models.DateTimeField(null=True, auto_now=True)
+    umail = models.CharField(null=True, max_length=30)
 
     def __unicode__(self):
         return self.uname

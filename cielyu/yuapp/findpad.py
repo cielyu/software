@@ -9,9 +9,9 @@ from django.http import JsonResponse
 
 def getpad(request):
     name = request.POST.get("username")
-    msg = MIMEText(_text='SMTP test', _charset='utf-8')
+    msg = MIMEText(_text='your password is:'+Appuser.objects.get(uname=name).upad, _charset='utf-8')
     from_addr = '1034019196@qq.com'
-    password = 'yujianshen!'
+    password = 'yu13612269903'
     smtp_server = 'smtp.qq.com'
     to_addr = Appuser.objects.get(uname=name).umail
 
