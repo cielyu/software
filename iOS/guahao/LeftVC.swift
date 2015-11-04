@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SnapKit
 
 class LeftVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    weak var rootVC: MainVC?
+    
     var dataSource = ["姓名", "个人资料", "修改密码", "注销", "设置"]
     
     override func viewDidLoad() {

@@ -13,16 +13,21 @@
 		1F651D3A1BC3A9F8005CADDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F651D381BC3A9F8005CADDD /* LaunchScreen.storyboard */; };
 		1F651D451BC3A9F8005CADDD /* guahaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D441BC3A9F8005CADDD /* guahaoTests.swift */; };
 		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
-		1F94A9F21BE4F27F00A4D896 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F94A9F91BE5BD2400A4D896 /* ZFSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */; };
 		1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */; };
 		1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */; };
+		1F94ABA01BE9A5EB00A4D896 /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94AB9F1BE9A5EB00A4D896 /* BaseCollectionVC.swift */; };
+		1F94ABA21BE9A98B00A4D896 /* MiddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */; };
+		1F94ABA51BE9AB2800A4D896 /* StructModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA41BE9AB2800A4D896 /* StructModel.swift */; };
+		1F94ABA71BE9B3D700A4D896 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA61BE9B3D700A4D896 /* Helper.swift */; };
+		1F94ABA91BE9E9BB00A4D896 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94ABA81BE9E9BB00A4D896 /* SnapKit.framework */; };
+		1F94ABAD1BE9FA3600A4D896 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */; };
+		1F94ABAF1BEA067C00A4D896 /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABAE1BEA067C00A4D896 /* RequestHelper.swift */; };
 		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; };
 		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; };
 		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; };
 		1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */; };
 		1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */; };
-		1FCD83321BCAA9EF00C5ECD3 /* MiddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */; };
 		1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */; };
 		1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */; };
 		1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */; };
@@ -45,41 +50,6 @@
 			remoteGlobalIDString = 1F651D2B1BC3A9F8005CADDD;
 			remoteInfo = guahao;
 		};
-		1F94A9E71BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
-			remoteInfo = "SnapKit iOS";
-		};
-		1F94A9E91BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EECDB37A1AC0C9D4006BBC11;
-			remoteInfo = "SnapKit OSX";
-		};
-		1F94A9EB1BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
-			remoteInfo = "SnapKit iOS Tests";
-		};
-		1F94A9ED1BE4F25E00A4D896 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EECDB3841AC0C9D4006BBC11;
-			remoteInfo = "SnapKit OSX Tests";
-		};
-		1F94A9EF1BE4F26B00A4D896 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
-			remoteInfo = "SnapKit iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1F94A9F21BE4F27F00A4D896 /* SnapKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,16 +78,21 @@
 		1F651D4B1BC3A9F8005CADDD /* guahaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guahaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guahaoUITests.swift; sourceTree = "<group>"; };
 		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = guahao/SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 		1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFSlideViewController.swift; sourceTree = "<group>"; };
 		1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftVC.swift; sourceTree = "<group>"; };
 		1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		1F94AB9F1BE9A5EB00A4D896 /* BaseCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
+		1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleVC.swift; sourceTree = "<group>"; };
+		1F94ABA41BE9AB2800A4D896 /* StructModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructModel.swift; sourceTree = "<group>"; };
+		1F94ABA61BE9B3D700A4D896 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1F94ABA81BE9E9BB00A4D896 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
+		1F94ABAE1BEA067C00A4D896 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLabelWithTextField.swift; sourceTree = "<group>"; };
 		1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAlertShow.swift; sourceTree = "<group>"; };
 		1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHttpRequest.swift; sourceTree = "<group>"; };
 		1FA9390B1BCFCFB400A16D14 /* MessageToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToast.swift; sourceTree = "<group>"; };
-		1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleVC.swift; sourceTree = "<group>"; };
 		1FCD83331BCAACCE00C5ECD3 /* GHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FCD833D1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCellBackgroudView.swift; sourceTree = "<group>"; };
 		1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RC4+NSString.swift"; sourceTree = "<group>"; };
@@ -131,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F94ABA91BE9E9BB00A4D896 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,9 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				1F651D2F1BC3A9F8005CADDD /* AppDelegate.swift */,
-				1FCD833B1BCBAE7200C5ECD3 /* Controller */,
+				1F94ABA31BE9AAE000A4D896 /* Model */,
 				1FCD83391BCBAE4E00C5ECD3 /* View */,
-				1FA939081BCFA83300A16D14 /* Class */,
+				1FCD833B1BCBAE7200C5ECD3 /* Controller */,
+				1FA939081BCFA83300A16D14 /* Helper */,
 				1FCD833C1BCBAE8300C5ECD3 /* Other */,
 			);
 			path = guahao;
@@ -202,33 +178,34 @@
 			path = guahaoUITests;
 			sourceTree = "<group>";
 		};
-		1F94A9E11BE4F25E00A4D896 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */,
-				1F94A9EA1BE4F25E00A4D896 /* SnapKit.framework */,
-				1F94A9EC1BE4F25E00A4D896 /* SnapKit iOS Tests.xctest */,
-				1F94A9EE1BE4F25E00A4D896 /* SnapKit OSX Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1F94A9F31BE4F2B500A4D896 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */,
+				1F94ABA81BE9E9BB00A4D896 /* SnapKit.framework */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
 		};
-		1FA939081BCFA83300A16D14 /* Class */ = {
+		1F94ABA31BE9AAE000A4D896 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F94AB9F1BE9A5EB00A4D896 /* BaseCollectionVC.swift */,
+				1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */,
+				1F94ABA41BE9AB2800A4D896 /* StructModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1FA939081BCFA83300A16D14 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				1FE4672D1BD4A6C000A4375F /* RC4+NSString.swift */,
 				1FE4672F1BD4A73100A4375F /* ZFString+String.swift */,
 				1FA939091BCFA8A100A16D14 /* ZFHttpRequest.swift */,
+				1F94ABAE1BEA067C00A4D896 /* RequestHelper.swift */,
+				1F94ABA61BE9B3D700A4D896 /* Helper.swift */,
 			);
-			name = Class;
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		1FCD83391BCBAE4E00C5ECD3 /* View */ = {
@@ -250,9 +227,9 @@
 			children = (
 				1F651D311BC3A9F8005CADDD /* LoginVC.swift */,
 				1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */,
-				1FCD83311BCAA9EF00C5ECD3 /* MiddleVC.swift */,
+				1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */,
 				1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */,
-				1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */,
+				1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -282,7 +259,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1F94A9F01BE4F26B00A4D896 /* PBXTargetDependency */,
 			);
 			name = guahao;
 			productName = guahao;
@@ -358,12 +334,6 @@
 			mainGroup = 1F651D231BC3A9F8005CADDD;
 			productRefGroup = 1F651D2D1BC3A9F8005CADDD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1F94A9E11BE4F25E00A4D896 /* Products */;
-					ProjectRef = 1F94A9E01BE4F25E00A4D896 /* SnapKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1F651D2B1BC3A9F8005CADDD /* guahao */,
@@ -372,37 +342,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1F94A9E81BE4F25E00A4D896 /* SnapKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SnapKit.framework;
-			remoteRef = 1F94A9E71BE4F25E00A4D896 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F94A9EA1BE4F25E00A4D896 /* SnapKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SnapKit.framework;
-			remoteRef = 1F94A9E91BE4F25E00A4D896 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F94A9EC1BE4F25E00A4D896 /* SnapKit iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SnapKit iOS Tests.xctest";
-			remoteRef = 1F94A9EB1BE4F25E00A4D896 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F94A9EE1BE4F25E00A4D896 /* SnapKit OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SnapKit OSX Tests.xctest";
-			remoteRef = 1F94A9ED1BE4F25E00A4D896 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F651D2A1BC3A9F8005CADDD /* Resources */ = {
@@ -436,18 +375,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F651D321BC3A9F8005CADDD /* LoginVC.swift in Sources */,
-				1FCD83321BCAA9EF00C5ECD3 /* MiddleVC.swift in Sources */,
 				1F94A9F91BE5BD2400A4D896 /* ZFSlideViewController.swift in Sources */,
 				1FE4672E1BD4A6C000A4375F /* RC4+NSString.swift in Sources */,
+				1F94ABAD1BE9FA3600A4D896 /* BookVC.swift in Sources */,
+				1F94ABA01BE9A5EB00A4D896 /* BaseCollectionVC.swift in Sources */,
 				1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */,
 				1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */,
+				1F94ABA71BE9B3D700A4D896 /* Helper.swift in Sources */,
 				1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */,
 				1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */,
+				1F94ABA51BE9AB2800A4D896 /* StructModel.swift in Sources */,
 				1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */,
 				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
 				1FA9390A1BCFA8A100A16D14 /* ZFHttpRequest.swift in Sources */,
 				1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */,
+				1F94ABAF1BEA067C00A4D896 /* RequestHelper.swift in Sources */,
 				1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */,
+				1F94ABA21BE9A98B00A4D896 /* MiddleVC.swift in Sources */,
 				1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */,
 				1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */,
 				1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */,
@@ -482,11 +426,6 @@
 			isa = PBXTargetDependency;
 			target = 1F651D2B1BC3A9F8005CADDD /* guahao */;
 			targetProxy = 1F651D4C1BC3A9F8005CADDD /* PBXContainerItemProxy */;
-		};
-		1F94A9F01BE4F26B00A4D896 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SnapKit iOS";
-			targetProxy = 1F94A9EF1BE4F26B00A4D896 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -588,6 +527,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (L27QTLH5K5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = guahao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahao;
@@ -600,6 +543,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (L27QTLH5K5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = guahao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeff.guahao;

@@ -66,6 +66,11 @@ class ZFLabelWithTextField: UIView {
         return separateLine
     }
     
+    /**
+     设置label的文字，例如：账号、密码
+     - Parameter text: label的文字，可为空，为空时不做任何操作
+     - Returns: void
+     */
     func setLabelText(text: String?) {
         guard let text = text else {
             return

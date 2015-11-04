@@ -47,6 +47,21 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         guaHaoView.delegate = self
         guaHaoView.show(scrollView)
         scrollView.contentSize = CGSizeMake(scrollView.frame.width, guaHaoView.frame.maxY + 20)
+        
+        //找回密码
+        let findPswBtn = UIButton()
+        findPswBtn.setTitle("找回密码", forState: .Normal)
+        findPswBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        findPswBtn.addTarget(self, action: Selector("findPassword"), forControlEvents: .TouchUpInside)
+        findPswBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
+        view.addSubview(findPswBtn)
+        
+        findPswBtn.snp_makeConstraints { (make) -> Void in
+            make.height.equalTo(30)
+            make.width.equalTo(80)
+            make.centerX.equalTo(view.snp_centerX)
+            make.bottom.equalTo(view.snp_bottom)
+        }
     }
     
     func addKeyboardNotification() {
@@ -81,11 +96,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                     print(json)
                     if let status = json["status"] as? String where status == "success" {
                         if let black = json["black"] as? String where black == "True" {
-//                            if let day = json["day"] as? String {
-//                                ZFAlertShow.sharedInstance.showAlert("您已被拉入黑名单", message: "\(day)天后解封", inViewController: self)
-//                            }else {
-                                ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
-//                            }
+                            ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
                         }else {
                             dispatch_async(dispatch_get_main_queue()) {
                                 NSNotificationCenter.defaultCenter().postNotificationName(
@@ -125,13 +136,22 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
             ZFAlertShow.sharedInstance.showAlert(nil, message: "手机号码不正确！", inViewController: self)
             return
         }
+        guard let mail = guaHaoView.mailTF?.text where mail != "" else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "请完整填写资料！", inViewController: self)
+            return
+        }
+        guard Helper.isEmailAddress(mail) else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "邮箱格式不正确！", inViewController: self)
+            return
+        }
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "正在注册..")
         let param = [
             "name": userno,
             "password": psw,
             "tel": tel,
-            "addr": addr]
+            "addr": addr,
+            "mail": mail]
         dispatch_async(dispatch_queue_create("register", DISPATCH_QUEUE_SERIAL)) {
             ZFHttpRequest.postRequest(
                 toUrl: "http://192.168.137.1:8000/register/",
@@ -148,6 +168,33 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                 failure: { (error) -> () in
                     loading.hide()
                     ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败！", inViewController: self)
+            })
+        }
+    }
+    
+    // MARK: 找回密码
+    func findPassword() {
+        guard let username = guaHaoView.usernoTF.text where username != "" else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "请在上方输入您要找回密码的账号！", inViewController: self)
+            return
+        }
+        let loading = ZFLoadingView()
+        loading.show(InView: view, withTips: "正在请求服务器...")
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            ZFHttpRequest.postRequest(
+                toUrl: "http://192.168.137.1:8000/getpad/",
+                withParameter: ["username": username],
+                success: { (json) -> () in
+                    if let status = json["status"] as? String where status == "success" {
+                        ZFAlertShow.sharedInstance.showAlert(nil, message: "密码已经发送到您的邮箱，请到邮箱中查收！", inViewController: self)
+                    }else {
+                        MessageToast.toast(self.view, message: "找回密码失败！", keyBoardHeight: 0, finishBlock: nil)
+                    }
+                    loading.hide()
+                },
+                failure: { (error) -> () in
+                    MessageToast.toast(self.view, message: "网络连接失败！", keyBoardHeight: 0, finishBlock: nil)
+                    loading.hide()
             })
         }
     }

@@ -33,13 +33,12 @@ class ZFSlideViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setupSubviews() {
-        view.addSubview(leftVC.view)
-        
         midView.layer.shadowColor = UIColor.blackColor().CGColor
         midView.layer.shadowOpacity = 0.7
         midView.layer.shadowPath = UIBezierPath(rect: midView.bounds).CGPath
         midView.layer.shadowOffset = CGSizeMake(-3, 0)
         
+        view.addSubview(leftView)
         view.addSubview(midView)
     }
     
