@@ -90,11 +90,6 @@ class MiddleVC: BaseCollectionVC {
                 toUrl: url,
                 withParameter: param,
                 success: { (json) -> () in
-                    
-                    // MARK: test
-                    print(json)
-                    
-                    
                     if let list = json as? [String] {
                         self.dataSource = list.map { Category.serialization($0) }
                         dispatch_async(dispatch_get_main_queue()) {
