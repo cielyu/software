@@ -14,6 +14,7 @@ class MainVC: UITabBarController, IChatManagerDelegate {
     var profileVC: ProfileVC!
     
     var addFriendBtn: UIBarButtonItem?
+    var refreshProfileBtn: UIBarButtonItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,22 +66,31 @@ class MainVC: UITabBarController, IChatManagerDelegate {
             navigationItem.rightBarButtonItem = nil
         case 1:
             title = "通讯录"
-            navigationItem.rightBarButtonItem = rightBarButtonItem
+            navigationItem.rightBarButtonItem = addFriendButton
         case 2:
             title = "个人资料"
-            navigationItem.rightBarButtonItem = nil
+            navigationItem.rightBarButtonItem = refreshProfileButton
         default:
             break
         }
     }
     
-    var rightBarButtonItem: UIBarButtonItem {
+    // MARK: 添加好友、刷新资料按钮
+    var addFriendButton: UIBarButtonItem {
         if addFriendBtn == nil {
             addFriendBtn = UIBarButtonItem(title: "添加", style: .Plain, target: self, action: Selector("addFriend"))
         }
         return addFriendBtn!
     }
     
+    var refreshProfileButton: UIBarButtonItem {
+        if refreshProfileBtn == nil {
+            refreshProfileBtn = UIBarButtonItem(title: "刷新", style: .Plain, target: self, action: Selector("refreshProfile"))
+        }
+        return refreshProfileBtn!
+    }
+    
+    // MARK: 添加好友
     func addFriend() {
         let alertController = UIAlertController(title: "添加好友", message: nil, preferredStyle: .Alert)
         let positiveAction = UIAlertAction(title: "添加", style: .Default) { (alertAction) -> Void in
@@ -111,6 +121,10 @@ class MainVC: UITabBarController, IChatManagerDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+    // MARK: 刷新资料
+    func refreshProfile() {
+        profileVC.refreshProfile()
+    }
     // MARK: 异步获取好友列表的回调
     func didFetchedBuddyList(buddyList: [AnyObject]!, error: EMError!) {
         contactVC.refreshDataSource()

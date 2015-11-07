@@ -11,6 +11,7 @@ import UIKit
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView()
     var dataSource: [Profile] = []
+    var username = NSUserDefaults.standardUserDefaults().stringForKey("username")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupSubviews() {
+        tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(HeadImageCell.self, forCellReuseIdentifier: "HeadCell")
@@ -41,20 +43,20 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.tableFooterView = footerView
         
         view.addSubview(tableView)
-        
-        tableView.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(view)
-        }
     }
     
     // MARK: 加载用户资料
     func loadDataSource() {
         let manager = GHProfileManager.defaultManager
+        guard let username = username else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "获取用户名失败！", inViewController: self)
+            return
+        }
         
-        let row0 = Profile(key: "用户名", value: manager.getProfile("username"))
-        let row1 = Profile(key: "手机", value: manager.getProfile("tel"))
-        let row2 = Profile(key: "地址", value: manager.getProfile("addr"))
-        let row3 = Profile(key: "邮箱", value: manager.getProfile("main"))
+        let row0 = Profile(key: "用户名", value: manager.getProfile(username, key: "username"))
+        let row1 = Profile(key: "手机", value: manager.getProfile(username, key: "tel"))
+        let row2 = Profile(key: "地址", value: manager.getProfile(username, key: "addr"))
+        let row3 = Profile(key: "邮箱", value: manager.getProfile(username, key: "mail"))
         
         dataSource = [row0, row1, row2, row3]
     }
@@ -82,13 +84,19 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         if indexPath.section == 0 {
             let headCell = tableView.dequeueReusableCellWithIdentifier("HeadCell") as! HeadImageCell
             headCell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
-            headCell.nameLabel.text = GHProfileManager.defaultManager.getProfile("username")
-            headCell.telLabel.text = GHProfileManager.defaultManager.getProfile("tel")
+            headCell.nameLabel.text =
+                "用户名：" + GHProfileManager.defaultManager.getProfile(username, key: "username")
+            headCell.telLabel.text =
+                "手机号码：" + GHProfileManager.defaultManager.getProfile(username, key: "tel")
             
             cell = headCell
         }else {
@@ -100,6 +108,51 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell = otherCell
         }
         return cell
+    }
+    
+    func refreshProfile() {
+        let loading = ZFLoadingView()
+        loading.show(InView: view, withTips: "正在刷新..")
+        guard let username = username else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "获取用户名失败！", inViewController: self)
+            return
+        }
+        dispatch_async(globalQueue) {
+            let userno = GHProfileManager.defaultManager.getProfile(username, key: "username")
+            let param = ["username": userno]
+            ZFHttpRequest.postRequest(
+                toUrl: "http://192.168.137.1:8000/checkdata/",
+                withParameter: param,
+                success: { (json) -> () in
+                    print(json)
+                    var keys: [String] = []
+                    var values: [String?] = []
+                    
+                    if let tel = json["tel"] as? String {
+                        keys.append("tel")
+                        values.append(tel)
+                    }
+                    if let address = json["address"] as? String {
+                        keys.append("addr")
+                        values.append(address)
+                    }
+                    if let mail = json["mail"] as? String {
+                        keys.append("mail")
+                        values.append(mail)
+                    }
+                    
+                    GHProfileManager.defaultManager.saveProfile(username, keys: keys, values: values)
+                    MessageToast.toast(self.view, message: "刷新成功！", keyBoardHeight: 44, finishBlock: nil)
+                    runAsyncOnMainThread {
+                        self.reloadDataSource()
+                    }
+                    loading.hide()
+                },
+                failure: { (error) -> () in
+                    ZFAlertShow.sharedInstance.showAlert(nil, message: "刷新失败！", inViewController: self)
+                    loading.hide()
+            })
+        }
     }
     
     // MARK: 注销

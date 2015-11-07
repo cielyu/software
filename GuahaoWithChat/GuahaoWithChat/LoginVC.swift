@@ -18,14 +18,13 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         
         view.backgroundColor = UIColor.whiteColor()
         setupSubviews()
-        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardNotification()
         
-        let userno = NSUserDefaults.standardUserDefaults().valueForKey("userno") as? String
+        let userno = NSUserDefaults.standardUserDefaults().valueForKey("username") as? String
         if let userno = userno {
             guaHaoView.usernoTF.text = userno
         }
@@ -100,20 +99,21 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                         if let black = json["black"] as? String where black == "True" {
                             ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
                         }else {
+                            // MARK: 开始环信登陆
                             self.easeMobLogin(userno, password: psw) {
                                 loading.hide()
+                                
                                 runAsyncOnMainThread {
                                     NSNotificationCenter.defaultCenter().postNotificationName(
                                         "loginStateChanged", object: 1, userInfo: nil)
                                 }
-                                NSUserDefaults.standardUserDefaults().setValue(userno, forKey: "userno")
                             }
                             
                         }
                     }else {
                         ZFAlertShow.sharedInstance.showAlert(nil, message: "登陆失败！", inViewController: self)
+                        loading.hide()
                     }
-                    loading.hide()
                 },
                 failure: { (error) -> () in
                     print(error)
@@ -209,6 +209,10 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                         "loginStateChanged", object: 1)
                 }
             }
+            // MARK: 保存用户名
+            NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
+            GHProfileManager.defaultManager.saveProfile(
+                username, keys: ["username"], values: [username])
             completionHandler()
         }, onQueue: nil)
     }
@@ -253,6 +257,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         scrollView.contentSize.height = guaHaoView.frame.maxY + 20
         scrollView.frame.size.height = view.bounds.height - height
     }
+    
     func keyboardWillHide(notification: NSNotification) {
         scrollView.contentSize.height = guaHaoView.frame.maxY + 20
         scrollView.frame.size.height = view.bounds.height

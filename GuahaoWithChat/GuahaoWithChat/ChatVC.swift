@@ -10,7 +10,7 @@ import UIKit
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMChatManagerDelegate, ChatToolbarDelegate {
     var chatter: String
-    let userno = NSUserDefaults.standardUserDefaults().stringForKey("userno")
+    let userno = NSUserDefaults.standardUserDefaults().stringForKey("username")
     
     var tableView: UITableView!
     var chatToolbar: ChatToolbar!
@@ -134,9 +134,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
         var error: EMError? = nil
         EaseMob.sharedInstance().chatManager.sendMessage(message, progress: nil, error: &error)
         if error == nil {
-            MessageToast.toast(
-                (UIApplication.sharedApplication().delegate as? AppDelegate)?.window,
-                message: "发送成功！", keyBoardHeight: 0, finishBlock: nil)
             chatToolbar.textField.text = ""
             updataChatRecord()
         }else {

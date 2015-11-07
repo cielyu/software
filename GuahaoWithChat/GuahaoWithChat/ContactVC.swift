@@ -22,7 +22,7 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        refreshDataSource()
         refreshTabbarUnreadCount()
     }
     
@@ -93,6 +93,54 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // MARK: tableView删除好友
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        }else {
+            return true
+        }
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if indexPath.section == 1 {
+            return .Delete
+        }else {
+            return .None
+        }
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        if indexPath.section == 1 {
+            let action = UITableViewRowAction(style: .Default, title: "删除") { (action, index) -> Void in
+                var name: String
+                if let username = self.dataSource?[index.row].username {
+                    name = username
+                }else {
+                    name = ""
+                }
+                let alertController = UIAlertController(title: nil, message: "确认删除好友“\(name)”？", preferredStyle: .Alert)
+                let positiveAction = UIAlertAction(title: "删除", style: .Destructive, handler: { (action) -> Void in
+                    self.deleteBuddy(name)
+                })
+                let negativeAction = UIAlertAction(title: "取消", style: .Default, handler: nil)
+                
+                alertController.addAction(negativeAction)
+                alertController.addAction(positiveAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            return [action]
+        }else {
+            return nil
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            MessageToast.toast(view, message: "删除", keyBoardHeight: 0, finishBlock: nil)
+        }
+    }
+    
     
     // MARK: 手动获取好友
     func updateBuddyList(refreshControl: UIRefreshControl) {
@@ -139,5 +187,23 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }else {
             tabBarItem.badgeValue = "\(badge)"
         }
+    }
+    
+    // MARK: 删除好友
+    func deleteBuddy(buddyName: String) {
+        let loading = ZFLoadingView()
+        loading.show(InView: view, withTips: "操作中...")
+        
+        var error: EMError? = nil
+        EaseMob.sharedInstance().chatManager.removeBuddy(buddyName, removeFromRemote: true, error: &error)
+        if error != nil {
+            ZFAlertShow.sharedInstance.showAlert("出错", message: "删除失败！", inViewController: self)
+        }else {
+            ZFAlertShow.sharedInstance.showAlert("成功", message: "好友已删除", inViewController: self)
+            EaseMob.sharedInstance().chatManager.removeConversationByChatter?(buddyName, deleteMessages: true, append2Chat: true)
+        }
+        
+        loading.hide()
+        refreshDataSource()
     }
 }

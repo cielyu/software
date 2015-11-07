@@ -27,13 +27,13 @@ class GHProfileManager {
      取得储存用户资料的文件路径
      - Returns: 用户资料路径
      */
-    private var profilePath: String {
+    private func profilePath(username: String) -> String {
         let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        return path + "/UserProfile.plist"
+        return path + "/\(username)Profile.plist"
     }
     
-    private var profileDict: [String: String]? {
-        if let dict = NSDictionary(contentsOfFile: profilePath) as? [String: String] {
+    private func profileDict(username: String) -> [String: String]? {
+        if let dict = NSDictionary(contentsOfFile: profilePath(username)) as? [String: String] {
             return dict
         }else {
             return nil
@@ -45,11 +45,15 @@ class GHProfileManager {
      - Parameter keys: 键
      - Parameter values: 值
      */
-    func saveProfile(keys: [String], values: [String?]) {
+    func saveProfile(username: String?, keys: [String], values: [String?]) {
+        guard let username = username else {
+            return
+        }
+        
         let _values = values.flatMap { $0 == nil ? "" : $0! }
         
         var profile: [String: String]
-        if let profileDict = profileDict {
+        if let profileDict = profileDict(username) {
             profile = profileDict
         }else {
             profile = [String: String]()
@@ -59,7 +63,7 @@ class GHProfileManager {
             profile[keys[i]] = _values[i]
         }
         
-        NSDictionary(dictionary: profile).writeToFile(profilePath, atomically: true)
+        NSDictionary(dictionary: profile).writeToFile(profilePath(username), atomically: true)
     }
     
     /**
@@ -67,8 +71,8 @@ class GHProfileManager {
      - Parameter key: username, tel, addr, mail等等
      - Returns: 返回指定资料
      */
-    func getProfile(key: String) -> String {
-        guard let profile = profileDict else {
+    func getProfile(username: String?, key: String) -> String {
+        guard let username = username, let profile = profileDict(username) else {
             return ""
         }
         if let value = profile[key] {

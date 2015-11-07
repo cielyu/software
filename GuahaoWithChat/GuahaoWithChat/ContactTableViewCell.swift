@@ -45,7 +45,7 @@ class ContactTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        headImage.frame = CGRectMake(8, 8, 64, 64)
+        headImage.frame = CGRectMake(8, 8, 44, 44)
         nameLabel.frame = CGRectMake(
             headImage.frame.maxX + 5,
             0,
@@ -93,6 +93,6 @@ class ContactTableViewCell: UITableViewCell {
     }
     
     class var cellHeight: CGFloat {
-        return 80
+        return 60
     }
 }

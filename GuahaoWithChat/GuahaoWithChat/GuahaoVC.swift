@@ -89,7 +89,7 @@ class GuahaoVC: BaseCollectionVC {
             return
         }
         
-        dispatch_async(dispatch_queue_create("hospital", DISPATCH_QUEUE_SERIAL)) {
+        dispatch_async(globalQueue) {
             ZFHttpRequest.postRequest(
                 toUrl: url,
                 withParameter: param,
@@ -128,18 +128,24 @@ class GuahaoVC: BaseCollectionVC {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        
+        var vcToPush: UIViewController?
         switch type {
         case .Hospital:
-            let vcToPresent = GuahaoVC(type: .Department)
-            vcToPresent.paramValue1 = dataSource?[indexPath.row].name
+            let guahao = GuahaoVC(type: .Department)
+            guahao.paramValue1 = dataSource?[indexPath.row].name
+            vcToPush = guahao
         case .Department:
-            let vcToPresent = GuahaoVC(type: .Doctor)
-            vcToPresent.paramValue1 = paramValue1
-            vcToPresent.paramValue2 = dataSource?[indexPath.row].name
+            let guahao = GuahaoVC(type: .Doctor)
+            guahao.paramValue1 = paramValue1
+            guahao.paramValue2 = dataSource?[indexPath.row].name
+            vcToPush = guahao
         case .Doctor:
             navigationController?.pushViewController(BookVC(), animated: true)
             break
         }
-        
+        if let vc = vcToPush {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

@@ -48,11 +48,24 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: tableView DataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let dataSource = dataSource else {
-            return 0
+        if section == 0 {
+            return 1
+        }else {
+            return dataSource == nil ? 0 : dataSource!.count
         }
-        return dataSource.count
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }else {
+            return 20
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -61,21 +74,32 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatListCell") as! ChatListTableViewCell
-        
-        let conversation = dataSource?[indexPath.row]
-        cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
-        cell.nameLabel.text = conversation?.chatter
-        cell.setUnreadCount(conversation?.unreadMessagesCount())
-        cell.setCellBackgroundColor(indexPath.row % 2)
-        cell.setLatestText(conversation?.latestMessage())
+        if indexPath.section == 0 {
+            cell.nameLabel.text = "挂号"
+            cell.setUnreadCount(0)
+            cell.setCellBackgroundColor(0)
+            cell.setLatestText(nil)
+        }else {
+            let conversation = dataSource?[indexPath.row]
+            cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
+            cell.nameLabel.text = conversation?.chatter
+            cell.setUnreadCount(conversation?.unreadMessagesCount())
+            cell.setCellBackgroundColor(indexPath.row % 2)
+            cell.setLatestText(conversation?.latestMessage())
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if let chatter = dataSource?[indexPath.row].chatter {
-            let chatVC = ChatVC(chatter: chatter)
-            navigationController?.pushViewController(chatVC, animated: true)
+        if indexPath.section == 0 {
+            let guahaoVC = GuahaoVC(type: .Hospital)
+            navigationController?.pushViewController(guahaoVC, animated: true)
+        }else {
+            if let chatter = dataSource?[indexPath.row].chatter {
+                let chatVC = ChatVC(chatter: chatter)
+                navigationController?.pushViewController(chatVC, animated: true)
+            }
         }
     }
     

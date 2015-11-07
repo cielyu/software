@@ -98,7 +98,6 @@ class ChatToolbar: UIView, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         delegate?.sendButtonClicked()
         return true
     }
