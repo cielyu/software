@@ -17,8 +17,8 @@ class FriendRequestTableViewCell: UITableViewCell {
     let headImage = UIImageView()
     let nameLabel = UILabel()
     let decriptionLabel = UILabel()
-    let acceptBtn = UIButton()
-    let rejectBtn = UIButton()
+    let acceptBtn = GHButton()
+    let rejectBtn = GHButton()
     // 标识
     var row = 0
     weak var delegate: FriendRequestTableViewCellDelegate?
@@ -41,11 +41,11 @@ class FriendRequestTableViewCell: UITableViewCell {
         decriptionLabel.font = UIFont.systemFontOfSize(15)
         
         acceptBtn.setTitle("接受", forState: .Normal)
-        acceptBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        acceptBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         acceptBtn.addTarget(self, action: Selector("accept"), forControlEvents: .TouchUpInside)
         
         rejectBtn.setTitle("拒绝", forState: .Normal)
-        rejectBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        rejectBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         rejectBtn.addTarget(self, action: Selector("reject"), forControlEvents: .TouchUpInside)
         
         contentView.addSubview(headImage)
@@ -74,7 +74,7 @@ class FriendRequestTableViewCell: UITableViewCell {
         acceptBtn.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(contentView.snp_top).offset(5)
             make.right.equalTo(contentView.snp_right).offset(-5)
-            make.width.equalTo(40)
+            make.width.equalTo(60)
             make.height.equalTo(30)
         }
         rejectBtn.snp_makeConstraints { (make) -> Void in

@@ -21,7 +21,7 @@ class MainVC: UITabBarController, IChatManagerDelegate {
         title = "会话"
         setupViewControllers()
         setupTabbarItem()
-        EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: nil)
+        EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: globalQueue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +50,7 @@ class MainVC: UITabBarController, IChatManagerDelegate {
         contactVC.tabBarItem.tag = 1
         
         profileVC.tabBarItem = UITabBarItem(
-            title: "通讯录",
+            title: "个人资料",
             image: UIImage(named: "me"),
             selectedImage: UIImage(named: "me"))
         profileVC.tabBarItem.tag = 2
@@ -123,6 +123,22 @@ class MainVC: UITabBarController, IChatManagerDelegate {
     
     func didUpdateBuddyList(buddyList: [AnyObject]!, changedBuddies: [AnyObject]!, isAdd: Bool) {
         contactVC.refreshDataSource()
+    }
+    
+    // MARK: 好友请求回调
+    func didReceiveBuddyRequest(username: String!, var message: String!) {
+        if message == nil {
+            message = " "
+        }
+        FriendRequestVC.sharedViewController.appendNewRequest(username, message: message)
+        runAsyncOnMainThread {
+            self.contactVC.tableView.reloadData()
+            self.contactVC.refreshTabbarUnreadCount()
+        }
+    }
+    
+    func didReceiveMessage(message: EMMessage!) {
+        self.chatListVC.refreshChatList(nil)
     }
 }
 

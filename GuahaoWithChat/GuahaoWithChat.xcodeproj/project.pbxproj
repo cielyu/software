@@ -14,6 +14,8 @@
 		1F7A9FFC1BEB3F1100ED9679 /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FFB1BEB3F1100ED9679 /* FriendRequestTableViewCell.swift */; };
 		1F7A9FFE1BEB427E00ED9679 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FFD1BEB427E00ED9679 /* DataStruct.swift */; };
 		1F7AA0001BEB4D7300ED9679 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FFF1BEB4D7300ED9679 /* ProfileVC.swift */; };
+		1F7AA0021BECD11600ED9679 /* GHChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */; };
+		1F7AA0041BEDAF0600ED9679 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0031BEDAF0600ED9679 /* GHButton.swift */; };
 		1F94ABBD1BEA20B000A4D896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABBC1BEA20B000A4D896 /* AppDelegate.swift */; };
 		1F94ABBF1BEA20B000A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABBE1BEA20B000A4D896 /* MainVC.swift */; };
 		1F94ABC41BEA20B000A4D896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F94ABC31BEA20B000A4D896 /* Assets.xcassets */; };
@@ -121,6 +123,8 @@
 		1F7A9FFB1BEB3F1100ED9679 /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
 		1F7A9FFD1BEB427E00ED9679 /* DataStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		1F7A9FFF1BEB4D7300ED9679 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHChatLabel.swift; sourceTree = "<group>"; };
+		1F7AA0031BEDAF0600ED9679 /* GHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
 		1F94ABB91BEA20B000A4D896 /* GuahaoWithChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuahaoWithChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F94ABBC1BEA20B000A4D896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F94ABBE1BEA20B000A4D896 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 				1F94AC7B1BEA2B8600A4D896 /* ZFLabelWithTextField.swift */,
 				1F94AC7C1BEA2B8600A4D896 /* ZFLoadingView.swift */,
 				1F94AC981BEAE8F300A4D896 /* ChatToolbar.swift */,
+				1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */,
+				1F7AA0031BEDAF0600ED9679 /* GHButton.swift */,
 				1F94AC901BEA3A3800A4D896 /* TableViewCell */,
 			);
 			name = View;
@@ -810,7 +816,7 @@
 						CreatedOnToolsVersion = 7.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -925,6 +931,7 @@
 				1F94ABBD1BEA20B000A4D896 /* AppDelegate.swift in Sources */,
 				1F94AC861BEA2BDC00A4D896 /* GuahaoLoginView.swift in Sources */,
 				1F94AC7E1BEA2B8600A4D896 /* LoginVC.swift in Sources */,
+				1F7AA0021BECD11600ED9679 /* GHChatLabel.swift in Sources */,
 				1F7A9FF51BEB0EEE00ED9679 /* ContactVC.swift in Sources */,
 				1F94AC841BEA2B8600A4D896 /* ZFString+String.swift in Sources */,
 				1F94AC801BEA2B8600A4D896 /* ZFAlertShow.swift in Sources */,
@@ -932,6 +939,7 @@
 				1F7A9FFC1BEB3F1100ED9679 /* FriendRequestTableViewCell.swift in Sources */,
 				1F94AC931BEA3A5300A4D896 /* ChatListTableViewCell.swift in Sources */,
 				1F94AC821BEA2B8600A4D896 /* ZFLabelWithTextField.swift in Sources */,
+				1F7AA0041BEDAF0600ED9679 /* GHButton.swift in Sources */,
 				1F7A9FFE1BEB427E00ED9679 /* DataStruct.swift in Sources */,
 				1F94AC811BEA2B8600A4D896 /* ZFHttpRequest.swift in Sources */,
 				1F94AC831BEA2B8600A4D896 /* ZFLoadingView.swift in Sources */,

@@ -20,6 +20,12 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupSubviews()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        refreshTabbarUnreadCount()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -50,7 +56,10 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         }else {
-            return dataSource == nil ? 0 : dataSource!.count
+            guard let dataSource = dataSource else {
+                return 0
+            }
+            return dataSource.count
         }
     }
     
@@ -93,7 +102,7 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.tableView.reloadData()
                 refreshControl.endRefreshing()
             }
-        }, onQueue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+        }, onQueue: globalQueue)
     }
     
     // MARK: 刷新好友列表
@@ -102,6 +111,7 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         dataSource = filterBuddyList(buddyList as? [EMBuddy])
         runAsyncOnMainThread {
             self.tableView.reloadData()
+            self.refreshTabbarUnreadCount()
         }
     }
     
@@ -117,5 +127,17 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 return nil
             }
         })
+    }
+    
+    // MARK: 刷新tabbar上的好友请求条数
+    func refreshTabbarUnreadCount() {
+        let badge = FriendRequestVC.sharedViewController.requestCount
+        if badge == 0 {
+            tabBarItem.badgeValue = nil
+        }else if badge > 1000 {
+            tabBarItem.badgeValue = "999+"
+        }else {
+            tabBarItem.badgeValue = "\(badge)"
+        }
     }
 }

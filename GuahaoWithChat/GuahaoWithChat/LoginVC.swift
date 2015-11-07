@@ -124,7 +124,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
 //        }
     }
     
-    
+    // MARK: 点击注册按钮
     func register() {
         guard let userno = guaHaoView.usernoTF.text where userno != "" else {
             ZFAlertShow.sharedInstance.showAlert(nil, message: "用户名不能为空！", inViewController: self)
@@ -158,7 +158,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "正在注册..")
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        dispatch_async(globalQueue) {
             var error: EMError?
             EaseMob.sharedInstance().chatManager.registerNewAccount(userno, password: psw, error: &error)
             if error == nil {
@@ -169,6 +169,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                 }
             }else {
                 ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败，请重试", inViewController: self)
+                loading.hide()
             }
         }
         
@@ -225,7 +226,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         }
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "正在请求服务器...")
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        dispatch_async(globalQueue) {
             ZFHttpRequest.postRequest(
                 toUrl: "http://192.168.137.1:8000/getpad/",
                 withParameter: ["username": username],

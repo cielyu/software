@@ -11,7 +11,8 @@ import UIKit
 class ChatListTableViewCell: UITableViewCell {
     let headImage = UIImageView()
     let nameLabel = UILabel()
-    let unreadLabel = UILabel()
+    private let latestLabel = UILabel()
+    private let unreadLabel = UILabel()
     var unreadCount: UInt = 0
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -29,6 +30,9 @@ class ChatListTableViewCell: UITableViewCell {
         
         nameLabel.textColor = UIColor.blackColor()
         
+        latestLabel.textColor = UIColor.grayColor()
+        latestLabel.font = UIFont.systemFontOfSize(14)
+        
         unreadLabel.backgroundColor = UIColor.redColor()
         unreadLabel.textColor = UIColor.whiteColor()
         unreadLabel.textAlignment = .Center
@@ -40,6 +44,7 @@ class ChatListTableViewCell: UITableViewCell {
         contentView.addSubview(headImage)
         contentView.addSubview(nameLabel)
         contentView.addSubview(unreadLabel)
+        contentView.addSubview(latestLabel)
     }
     
     override func layoutSubviews() {
@@ -51,6 +56,11 @@ class ChatListTableViewCell: UITableViewCell {
             headImage.frame.minY,
             contentView.frame.width - headImage.frame.maxY - 15,
             21)
+        latestLabel.frame = CGRectMake(
+            nameLabel.frame.origin.x,
+            nameLabel.frame.maxY + 3,
+            nameLabel.frame.width,
+            21)
         
         setUnreadCountAutoExpand(unreadCount)
     }
@@ -58,10 +68,10 @@ class ChatListTableViewCell: UITableViewCell {
     /**
      背景交替变色
      
-     - Parameter highlighted: 是否高亮（白色）
+     - Parameter flag: 0: 白色，1:灰色
      */
-    func setCellBackgroundColor(highlighted: Bool) {
-        if highlighted {
+    func setCellBackgroundColor(flag: Int) {
+        if flag == 0 {
             contentView.backgroundColor = UIColor.whiteColor()
         }else {
             contentView.backgroundColor = UIColor(red: 0.964, green: 0.964, blue: 0.964, alpha: 1)
@@ -102,6 +112,31 @@ class ChatListTableViewCell: UITableViewCell {
             unreadLabel.text = "..."
             unreadLabel.hidden = false
         }
+    }
+    
+    /**
+     将最新的一条消息显示在名字下面
+     
+     - Parameter message: 环信EMMessage对象，latest
+     */
+    func setLatestText(message: EMMessage?) {
+        guard let message = message,
+            let body = message.messageBodies.first as? IEMMessageBody else {
+            latestLabel.text = ""
+            return
+        }
+        var text = ""
+        switch body.messageBodyType {
+        case .eMessageBodyType_Text:
+            if let txt = (body as? EMTextMessageBody)?.text {
+                text = txt
+            }
+        case .eMessageBodyType_Image:
+            text = "[图片]"
+        default:
+            break
+        }
+        latestLabel.text = text
     }
     
     class var cellHeight: CGFloat {

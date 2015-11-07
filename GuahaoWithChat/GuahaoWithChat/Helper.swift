@@ -9,6 +9,11 @@
 import Foundation
 
 class Helper {
+    /**
+     判断是否为正确的邮箱格式
+     
+     - Parameter emailAddr: 邮箱号码
+    */
     class func isEmailAddress(emailAddr: String?) -> Bool {
         guard let email = emailAddr else {
             return false
@@ -33,7 +38,11 @@ func runAsyncOnMainThread(block: () -> ()) {
         }
     }
 }
-
+/**
+ 在主线程中同步运行
+ 
+ - Parameter block: 要执行的代码块
+ */
 func runSyncOnMainThread(block: () -> ()) {
     if NSThread.isMainThread() {
         block()
@@ -42,4 +51,8 @@ func runSyncOnMainThread(block: () -> ()) {
             block()
         }
     }
+}
+
+var globalQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 }

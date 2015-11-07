@@ -19,7 +19,7 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         title = "会话"
         
         setupSubviews()
-        dataSource = EaseMob.sharedInstance().chatManager.loadAllConversationsFromDatabaseWithAppend2Chat?(true) as? [EMConversation]
+        EaseMob.sharedInstance().chatManager.loadAllConversationsFromDatabaseWithAppend2Chat?(true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,7 +49,10 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: tableView DataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource == nil ? 0 : dataSource!.count
+        guard let dataSource = dataSource else {
+            return 0
+        }
+        return dataSource.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -59,11 +62,12 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatListCell") as! ChatListTableViewCell
         
-        let item = dataSource?[indexPath.row]
+        let conversation = dataSource?[indexPath.row]
         cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
-        cell.nameLabel.text = item?.chatter
-        cell.setUnreadCount(item?.unreadMessagesCount())
-        
+        cell.nameLabel.text = conversation?.chatter
+        cell.setUnreadCount(conversation?.unreadMessagesCount())
+        cell.setCellBackgroundColor(indexPath.row % 2)
+        cell.setLatestText(conversation?.latestMessage())
         return cell
     }
     
@@ -78,10 +82,30 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: 刷新好友列表
     func refreshChatList(refreshControl: UIRefreshControl?) {
         refreshControl?.beginRefreshing()
-        dataSource = EaseMob.sharedInstance().chatManager.loadAllConversationsFromDatabaseWithAppend2Chat?(true) as? [EMConversation]
+        dataSource = EaseMob.sharedInstance().chatManager.conversations as? [EMConversation]
         runAsyncOnMainThread {
             self.tableView.reloadData()
             refreshControl?.endRefreshing()
+            self.refreshTabbarUnreadCount()
+        }
+    }
+    
+    // MARK: 刷新tabbar上的未读条数
+    func refreshTabbarUnreadCount() {
+        guard let conversations = dataSource else {
+            tabBarItem.badgeValue = "0"
+            return
+        }
+        var badge: UInt = 0
+        for conversation in conversations {
+            badge += conversation.unreadMessagesCount()
+        }
+        if badge == 0 {
+            tabBarItem.badgeValue = nil
+        }else if badge > 1000 {
+            tabBarItem.badgeValue = "999+"
+        }else {
+            tabBarItem.badgeValue = "\(badge)"
         }
     }
     

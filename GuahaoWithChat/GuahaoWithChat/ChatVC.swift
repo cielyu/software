@@ -60,7 +60,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
         tableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - ChatToolbar.defaultHeight))
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .None
         tableView.registerClass(ChatViewTableViewCell.self, forCellReuseIdentifier: "ChatViewCell")
         tableView.allowsSelection = false
         tableViewOriginRect = tableView.frame
@@ -89,7 +89,19 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
     
     // MARK: tableView dataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource == nil ? 0 : dataSource!.count
+        guard let dataSource = dataSource else {
+            return 0
+        }
+        return dataSource.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let message = dataSource?[indexPath.row]
+        let text = (message?.messageBodies.first as? EMTextMessageBody)?.text
+        let labelSize = GHChatLabel.sizeOfLabel(
+            withText: text,
+            font: GHChatLabel.defaultFont)
+        return labelSize.height + 20
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -102,6 +114,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
             cell.setText(.Left, text: text)
         }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        print(cell.frame.height)
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {

@@ -16,21 +16,12 @@ extension AppDelegate: IChatManagerDelegate {
         EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: nil)
         // MARK: 登陆完成就获取好友列表
         EaseMob.sharedInstance().chatManager.enableAutoFetchBuddyList?()
-        EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         registerLifeCycleNotification()
+        EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func registerLifeCycleNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: Selector("applicationDidEnterBackgroundNotification:"),
-            name: UIApplicationDidEnterBackgroundNotification,
-            object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: Selector("applicationWillEnterForegroundNotification:"),
-            name: UIApplicationWillEnterForegroundNotification,
-            object: nil)
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector: Selector("applicationDidFinishLaunching:"),
@@ -70,14 +61,6 @@ extension AppDelegate: IChatManagerDelegate {
     }
     
     // MARK: 环信生命周期通知
-    func applicationDidEnterBackgroundNotification(application: UIApplication) {
-        EaseMob.sharedInstance().applicationDidEnterBackground(application)
-    }
-    
-    func applicationWillEnterForegroundNotification(application: UIApplication) {
-        EaseMob.sharedInstance().applicationWillEnterForeground(application)
-    }
-    
     func applicationDidFinishLaunching(application: UIApplication) {
         EaseMob.sharedInstance().applicationDidFinishLaunching(application)
     }
@@ -106,6 +89,24 @@ extension AppDelegate: IChatManagerDelegate {
         EaseMob.sharedInstance().applicationWillTerminate(application)
     }
     
+    // MARK: 注册远程推送（没有申请推送证书，关闭应用后是没有推送的）
+    func registerRemoteNotification(application: UIApplication) {
+        application.registerForRemoteNotifications()
+        let notificationTypes: UIUserNotificationType = [.Badge, .Sound, .Alert]
+        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    // MARK: 远程推送的相关回调
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        EaseMob.sharedInstance().application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+    // MARK: deviceToken注册失败时（当然会失败）
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("－－－－－－－－－－－－－－－－－－－－\ntoken注册失败！")
+        EaseMob.sharedInstance().application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+    }
+    
     // MARK: 自动登陆回调
     func willAutoLoginWithInfo(loginInfo: [NSObject : AnyObject]!, error: EMError!) {
         if error != nil {
@@ -124,17 +125,6 @@ extension AppDelegate: IChatManagerDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName(
                     "loginStateChanged", object: 2)
             }
-        }
-    }
-    
-    // MARK: 登陆时好友请求回调
-    func didReceiveBuddyRequest(username: String!, var message: String!) {
-        if message == nil {
-            message = " "
-        }
-        FriendRequestVC.sharedViewController.appendNewRequest(username, message: message)
-        runAsyncOnMainThread {
-            self.mainVC?.contactVC.tableView.reloadData()
         }
     }
 }

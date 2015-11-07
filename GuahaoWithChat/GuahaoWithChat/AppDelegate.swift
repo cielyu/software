@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         
+        // 87CEEB
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.529, green: 0.808, blue: 0.922, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [
@@ -37,13 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // MARK: 环信sdk部分生命周期无法通过notification调用，故在此调用其中2个方法
     func applicationWillResignActive(application: UIApplication) {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        EaseMob.sharedInstance().applicationDidEnterBackground(application)
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
+        EaseMob.sharedInstance().applicationWillEnterForeground(application)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -51,10 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
     }
-
-    // MARK: loginStateChanged, 0: 登陆失败, 1: 登陆成功(登陆界面), 2: 密码错误, 3: 登陆成功(挂号界面)
+    
+    /**
+     管理主要的页面跳转
+     
+     - Parameter notification: 由object传递通知信息。 0: 登陆失败, 1: 登陆成功(登陆界面), 2: 密码错误, 3: 登陆成功(挂号界面)
+     */
     func loginStateChanged(notification: NSNotification?) {
-        print(notification)
         let obj = notification?.object as? Int
         var isAutoLogin = false
         if let autoLogin = EaseMob.sharedInstance().chatManager.isAutoLoginEnabled {

@@ -52,7 +52,6 @@ class ZFHttpRequest {
             }
             
             NSURLSession.sharedSession().dataTaskWithRequest(post) { (nsdata, response, error) -> Void in
-                print(response)
                 if error != nil {
                     failure?(.ReturnNSDataError)
                 }else {

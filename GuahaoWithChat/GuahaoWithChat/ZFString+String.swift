@@ -35,4 +35,16 @@ extension String: ZFString {
         let size = nsStr.sizeWithAttributes([NSFontAttributeName: font])
         return size.width
     }
+    
+    func sizeForTextInLabel(font: UIFont, maxSize: CGSize) -> CGSize {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 5
+        return NSString(string: self).boundingRectWithSize(
+            maxSize,
+            options: .UsesLineFragmentOrigin,
+            attributes: [
+                NSFontAttributeName: font,
+                NSParagraphStyleAttributeName: paragraph],
+            context: nil).size
+    }
 }

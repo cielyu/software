@@ -62,6 +62,9 @@ class FriendRequestVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     // MARK: 接受、拒绝回调
     func acceptFriendRequest(row: Int) {
         var error: EMError? = nil
