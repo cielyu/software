@@ -15,14 +15,14 @@
 		1F651D501BC3A9F8005CADDD /* guahaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F651D4F1BC3A9F8005CADDD /* guahaoUITests.swift */; };
 		1F94A9F91BE5BD2400A4D896 /* ZFSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */; };
 		1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */; };
-		1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */; };
+		1F94AA001BE5BD6C00A4D896 /* MainVC_deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A9FF1BE5BD6C00A4D896 /* MainVC_deprecated.swift */; };
 		1F94ABA01BE9A5EB00A4D896 /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94AB9F1BE9A5EB00A4D896 /* BaseCollectionVC.swift */; };
-		1F94ABA21BE9A98B00A4D896 /* MiddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */; };
 		1F94ABA51BE9AB2800A4D896 /* StructModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA41BE9AB2800A4D896 /* StructModel.swift */; };
 		1F94ABA71BE9B3D700A4D896 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABA61BE9B3D700A4D896 /* Helper.swift */; };
 		1F94ABA91BE9E9BB00A4D896 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94ABA81BE9E9BB00A4D896 /* SnapKit.framework */; };
 		1F94ABAD1BE9FA3600A4D896 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */; };
 		1F94ABAF1BEA067C00A4D896 /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABAE1BEA067C00A4D896 /* RequestHelper.swift */; };
+		1F94ABF41BEA21DE00A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABF31BEA21DE00A4D896 /* MainVC.swift */; };
 		1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */; };
 		1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */; };
 		1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */; };
@@ -80,14 +80,14 @@
 		1F651D511BC3A9F8005CADDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F94A9F81BE5BD2400A4D896 /* ZFSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFSlideViewController.swift; sourceTree = "<group>"; };
 		1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftVC.swift; sourceTree = "<group>"; };
-		1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		1F94A9FF1BE5BD6C00A4D896 /* MainVC_deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC_deprecated.swift; sourceTree = "<group>"; };
 		1F94AB9F1BE9A5EB00A4D896 /* BaseCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
-		1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleVC.swift; sourceTree = "<group>"; };
 		1F94ABA41BE9AB2800A4D896 /* StructModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructModel.swift; sourceTree = "<group>"; };
 		1F94ABA61BE9B3D700A4D896 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1F94ABA81BE9E9BB00A4D896 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
 		1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
 		1F94ABAE1BEA067C00A4D896 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
+		1F94ABF31BEA21DE00A4D896 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1F9FC1261BD72A880010F479 /* ZFLabelWithTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLabelWithTextField.swift; sourceTree = "<group>"; };
 		1FA939021BCF983F00A16D14 /* ZFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLoadingView.swift; sourceTree = "<group>"; };
 		1FA939041BCFA27B00A16D14 /* ZFAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAlertShow.swift; sourceTree = "<group>"; };
@@ -196,6 +196,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1F94ABF21BEA218700A4D896 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				1F94A9FF1BE5BD6C00A4D896 /* MainVC_deprecated.swift */,
+				1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
 		1FA939081BCFA83300A16D14 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,10 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				1F651D311BC3A9F8005CADDD /* LoginVC.swift */,
-				1F94A9FF1BE5BD6C00A4D896 /* MainVC.swift */,
-				1F94ABA11BE9A98B00A4D896 /* MiddleVC.swift */,
-				1F94A9FD1BE5BD4000A4D896 /* LeftVC.swift */,
+				1F94ABF31BEA21DE00A4D896 /* MainVC.swift */,
 				1F94ABAC1BE9FA3600A4D896 /* BookVC.swift */,
+				1F94ABF21BEA218700A4D896 /* Deprecated */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -380,10 +388,11 @@
 				1F94ABAD1BE9FA3600A4D896 /* BookVC.swift in Sources */,
 				1F94ABA01BE9A5EB00A4D896 /* BaseCollectionVC.swift in Sources */,
 				1FE467341BD52B2500A4375F /* GuahaoLoginView.swift in Sources */,
-				1F94AA001BE5BD6C00A4D896 /* MainVC.swift in Sources */,
+				1F94AA001BE5BD6C00A4D896 /* MainVC_deprecated.swift in Sources */,
 				1F94ABA71BE9B3D700A4D896 /* Helper.swift in Sources */,
 				1FA939031BCF983F00A16D14 /* ZFLoadingView.swift in Sources */,
 				1FA9390C1BCFCFB400A16D14 /* MessageToast.swift in Sources */,
+				1F94ABF41BEA21DE00A4D896 /* MainVC.swift in Sources */,
 				1F94ABA51BE9AB2800A4D896 /* StructModel.swift in Sources */,
 				1FCD833E1BCBBDCF00C5ECD3 /* GHCollectionViewCellBackgroudView.swift in Sources */,
 				1F651D301BC3A9F8005CADDD /* AppDelegate.swift in Sources */,
@@ -391,7 +400,6 @@
 				1FE467301BD4A73100A4375F /* ZFString+String.swift in Sources */,
 				1F94ABAF1BEA067C00A4D896 /* RequestHelper.swift in Sources */,
 				1FA939051BCFA27B00A16D14 /* ZFAlertShow.swift in Sources */,
-				1F94ABA21BE9A98B00A4D896 /* MiddleVC.swift in Sources */,
 				1F94A9FE1BE5BD4000A4D896 /* LeftVC.swift in Sources */,
 				1FCD83341BCAACCE00C5ECD3 /* GHCollectionViewCell.swift in Sources */,
 				1F9FC1271BD72A880010F479 /* ZFLabelWithTextField.swift in Sources */,
