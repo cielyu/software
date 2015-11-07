@@ -16,6 +16,16 @@
 		1F7AA0001BEB4D7300ED9679 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FFF1BEB4D7300ED9679 /* ProfileVC.swift */; };
 		1F7AA0021BECD11600ED9679 /* GHChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */; };
 		1F7AA0041BEDAF0600ED9679 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0031BEDAF0600ED9679 /* GHButton.swift */; };
+		1F7AA0061BEDDB1700ED9679 /* GuahaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0051BEDDB1700ED9679 /* GuahaoVC.swift */; };
+		1F7AA00C1BEDDB5F00ED9679 /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0081BEDDB5F00ED9679 /* BaseCollectionVC.swift */; };
+		1F7AA00D1BEDDB5F00ED9679 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0091BEDDB5F00ED9679 /* BookVC.swift */; };
+		1F7AA00E1BEDDB5F00ED9679 /* GHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA00A1BEDDB5F00ED9679 /* GHCollectionViewCell.swift */; };
+		1F7AA00F1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA00B1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift */; };
+		1F7AA0121BEDDBBC00ED9679 /* GHRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0111BEDDBBC00ED9679 /* GHRequestHelper.swift */; };
+		1F7AA0151BEDDD3900ED9679 /* MainVC_deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0141BEDDD3900ED9679 /* MainVC_deprecated.swift */; };
+		1F7AA0171BEDDD4400ED9679 /* RC4+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0161BEDDD4400ED9679 /* RC4+NSString.swift */; };
+		1F7AA01A1BEDDE6300ED9679 /* HeadImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA0191BEDDE6300ED9679 /* HeadImageCell.swift */; };
+		1F7AA01C1BEDE97000ED9679 /* GHProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA01B1BEDE97000ED9679 /* GHProfileManager.swift */; };
 		1F94ABBD1BEA20B000A4D896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABBC1BEA20B000A4D896 /* AppDelegate.swift */; };
 		1F94ABBF1BEA20B000A4D896 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94ABBE1BEA20B000A4D896 /* MainVC.swift */; };
 		1F94ABC41BEA20B000A4D896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F94ABC31BEA20B000A4D896 /* Assets.xcassets */; };
@@ -125,6 +135,16 @@
 		1F7A9FFF1BEB4D7300ED9679 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHChatLabel.swift; sourceTree = "<group>"; };
 		1F7AA0031BEDAF0600ED9679 /* GHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
+		1F7AA0051BEDDB1700ED9679 /* GuahaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuahaoVC.swift; sourceTree = "<group>"; };
+		1F7AA0081BEDDB5F00ED9679 /* BaseCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
+		1F7AA0091BEDDB5F00ED9679 /* BookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
+		1F7AA00A1BEDDB5F00ED9679 /* GHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F7AA00B1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHCollectionViewCellBackgroudView.swift; sourceTree = "<group>"; };
+		1F7AA0111BEDDBBC00ED9679 /* GHRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRequestHelper.swift; sourceTree = "<group>"; };
+		1F7AA0141BEDDD3900ED9679 /* MainVC_deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC_deprecated.swift; sourceTree = "<group>"; };
+		1F7AA0161BEDDD4400ED9679 /* RC4+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RC4+NSString.swift"; sourceTree = "<group>"; };
+		1F7AA0191BEDDE6300ED9679 /* HeadImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadImageCell.swift; sourceTree = "<group>"; };
+		1F7AA01B1BEDE97000ED9679 /* GHProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHProfileManager.swift; sourceTree = "<group>"; };
 		1F94ABB91BEA20B000A4D896 /* GuahaoWithChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuahaoWithChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F94ABBC1BEA20B000A4D896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F94ABBE1BEA20B000A4D896 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -303,6 +323,40 @@
 			name = Contact;
 			sourceTree = "<group>";
 		};
+		1F7AA0071BEDDB5700ED9679 /* Guahao */ = {
+			isa = PBXGroup;
+			children = (
+				1F7AA0081BEDDB5F00ED9679 /* BaseCollectionVC.swift */,
+				1F7AA0051BEDDB1700ED9679 /* GuahaoVC.swift */,
+				1F7AA0091BEDDB5F00ED9679 /* BookVC.swift */,
+			);
+			name = Guahao;
+			sourceTree = "<group>";
+		};
+		1F7AA0101BEDDB7B00ED9679 /* Guahao */ = {
+			isa = PBXGroup;
+			children = (
+				1F7AA00A1BEDDB5F00ED9679 /* GHCollectionViewCell.swift */,
+			);
+			name = Guahao;
+			sourceTree = "<group>";
+		};
+		1F7AA0131BEDDD2200ED9679 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				1F7AA0141BEDDD3900ED9679 /* MainVC_deprecated.swift */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		1F7AA0181BEDDE4700ED9679 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1F7AA0191BEDDE6300ED9679 /* HeadImageCell.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		1F94ABB01BEA20B000A4D896 = {
 			isa = PBXGroup;
 			children = (
@@ -378,9 +432,11 @@
 			children = (
 				1F94AC771BEA2B8600A4D896 /* LoginVC.swift */,
 				1F94ABBE1BEA20B000A4D896 /* MainVC.swift */,
+				1F7AA0071BEDDB5700ED9679 /* Guahao */,
 				1F94AC8B1BEA398500A4D896 /* ChatList */,
 				1F94AC8C1BEA398F00A4D896 /* Contact */,
 				1F94AC8D1BEA399800A4D896 /* Profile */,
+				1F7AA0131BEDDD2200ED9679 /* Deprecated */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -396,6 +452,7 @@
 				1F94AC981BEAE8F300A4D896 /* ChatToolbar.swift */,
 				1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */,
 				1F7AA0031BEDAF0600ED9679 /* GHButton.swift */,
+				1F7AA00B1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift */,
 				1F94AC901BEA3A3800A4D896 /* TableViewCell */,
 			);
 			name = View;
@@ -413,7 +470,10 @@
 			isa = PBXGroup;
 			children = (
 				1F94AC7A1BEA2B8600A4D896 /* ZFHttpRequest.swift */,
+				1F7AA0111BEDDBBC00ED9679 /* GHRequestHelper.swift */,
+				1F7AA01B1BEDE97000ED9679 /* GHProfileManager.swift */,
 				1F94AC7D1BEA2B8600A4D896 /* ZFString+String.swift */,
+				1F7AA0161BEDDD4400ED9679 /* RC4+NSString.swift */,
 				1F94AC871BEA2C1400A4D896 /* Helper.swift */,
 			);
 			name = Class;
@@ -670,8 +730,10 @@
 		1F94AC901BEA3A3800A4D896 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				1F7AA0101BEDDB7B00ED9679 /* Guahao */,
 				1F94AC911BEA3A4500A4D896 /* Chat */,
 				1F7A9FF61BEB0F4D00ED9679 /* Contact */,
+				1F7AA0181BEDDE4700ED9679 /* Profile */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -919,6 +981,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7AA0151BEDDD3900ED9679 /* MainVC_deprecated.swift in Sources */,
 				1F94AC881BEA2C1400A4D896 /* Helper.swift in Sources */,
 				1F7AA0001BEB4D7300ED9679 /* ProfileVC.swift in Sources */,
 				1F94ABBF1BEA20B000A4D896 /* MainVC.swift in Sources */,
@@ -932,18 +995,27 @@
 				1F94AC861BEA2BDC00A4D896 /* GuahaoLoginView.swift in Sources */,
 				1F94AC7E1BEA2B8600A4D896 /* LoginVC.swift in Sources */,
 				1F7AA0021BECD11600ED9679 /* GHChatLabel.swift in Sources */,
+				1F7AA00F1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift in Sources */,
+				1F7AA0061BEDDB1700ED9679 /* GuahaoVC.swift in Sources */,
 				1F7A9FF51BEB0EEE00ED9679 /* ContactVC.swift in Sources */,
 				1F94AC841BEA2B8600A4D896 /* ZFString+String.swift in Sources */,
 				1F94AC801BEA2B8600A4D896 /* ZFAlertShow.swift in Sources */,
+				1F7AA00C1BEDDB5F00ED9679 /* BaseCollectionVC.swift in Sources */,
 				1F94AC951BEA3EE900A4D896 /* ChatVC.swift in Sources */,
 				1F7A9FFC1BEB3F1100ED9679 /* FriendRequestTableViewCell.swift in Sources */,
+				1F7AA01A1BEDDE6300ED9679 /* HeadImageCell.swift in Sources */,
 				1F94AC931BEA3A5300A4D896 /* ChatListTableViewCell.swift in Sources */,
 				1F94AC821BEA2B8600A4D896 /* ZFLabelWithTextField.swift in Sources */,
+				1F7AA0171BEDDD4400ED9679 /* RC4+NSString.swift in Sources */,
+				1F7AA00E1BEDDB5F00ED9679 /* GHCollectionViewCell.swift in Sources */,
 				1F7AA0041BEDAF0600ED9679 /* GHButton.swift in Sources */,
+				1F7AA0121BEDDBBC00ED9679 /* GHRequestHelper.swift in Sources */,
 				1F7A9FFE1BEB427E00ED9679 /* DataStruct.swift in Sources */,
+				1F7AA01C1BEDE97000ED9679 /* GHProfileManager.swift in Sources */,
 				1F94AC811BEA2B8600A4D896 /* ZFHttpRequest.swift in Sources */,
 				1F94AC831BEA2B8600A4D896 /* ZFLoadingView.swift in Sources */,
 				1F94AC8A1BEA2D1200A4D896 /* AppDelegate+EaseMob.swift in Sources */,
+				1F7AA00D1BEDDB5F00ED9679 /* BookVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

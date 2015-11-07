@@ -86,42 +86,40 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "登录中..")
-        easeMobLogin(userno, password: psw) {
-            loading.hide()
-            NSUserDefaults.standardUserDefaults().setValue(userno, forKey: "userno")
-        }
         
-//        let loading = ZFLoadingView()
-//        loading.show(InView: self.view, withTips: "正在登陆...")
-//        let param = [
-//            "name": userno,
-//            "password": psw]
-//        dispatch_async(dispatch_queue_create("login", DISPATCH_QUEUE_SERIAL)) {
-//            ZFHttpRequest.postRequest(
-//                toUrl: "http://192.168.137.1:8000/login/",
-//                withParameter: param,
-//                success: { (json) -> () in
-//                    print(json)
-//                    if let status = json["status"] as? String where status == "success" {
-//                        if let black = json["black"] as? String where black == "True" {
-//                            ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
-//                        }else {
-//                            dispatch_async(dispatch_get_main_queue()) {
-//                                NSNotificationCenter.defaultCenter().postNotificationName(
-//                                    "loginStateChanged", object: 1, userInfo: nil)
-//                            }
-//                            NSUserDefaults.standardUserDefaults().setValue(userno, forKey: "userno")
-//                        }
-//                    }else {
-//                        ZFAlertShow.sharedInstance.showAlert(nil, message: "登陆失败！", inViewController: self)
-//                    }
-//                    loading.hide()
-//                },
-//                failure: { (error) -> () in
-//                    print(error)
-//                    loading.hide()
-//            })
-//        }
+        let param = [
+            "name": userno,
+            "password": psw]
+        dispatch_async(dispatch_queue_create("login", DISPATCH_QUEUE_SERIAL)) {
+            ZFHttpRequest.postRequest(
+                toUrl: "http://192.168.137.1:8000/login/",
+                withParameter: param,
+                success: { (json) -> () in
+                    print(json)
+                    if let status = json["status"] as? String where status == "success" {
+                        if let black = json["black"] as? String where black == "True" {
+                            ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
+                        }else {
+                            self.easeMobLogin(userno, password: psw) {
+                                loading.hide()
+                                runAsyncOnMainThread {
+                                    NSNotificationCenter.defaultCenter().postNotificationName(
+                                        "loginStateChanged", object: 1, userInfo: nil)
+                                }
+                                NSUserDefaults.standardUserDefaults().setValue(userno, forKey: "userno")
+                            }
+                            
+                        }
+                    }else {
+                        ZFAlertShow.sharedInstance.showAlert(nil, message: "登陆失败！", inViewController: self)
+                    }
+                    loading.hide()
+                },
+                failure: { (error) -> () in
+                    print(error)
+                    loading.hide()
+            })
+        }
     }
     
     // MARK: 点击注册按钮
@@ -138,68 +136,65 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
             ZFAlertShow.sharedInstance.showAlert(nil, message: "两次密码输入不相同！", inViewController: self)
             return
         }
-//        guard let tel = guaHaoView.telTF?.text, let addr = guaHaoView.addrTF?.text where tel != "" && addr != "" else {
-//            ZFAlertShow.sharedInstance.showAlert(nil, message: "请完整填写资料！", inViewController: self)
-//            return
-//        }
-//        guard tel.characters.count >= 11 else {
-//            ZFAlertShow.sharedInstance.showAlert(nil, message: "手机号码不正确！", inViewController: self)
-//            return
-//        }
-//        guard let mail = guaHaoView.mailTF?.text where mail != "" else {
-//            ZFAlertShow.sharedInstance.showAlert(nil, message: "请完整填写资料！", inViewController: self)
-//            return
-//        }
-//        guard Helper.isEmailAddress(mail) else {
-//            ZFAlertShow.sharedInstance.showAlert(nil, message: "邮箱格式不正确！", inViewController: self)
-//            return
-//        }
+        guard let tel = guaHaoView.telTF?.text, let addr = guaHaoView.addrTF?.text where tel != "" && addr != "" else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "请完整填写资料！", inViewController: self)
+            return
+        }
+        guard tel.characters.count >= 11 else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "手机号码不正确！", inViewController: self)
+            return
+        }
+        guard let mail = guaHaoView.mailTF?.text where mail != "" else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "请完整填写资料！", inViewController: self)
+            return
+        }
+        guard Helper.isEmailAddress(mail) else {
+            ZFAlertShow.sharedInstance.showAlert(nil, message: "邮箱格式不正确！", inViewController: self)
+            return
+        }
         
         
         let loading = ZFLoadingView()
         loading.show(InView: view, withTips: "正在注册..")
-        dispatch_async(globalQueue) {
-            var error: EMError?
-            EaseMob.sharedInstance().chatManager.registerNewAccount(userno, password: psw, error: &error)
-            if error == nil {
-                MessageToast.toast(self.view, message: "注册成功！", keyBoardHeight: 0, finishBlock: nil)
-                // 注册成功后开始登陆
-                self.easeMobLogin(userno, password: psw) {
-                    loading.hide()
-                }
-            }else {
-                ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败，请重试", inViewController: self)
-                loading.hide()
-            }
-        }
         
-        
-//        let loading = ZFLoadingView()
-//        loading.show(InView: view, withTips: "正在注册..")
-//        let param = [
-//            "name": userno,
-//            "password": psw,
-//            "tel": tel,
-//            "addr": addr,
-//            "mail": mail]
-//        dispatch_async(dispatch_queue_create("register", DISPATCH_QUEUE_SERIAL)) {
-//            ZFHttpRequest.postRequest(
-//                toUrl: "http://192.168.137.1:8000/register/",
-//                withParameter: param,
-//                success: { (json) -> () in
-//                    print(json)
-//                    if let status = json["status"] as? String where status == "success" {
+        let param = [
+            "name": userno,
+            "password": psw,
+            "tel": tel,
+            "addr": addr,
+            "mail": mail]
+        dispatch_async(dispatch_queue_create("register", DISPATCH_QUEUE_SERIAL)) {
+            ZFHttpRequest.postRequest(
+                toUrl: "http://192.168.137.1:8000/register/",
+                withParameter: param,
+                success: { (json) -> () in
+                    print(json)
+                    if let status = json["status"] as? String where status == "success" {
 //                        ZFAlertShow.sharedInstance.showAlert(nil, message: "注册成功！", inViewController: self)
-//                    }else {
-//                        ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败！", inViewController: self)
-//                    }
-//                    loading.hide()
-//                },
-//                failure: { (error) -> () in
-//                    loading.hide()
-//                    ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败！", inViewController: self)
-//            })
-//        }
+                        dispatch_async(globalQueue) {
+                            var error: EMError?
+                            EaseMob.sharedInstance().chatManager.registerNewAccount(userno, password: psw, error: &error)
+                            if error == nil {
+                                MessageToast.toast(self.view, message: "注册成功！", keyBoardHeight: 0, finishBlock: nil)
+                                // 注册成功后开始登陆
+                                self.easeMobLogin(userno, password: psw) {
+                                    loading.hide()
+                                }
+                            }else {
+                                ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败，请重试", inViewController: self)
+                                loading.hide()
+                            }
+                        }
+                    }else {
+                        ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败！", inViewController: self)
+                    }
+                    loading.hide()
+                },
+                failure: { (error) -> () in
+                    loading.hide()
+                    ZFAlertShow.sharedInstance.showAlert(nil, message: "注册失败！", inViewController: self)
+            })
+        }
     }
     
     // MARK: 调用环信的登陆接口

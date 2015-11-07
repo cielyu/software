@@ -127,4 +127,22 @@ extension AppDelegate: IChatManagerDelegate {
             }
         }
     }
+    
+    // MARK: 账号在其他设备中登陆时
+    func didLoginFromOtherDevice() {
+        var error: EMError? = nil
+        EaseMob.sharedInstance().chatManager.logoffWithUnbindDeviceToken(false, error: &error)
+        
+        if error != nil {
+            let alert = UIAlertView(title: "错误", message: "登出时出现错误！", delegate: nil, cancelButtonTitle: "确定")
+            alert.show()
+        }else {
+            runAsyncOnMainThread {
+                NSNotificationCenter.defaultCenter().postNotificationName(
+                    "loginStateChanged", object: 2)
+            }
+        }
+        let alert2 = UIAlertView(title: nil, message: "您的账号在其他设备中登陆", delegate: nil, cancelButtonTitle: "确定")
+        alert2.show()
+    }
 }

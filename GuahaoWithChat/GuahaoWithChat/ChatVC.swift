@@ -116,10 +116,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
         return cell
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        print(cell.frame.height)
-    }
-    
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         view.endEditing(true)
     }
