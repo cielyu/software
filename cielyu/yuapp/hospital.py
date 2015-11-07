@@ -17,19 +17,19 @@ def hregister(request):
     if request.method != 'POST':
         return render_to_response("cc.html")
     else:
-    #name = request.POST.get("username")
-    #pad = request.POST.get("password")
-    #tel = request.POST.get("tel")
-    #while not name.strip() and not pad.strip():
-    #ac_list = Hospital.objects.all()
-    #for ac in ac_list:
-    #    if ac.hname == name:
-    #        print name, pad, tel
-    #        return JsonResponse({'status': 'failed'}, safe=False)
-    #else:
-        #ho = Hospital(hname=name, hpad=pad, htel=tel)
-        #ho.save()
-        return render_to_response("ccc.html")
+        name = request.POST.get("username")
+        pad = request.POST.get("password")
+        tel = request.POST.get("tel")
+        while not name.strip() and not pad.strip():
+            ac_list = Hospital.objects.all()
+            for ac in ac_list:
+                if ac.hname == name:
+                    print name, pad, tel
+                    return render_to_response("cc.html")
+            else:
+                ho = Hospital(hname=name, hpad=pad, htel=tel)
+                ho.save()
+                return render_to_response("ccc.html")
 
 
 ##########################################
@@ -47,11 +47,11 @@ def hlogin(request):
             ac_list = Hospital.objects.all()
             for ac in ac_list:
                 if ac.hname == name and ac.hpad == pad:
-                    return JsonResponse({'status': 'success'}, safe=False)
+                    return render_to_response("start.html")
                 else:
-                    return JsonResponse({'status': 'failed'}, safe=False)
+                    return render_to_response("c.html")
         else:
-            return render_to_response("start.html")
+            return render_to_response("c.html")
 
 
 ##########################################
