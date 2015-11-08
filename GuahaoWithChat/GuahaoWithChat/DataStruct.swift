@@ -48,3 +48,39 @@ struct Profile {
     var key: String
     var value: String
 }
+
+/**
+ 预约列表项
+ */
+struct BookItem {
+    var doctor: String
+    var date: String
+    
+    static func serialization(dict: [String: NSObject]) -> BookItem {
+        var dateStr: String
+        var doctorStr: String
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 28800)
+        dateFormatter.locale = NSLocale(localeIdentifier: "zh")
+        
+        if let doctor = dict["doctor"] as? String {
+            doctorStr = doctor
+        }else {
+            doctorStr = ""
+        }
+        
+        if let timeF = dict["time"] as? Float {
+                let date = NSDate(timeIntervalSince1970: NSTimeInterval(timeF))
+                dateStr = dateFormatter.stringFromDate(date)
+        }else {
+            dateStr = ""
+        }
+        
+        return BookItem(
+            doctor: doctorStr,
+            date: dateStr)
+    }
+}

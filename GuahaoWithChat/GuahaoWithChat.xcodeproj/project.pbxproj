@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1F4B06B41BEEE6D500F13356 /* FriendProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06B31BEEE6D500F13356 /* FriendProfileVC.swift */; };
 		1F4B06B91BEEE97400F13356 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06B81BEEE97400F13356 /* SettingsCell.swift */; };
+		1F4B06BB1BEF5E7C00F13356 /* BookTimeSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06BA1BEF5E7C00F13356 /* BookTimeSelectVC.swift */; };
+		1F4B06BD1BEF669B00F13356 /* ZFFloat+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06BC1BEF669B00F13356 /* ZFFloat+Float.swift */; };
+		1F4B06BF1BEF6C2E00F13356 /* GHTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06BE1BEF6C2E00F13356 /* GHTimePickerView.swift */; };
+		1F4B06C11BEF7E3600F13356 /* GHLocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06C01BEF7E3600F13356 /* GHLocalNotificationManager.swift */; };
+		1F4B06C31BEF841100F13356 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B06C21BEF841100F13356 /* BookListVC.swift */; };
 		1F7A9FF31BEB081500ED9679 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7A9FE91BEB07E500ED9679 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F7A9FF51BEB0EEE00ED9679 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FF41BEB0EEE00ED9679 /* ContactVC.swift */; };
 		1F7A9FF81BEB0F6200ED9679 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A9FF71BEB0F6200ED9679 /* ContactTableViewCell.swift */; };
@@ -130,6 +135,11 @@
 /* Begin PBXFileReference section */
 		1F4B06B31BEEE6D500F13356 /* FriendProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProfileVC.swift; sourceTree = "<group>"; };
 		1F4B06B81BEEE97400F13356 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		1F4B06BA1BEF5E7C00F13356 /* BookTimeSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTimeSelectVC.swift; sourceTree = "<group>"; };
+		1F4B06BC1BEF669B00F13356 /* ZFFloat+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZFFloat+Float.swift"; sourceTree = "<group>"; };
+		1F4B06BE1BEF6C2E00F13356 /* GHTimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHTimePickerView.swift; sourceTree = "<group>"; };
+		1F4B06C01BEF7E3600F13356 /* GHLocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHLocalNotificationManager.swift; sourceTree = "<group>"; };
+		1F4B06C21BEF841100F13356 /* BookListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
 		1F7A9FE11BEB07E500ED9679 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../tools/第三方/SnapKit/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		1F7A9FF41BEB0EEE00ED9679 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		1F7A9FF71BEB0F6200ED9679 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -332,7 +342,9 @@
 			children = (
 				1F7AA0081BEDDB5F00ED9679 /* BaseCollectionVC.swift */,
 				1F7AA0051BEDDB1700ED9679 /* GuahaoVC.swift */,
+				1F4B06C21BEF841100F13356 /* BookListVC.swift */,
 				1F7AA0091BEDDB5F00ED9679 /* BookVC.swift */,
+				1F4B06BA1BEF5E7C00F13356 /* BookTimeSelectVC.swift */,
 			);
 			name = Guahao;
 			sourceTree = "<group>";
@@ -457,6 +469,7 @@
 				1F7AA0011BECD11600ED9679 /* GHChatLabel.swift */,
 				1F7AA0031BEDAF0600ED9679 /* GHButton.swift */,
 				1F7AA00B1BEDDB5F00ED9679 /* GHCollectionViewCellBackgroudView.swift */,
+				1F4B06BE1BEF6C2E00F13356 /* GHTimePickerView.swift */,
 				1F94AC901BEA3A3800A4D896 /* TableViewCell */,
 			);
 			name = View;
@@ -476,7 +489,9 @@
 				1F94AC7A1BEA2B8600A4D896 /* ZFHttpRequest.swift */,
 				1F7AA0111BEDDBBC00ED9679 /* GHRequestHelper.swift */,
 				1F7AA01B1BEDE97000ED9679 /* GHProfileManager.swift */,
+				1F4B06C01BEF7E3600F13356 /* GHLocalNotificationManager.swift */,
 				1F94AC7D1BEA2B8600A4D896 /* ZFString+String.swift */,
+				1F4B06BC1BEF669B00F13356 /* ZFFloat+Float.swift */,
 				1F7AA0161BEDDD4400ED9679 /* RC4+NSString.swift */,
 				1F94AC871BEA2C1400A4D896 /* Helper.swift */,
 			);
@@ -988,7 +1003,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7AA0151BEDDD3900ED9679 /* MainVC_deprecated.swift in Sources */,
+				1F4B06C11BEF7E3600F13356 /* GHLocalNotificationManager.swift in Sources */,
+				1F4B06BD1BEF669B00F13356 /* ZFFloat+Float.swift in Sources */,
 				1F94AC881BEA2C1400A4D896 /* Helper.swift in Sources */,
+				1F4B06BB1BEF5E7C00F13356 /* BookTimeSelectVC.swift in Sources */,
 				1F7AA0001BEB4D7300ED9679 /* ProfileVC.swift in Sources */,
 				1F94ABBF1BEA20B000A4D896 /* MainVC.swift in Sources */,
 				1F4B06B91BEEE97400F13356 /* SettingsCell.swift in Sources */,
@@ -1017,11 +1035,13 @@
 				1F7AA0171BEDDD4400ED9679 /* RC4+NSString.swift in Sources */,
 				1F7AA00E1BEDDB5F00ED9679 /* GHCollectionViewCell.swift in Sources */,
 				1F7AA0041BEDAF0600ED9679 /* GHButton.swift in Sources */,
+				1F4B06BF1BEF6C2E00F13356 /* GHTimePickerView.swift in Sources */,
 				1F7AA0121BEDDBBC00ED9679 /* GHRequestHelper.swift in Sources */,
 				1F7A9FFE1BEB427E00ED9679 /* DataStruct.swift in Sources */,
 				1F7AA01C1BEDE97000ED9679 /* GHProfileManager.swift in Sources */,
 				1F94AC811BEA2B8600A4D896 /* ZFHttpRequest.swift in Sources */,
 				1F94AC831BEA2B8600A4D896 /* ZFLoadingView.swift in Sources */,
+				1F4B06C31BEF841100F13356 /* BookListVC.swift in Sources */,
 				1F94AC8A1BEA2D1200A4D896 /* AppDelegate+EaseMob.swift in Sources */,
 				1F7AA00D1BEDDB5F00ED9679 /* BookVC.swift in Sources */,
 			);

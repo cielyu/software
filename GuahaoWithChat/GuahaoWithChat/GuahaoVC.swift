@@ -141,7 +141,11 @@ class GuahaoVC: BaseCollectionVC {
             guahao.paramValue2 = dataSource?[indexPath.row].name
             vcToPush = guahao
         case .Doctor:
-            navigationController?.pushViewController(BookVC(), animated: true)
+            let book = BookVC()
+            book.hospital = paramValue1
+            book.department = paramValue2
+            book.doctorName = dataSource?[indexPath.row].name
+            navigationController?.pushViewController(book, animated: true)
             break
         }
         if let vc = vcToPush {

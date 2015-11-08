@@ -36,6 +36,12 @@ extension String: ZFString {
         return size.width
     }
     
+    /**
+     根据指定最大的size和字体计算出显示文字所需要的size
+     - Parameter font: 显示的字体
+     - Parameter maxSize: 能显示的最大尺寸
+     - Returns: 能显示出完整文字的尺寸
+     */
     func sizeForTextInLabel(font: UIFont, maxSize: CGSize) -> CGSize {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 5
@@ -47,4 +53,5 @@ extension String: ZFString {
                 NSParagraphStyleAttributeName: paragraph],
             context: nil).size
     }
+    
 }

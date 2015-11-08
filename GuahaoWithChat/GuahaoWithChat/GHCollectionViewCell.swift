@@ -32,7 +32,7 @@ class GHCollectionViewCell: UICollectionViewCell {
         
         backgroundView = GHCollectionViewCellBackgroudView(
             frame: frame,
-            bgColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.3))
+            bgColor: UIColor(white: 0.7, alpha: 1))
         selectedBackgroundView = GHCollectionViewCellBackgroudView(
             frame: frame,
             bgColor: UIColor(red: 0.529, green: 0.808, blue: 0.922, alpha: 1))

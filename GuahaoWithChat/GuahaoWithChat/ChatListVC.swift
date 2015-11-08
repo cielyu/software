@@ -54,7 +54,7 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return 2
         }else {
             return dataSource == nil ? 0 : dataSource!.count
         }
@@ -75,10 +75,17 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatListCell") as! ChatListTableViewCell
         if indexPath.section == 0 {
-            cell.nameLabel.text = "挂号"
-            cell.setUnreadCount(0)
-            cell.setCellBackgroundColor(0)
-            cell.setLatestText(nil)
+            if indexPath.row == 0 {
+                cell.nameLabel.text = "挂号"
+                cell.setUnreadCount(0)
+                cell.setCellBackgroundColor(0)
+                cell.setLatestText(nil)
+            }else {
+                cell.nameLabel.text = "预约列表"
+                cell.setUnreadCount(0)
+                cell.setCellBackgroundColor(0)
+                cell.setLatestText(nil)
+            }
         }else {
             let conversation = dataSource?[indexPath.row]
             cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
@@ -93,8 +100,13 @@ class ChatListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if indexPath.section == 0 {
-            let guahaoVC = GuahaoVC(type: .Hospital)
-            navigationController?.pushViewController(guahaoVC, animated: true)
+            if indexPath.row == 0 {
+                let guahaoVC = GuahaoVC(type: .Hospital)
+                navigationController?.pushViewController(guahaoVC, animated: true)
+            }else {
+                let bookListVC = BookListVC()
+                navigationController?.pushViewController(bookListVC, animated: true)
+            }
         }else {
             if let chatter = dataSource?[indexPath.row].chatter {
                 let chatVC = ChatVC(chatter: chatter)
