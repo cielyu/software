@@ -1,34 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>登陆页面</title>
-</head>
-
-<body background="2e0f0f7609d928f4f2f8ba901a970d04.jpg">
-<audio autoplay="autoplay">
-<source src="仙剑奇侠传六-主题曲-《镜中人》.mp3" type="audio/mpeg">
-</audio>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>login</title>
 <h1 align="center">Log In</h1>
+</head>
 <hr>
-<form name="login" method="post" action="127.0.0.1:8000/login/">
+<body >
+
+<form name="login" method="post" action="http://192.168.137.1:8000/hlogin/">
 <table align="center">
 	<tr>
-		<td>医院名：</td>
-		<td><input type="text" maxlength="20" placeholder="hospital" size="16"></td>
+		<td>username:</td>
+		<td><input placeholder="username" name="username" size="16" maxlength="20"></td>
 	</tr>
 	<tr>
-		<td>密码：</td>
-		<td><input placeholder="password" type="password" maxlength="20" size="16" ></td>
+		<td>password:</td>
+		<td><input placeholder="password" name="password" size="16" maxlength="20"></td>
 	</tr>
 	<tr>
-		<td><input type="submit" name="Submit" value="登陆"></td>
-		<td><input type="reset" name="Submit2" value="重置"></td>
-	</tr>
-	<tr>
-		<td><a href="a.html">未有账号？</a>
+		<td><input type="submit" name="Submit" value="submit"></td>
+		<td><input type="reset" name="Submit2" value="reset"></td>
 	</tr>
 </table>
+</form>
+<form action="http://192.168.137.1:8000/hregister/" method="get">
+<p align="center"><input type="submit" id="test_post" value="have no account"></p>
 </form>
 </body>
 </html>

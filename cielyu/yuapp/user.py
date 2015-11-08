@@ -4,8 +4,9 @@ from models import Appuser, Apptouser, Doctor, Usertodoctor, Hospital, Hospitall
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import datetime
-from django.shortcuts import render_to_response
 from django.contrib import sessions
+import time
+import json
 ##########################################
 #                                        #
 #    the file is for user                #
@@ -50,23 +51,27 @@ def login(request):
         ac_list = Appuser.objects.all()
         for ac in ac_list:
             if ac.uname == name and ac.upad == pad:
-                cc = Appuser.objects.get(uname=name, upad=pad)
-                if cc.isblack == '1':
-                    if (datetime.datetime.now()-cc.udate).days >= 7:
-                        cc = Appuser(uname=name, upad=pad).update(isblack='0')
-                        cc.save()
-                        data = {'status': 'success', 'black ': 'False'}
-                        return JsonResponse(data, safe=False)
-                    else:
-                        aa = (datetime.datetime.now()-cc.udate).days
-                        ab = str(aa)
-                        data = {'status': 'success', 'black': 'True', 'day': ab}
-                        return JsonResponse(data, safe=False)
-                else:
-                    data = {'status': 'success', 'black ': 'False'}
-                    return JsonResponse(data, safe=False)
-        data = {'status': 'failed'}
-        return JsonResponse(data, safe=False)
+                data = {'status': 'success'}
+                return JsonResponse(data, safe=False)
+        else:
+            return JsonResponse(data={'status': 'failed'}, safe=False)
+                #cc = Appuser.objects.get(uname=name, upad=pad)
+                #if cc.isblack == '1':
+                #    if (datetime.datetime.now()-cc.udate).days >= 7:
+                #        cc = Appuser(uname=name, upad=pad).update(isblack='0')
+                #        cc.save()
+                #        data = {'status': 'success', 'black ': 'False'}
+                #        return JsonResponse(data, safe=False)
+                #    else:
+                #        aa = (datetime.datetime.now()-cc.udate).days
+                #        ab = str(aa)
+                #        data = {'status': 'success', 'black': 'True', 'day': ab}
+                #        return JsonResponse(data, safe=False)
+                #else:
+                #    data = {'status': 'success', 'black ': 'False'}
+                #   return JsonResponse(data, safe=False)
+            #data = {'status': 'success'}
+        #return JsonResponse(data, safe=False)
 
 
 ##########################################
@@ -79,9 +84,8 @@ def checkdata(request):
         return JsonResponse(data={'status': 'failed'}, safe=False)
     else:
         username = request.POST.get("username")
-        password = request.POST.get("password")
-        aa = Appuser.objects.get(uname=username, upad=password)
-        data = {'name': aa.uname, 'pad': aa.upad, 'tel': aa.utel, 'address': aa.uaddr}
+        aa = Appuser.objects.get(uname=username)
+        data = {'tel': aa.utel, 'address': aa.uaddr, 'mail': aa.umail}
         return JsonResponse(data, safe=False)
 
 
@@ -140,24 +144,16 @@ def searchdoctor(request):
 ##########################################
 def appointment(request):
     username = request.POST.get("username")
-    dname = request.POST.get("doctorname")
+    dname = request.POST.get("doctor")
     date = request.POST.get("date")
-    period = request.POST.get("period")
     hospital = request.POST.get("hospital")
     department = request.POST.get("department")
-    if username and dname and date and period and hospital and department:
-        ac = Appuser.objects.get(uname=username)
-        if ac.isblack == '0':
-            aa = Apptouser.objects.get(docname=dname, date=date, period=period, ahospital=hospital, adepartment=department)
-            aa.num -= 1
-            aa.save()
-            ab = Usertodoctor(username=username, udname=dname, ddate=date, dperiod=period, dhospital=hospital, ddepartment=department)
-            ab.save()
-            return JsonResponse({'status': 'success'}, safe=False)
-        else:
-            return JsonResponse({'status': 'failed'}, safe=False)
-    else:
-        return JsonResponse({'status': 'failed'}, safe=False)
+    day = float(date)
+    print day
+    print time.mktime(time.strptime("2015-12-01 00:00:00", "%Y-%m-%d %H:%M:%S"))
+    ab = Usertodoctor(username=username, udname=dname, ddate=day, dhospital=hospital, ddepartment=department)
+    ab.save()
+    return JsonResponse(data={'status': 'success'}, safe=False)
 
 
 ##########################################
@@ -168,8 +164,18 @@ def appointment(request):
 def usercheck(request):
     username = request.POST.get("username")
     if username:
-        aa = serializers.serialize("json", Usertodoctor.objects.filter(username=username))
-        return HttpResponse(aa)
+        aa_list = Usertodoctor.objects.filter(username=username)
+        data = {'status': 'success'}
+        arr = []
+        for aa in aa_list:
+            bb = {'doctor': aa.udname, 'time': aa.ddate}
+            arr.append(bb)
+        dd = json.dumps(arr)
+        print dd
+        data.setdefault('arr', dd)
+        return JsonResponse(data, safe=False)
+        #aa = serializers.serialize("json", Usertodoctor.objects.filter(username=username))
+        #return HttpResponse(aa)
 
 
 #def document(request):
@@ -227,3 +233,19 @@ def getdepartment(request):
     return JsonResponse(aa, safe=False)
 
 
+def getwant(request):
+    name = request.POST.get("doctor")
+    hospital = request.POST.get("hospital")
+    department = request.POST.get("department")
+    aa_list = Apptouser.objects.filter(docname=name, ahospital=hospital, adepartment=department)
+    bb = []
+    for aa in aa_list:
+        print aa.date
+        if float(aa.date) > float(time.time()):
+                bb.append(aa.date)
+                print bb
+                return JsonResponse(data={'status': 'success', 'time': bb})
+        else:
+            return JsonResponse(data={'status': 'failed'}, safe=False)
+    else:
+        return JsonResponse(data={'status': 'failed'}, safe=False)

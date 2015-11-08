@@ -9,23 +9,13 @@
 <hr>
 <body >
 
-<form name="login" method="post" action="127.0.0.1:8000/hlogin/">
-<table align="center">
-	<tr>
-		<td>username:</td>
-		<td><input placeholder="username" name="username" size="16" maxlength="20"></td>
-	</tr>
-	<tr>
-		<td>password:</td>
-		<td><input placeholder="password" name="password" size="16" maxlength="20"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="Submit" value="submit"></td>
-		<td><input type="reset" name="Submit2" value="reset"></td>
-	</tr>
-</table>
+<form name="login" method="post" action="http://192.168.137.1:8000/hlogin/">
+<p align="center">username:<input type="text" name="username"></p>
+<p align="center">password:<input type="password" name="password"></p>
+<p align="center"><input type="submit" value="提交">
+<input type="reset" value="重置"></p>
 </form>
-<form action="http://127.0.0.1:8000/hregister" method="get">
+<form action="http://192.168.137.1:8000/hregister/" method="get">
 <p align="center"><input type="submit" id="test_post" value="have no account"></p>
 </form>
 </body>

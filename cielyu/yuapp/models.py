@@ -20,7 +20,7 @@ class Appuser(models.Model):
 
 
 class Hospital(models.Model):
-    hname = models.CharField(max_length=30)
+    hname = models.TextField(max_length=30)
     hpad = models.CharField(max_length=30)
     htel = models.CharField(max_length=30)
 
@@ -42,9 +42,7 @@ class Doctor(models.Model):
 
 class Apptouser(models.Model):
     docname = models.CharField(max_length=30)
-    date = models.DateField()
-    period = models.CharField(max_length=30)
-    num = models.CharField(max_length=30)
+    date = models.FloatField(max_length=30)
     ahospital = models.CharField(null=True, max_length=30)
     adepartment = models.CharField(null=True, max_length=30)
 
@@ -58,8 +56,7 @@ class Apptouser(models.Model):
 class Usertodoctor(models.Model):
     username = models.CharField(max_length=30)
     udname = models.CharField(max_length=30)
-    ddate = models.DateField()
-    dperiod = models.CharField(max_length=30)
+    ddate = models.FloatField(max_length=30)
     dhospital = models.CharField(null=True, max_length=30)
     ddepartment = models.CharField(null=True, max_length=30)
     ugood = models.BooleanField(default=True)

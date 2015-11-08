@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>欢迎使用挂号系统</title>
+</head>
+
+<body>
+<ul type="square">
+{% for bb in bb_list %}
+	<li>{{bb.department}}</li>
+{% endfor %}
+</ul>
+<form action="http://192.168.137.1:8000/hdoctor/" method="post">
+<p align="center"><input type="text" name="department" >
+<input type="submit" name="submit" value="提交"></p>
+</form>
+</body>
+</html>
