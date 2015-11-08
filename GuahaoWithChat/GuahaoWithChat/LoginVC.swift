@@ -89,7 +89,8 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
         let param = [
             "name": userno,
             "password": psw]
-        dispatch_async(dispatch_queue_create("login", DISPATCH_QUEUE_SERIAL)) {
+        // MARK: 先登陆挂号
+        dispatch_async(globalQueue) {
             ZFHttpRequest.postRequest(
                 toUrl: "http://192.168.137.1:8000/login/",
                 withParameter: param,
@@ -99,7 +100,10 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                         if let black = json["black"] as? String where black == "True" {
                             ZFAlertShow.sharedInstance.showAlert(nil, message: "您已被拉入黑名单", inViewController: self)
                         }else {
-                            // MARK: 开始环信登陆
+                            // MARK: 登陆前清除好友请求
+                            FriendRequestVC.sharedViewController.clearRequestList()
+                            
+                            // MARK: 再登陆环信
                             self.easeMobLogin(userno, password: psw) {
                                 loading.hide()
                                 
@@ -108,7 +112,6 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                                         "loginStateChanged", object: 1, userInfo: nil)
                                 }
                             }
-                            
                         }
                     }else {
                         ZFAlertShow.sharedInstance.showAlert(nil, message: "登陆失败！", inViewController: self)
@@ -117,6 +120,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                 },
                 failure: { (error) -> () in
                     print(error)
+                    MessageToast.toast(self.view, message: "登陆失败！", keyBoardHeight: 0, finishBlock: nil)
                     loading.hide()
             })
         }
@@ -163,6 +167,7 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
             "tel": tel,
             "addr": addr,
             "mail": mail]
+        // MARK: 首先注册
         dispatch_async(dispatch_queue_create("register", DISPATCH_QUEUE_SERIAL)) {
             ZFHttpRequest.postRequest(
                 toUrl: "http://192.168.137.1:8000/register/",
@@ -170,13 +175,17 @@ class LoginVC: UIViewController, GuahaoLoginViewDelegate {
                 success: { (json) -> () in
                     print(json)
                     if let status = json["status"] as? String where status == "success" {
-//                        ZFAlertShow.sharedInstance.showAlert(nil, message: "注册成功！", inViewController: self)
+                        // MARK: 再注册环信
                         dispatch_async(globalQueue) {
                             var error: EMError?
                             EaseMob.sharedInstance().chatManager.registerNewAccount(userno, password: psw, error: &error)
                             if error == nil {
                                 MessageToast.toast(self.view, message: "注册成功！", keyBoardHeight: 0, finishBlock: nil)
-                                // 注册成功后开始登陆
+                                
+                                // MARK: 登陆前清除好友请求
+                                FriendRequestVC.sharedViewController.clearRequestList()
+                                
+                                // MARK: 注册成功后开始登陆
                                 self.easeMobLogin(userno, password: psw) {
                                     loading.hide()
                                 }

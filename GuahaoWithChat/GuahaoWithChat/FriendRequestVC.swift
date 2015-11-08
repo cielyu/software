@@ -100,6 +100,11 @@ class FriendRequestVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    
+    func clearRequestList() {
+        dataSource.removeAll()
+    }
+    
     var requestCount: UInt {
         return UInt(dataSource.count)
     }

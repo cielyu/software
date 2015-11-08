@@ -27,6 +27,7 @@ class HeadImageCell: UITableViewCell {
         
         nameLabel.textColor = UIColor.blackColor()
         telLabel.textColor = UIColor.grayColor()
+        telLabel.font = UIFont.systemFontOfSize(15)
         
         contentView.addSubview(headImage)
         contentView.addSubview(nameLabel)

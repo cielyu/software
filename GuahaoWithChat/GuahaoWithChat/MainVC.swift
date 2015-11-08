@@ -135,6 +135,7 @@ class MainVC: UITabBarController, IChatManagerDelegate {
         chatListVC.refreshChatList(nil)
     }
     
+    // MARK: 好友列表发生变化
     func didUpdateBuddyList(buddyList: [AnyObject]!, changedBuddies: [AnyObject]!, isAdd: Bool) {
         contactVC.refreshDataSource()
     }
@@ -151,8 +152,20 @@ class MainVC: UITabBarController, IChatManagerDelegate {
         }
     }
     
+    // MARK: 收到新消息
     func didReceiveMessage(message: EMMessage!) {
-        self.chatListVC.refreshChatList(nil)
+        chatListVC.refreshChatList(nil)
+    }
+    
+    // MARK: 被好友删除了
+    func didRemovedByBuddy(username: String!) {
+        guard let username = username else {
+            return
+        }
+        // MARK: 删除本地聊天记录
+        EaseMob.sharedInstance().chatManager.removeConversationByChatter?(username, deleteMessages: true, append2Chat: true)
+        contactVC.refreshDataSource()
+        chatListVC.refreshChatList(nil)
     }
 }
 

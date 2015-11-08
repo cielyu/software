@@ -36,20 +36,22 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
         title = chatter
         
         setupSubviews()
-        
+        setupFriendProfileBtn()
     }
     
-    // MARK: 添加接收在线消息的回调
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // MARK: 注册接收在线消息的回调
         EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: nil)
         registerKeyboardActionNotification()
         updataChatRecord()
     }
     
-    // MARK: 移除回调
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // MARK: 移除回调
         EaseMob.sharedInstance().chatManager.removeDelegate(self)
         removeKeyboardActionNotification()
         
@@ -71,6 +73,21 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EMCh
         
         view.addSubview(tableView)
         view.addSubview(chatToolbar)
+    }
+    
+    // MARK: 查看好友资料按钮
+    func setupFriendProfileBtn() {
+        let profileBtn = UIBarButtonItem(
+            image: UIImage(named: "friendProfile"), style: .Plain,
+            target: self, action: Selector("showFriendPofile"))
+        navigationItem.rightBarButtonItem = profileBtn
+    }
+    
+    // MARK: 好友资料
+    func showFriendPofile() {
+        let friendProfileVC = FriendProfileVC()
+        friendProfileVC.friendName = title
+        navigationController?.pushViewController(friendProfileVC, animated: true)
     }
     
     // MARK: 监听键盘呼出

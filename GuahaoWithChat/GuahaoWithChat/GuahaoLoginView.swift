@@ -94,7 +94,7 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
         loginBtn.setTitle("登陆", forState: .Normal)
         loginBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
         loginBtn.setTitleColor(UIColor(red: 0, green: 0, blue: 1, alpha: 0.5), forState: .Highlighted)
-        loginBtn.addTarget(self, action: Selector("login:"), forControlEvents: .TouchUpInside)
+        loginBtn.addTarget(self, action: Selector("login"), forControlEvents: .TouchUpInside)
         
         // MARK: 注册按钮
         registerBtn = UIButton(frame: CGRectMake(
@@ -105,7 +105,7 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
         registerBtn.setTitle("注册", forState: .Normal)
         registerBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
         registerBtn.setTitleColor(UIColor(red: 0, green: 0, blue: 1, alpha: 0.5), forState: .Highlighted)
-        registerBtn.addTarget(self, action: Selector("register:"), forControlEvents: .TouchUpInside)
+        registerBtn.addTarget(self, action: Selector("register"), forControlEvents: .TouchUpInside)
         
         frame = CGRectMake(
             0,
@@ -142,14 +142,13 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
     }
     
     // MARK: 登陆
-    func login(button: UIButton) {
+    func login() {
         endEditing(true)
         if isAnimating {
             return
         }
         
         if isRegistering {
-            // TODO: 变成登陆界面
             hideRegisterView()
         }else {
             delegate?.login()
@@ -157,13 +156,12 @@ class GuahaoLoginView: UIView, UITextFieldDelegate {
     }
     
     // MARK: 注册
-    func register(button: UIButton) {
+    func register() {
         endEditing(true)
         if isAnimating {
             return
         }
         if isRegistering == true {
-            // TODO: 服务器请求注册
             delegate?.register()
             return
         }

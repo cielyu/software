@@ -52,7 +52,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             ZFAlertShow.sharedInstance.showAlert(nil, message: "获取用户名失败！", inViewController: self)
             return
         }
-        
+
         let row0 = Profile(key: "用户名", value: manager.getProfile(username, key: "username"))
         let row1 = Profile(key: "手机", value: manager.getProfile(username, key: "tel"))
         let row2 = Profile(key: "地址", value: manager.getProfile(username, key: "addr"))
@@ -93,8 +93,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let headCell = tableView.dequeueReusableCellWithIdentifier("HeadCell") as! HeadImageCell
             headCell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
-            headCell.nameLabel.text =
-                "用户名：" + GHProfileManager.defaultManager.getProfile(username, key: "username")
+            headCell.nameLabel.text = GHProfileManager.defaultManager.getProfile(username, key: "username")
             headCell.telLabel.text =
                 "手机号码：" + GHProfileManager.defaultManager.getProfile(username, key: "tel")
             

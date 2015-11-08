@@ -69,11 +69,13 @@ class ContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
-        cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
+        
         if indexPath.section == 0 {
+            cell.headImage.image = UIImage(named: "friendRequest")
             cell.nameLabel.text = "申请与通知"
             cell.setUnreadCount(FriendRequestVC.sharedViewController.requestCount)
         }else {
+            cell.headImage.image = UIImage(named: "ChatListCellPlaceHolder")
             cell.setUnreadCount(0)
             cell.nameLabel.text = dataSource?[indexPath.row].username
         }
