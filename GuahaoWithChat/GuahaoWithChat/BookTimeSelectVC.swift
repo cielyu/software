@@ -104,6 +104,15 @@ class BookTimeSelectVC: UIViewController, UITableViewDataSource, UITableViewDele
                         
                         ZFAlertShow.sharedInstance.showAlert(nil, message: "预约成功！", inViewController: self)
                         runAsyncOnMainThread {
+                            // MARK: 增加提醒
+                            let notification = UILocalNotification()
+                            notification.timeZone = NSTimeZone(forSecondsFromGMT: 28800)
+                            notification.fireDate = date
+                            notification.alertTitle = "您有一个预约"
+                            notification.alertBody = "您预约了\(self.doctor)医生，请准时前往医院！"
+                            notification.applicationIconBadgeNumber = 1
+                            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                            
                             self.navigationController?.popViewControllerAnimated(true)
                         }
                     }else {

@@ -18,6 +18,9 @@ extension AppDelegate: IChatManagerDelegate {
         EaseMob.sharedInstance().chatManager.enableAutoFetchBuddyList?()
         
         registerLifeCycleNotification()
+        // MARK: 注册通知
+        registerRemoteNotification(application)
+        
         EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
@@ -89,7 +92,8 @@ extension AppDelegate: IChatManagerDelegate {
         EaseMob.sharedInstance().applicationWillTerminate(application)
     }
     
-    // MARK: 注册远程推送（没有申请推送证书，关闭应用后是没有推送的）
+    
+    // MARK: 注册远程推送和本地推送（没有申请推送证书，关闭应用后是没有推送的）
     func registerRemoteNotification(application: UIApplication) {
         application.registerForRemoteNotifications()
         let notificationTypes: UIUserNotificationType = [.Badge, .Sound, .Alert]
@@ -103,7 +107,6 @@ extension AppDelegate: IChatManagerDelegate {
     }
     // MARK: deviceToken注册失败时（当然会失败）
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("－－－－－－－－－－－－－－－－－－－－\ntoken注册失败！")
         EaseMob.sharedInstance().application(application, didFailToRegisterForRemoteNotificationsWithError: error)
     }
     

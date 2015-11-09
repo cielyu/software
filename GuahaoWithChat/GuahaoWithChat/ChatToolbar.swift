@@ -36,32 +36,50 @@ class ChatToolbar: UIView, UITextFieldDelegate {
     }
     
     private func setupSubviews() {
+        
         textField.borderStyle = .RoundedRect
         textField.returnKeyType = .Send
         textField.delegate = self
         
         sendBtn.setTitle("发送", forState: .Normal)
         sendBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        sendBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
         sendBtn.addTarget(self, action: Selector("sendBtnClicked"), forControlEvents: .TouchUpInside)
         
         addSubview(textField)
         addSubview(sendBtn)
         
         textField.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp_top).offset(5)
-            make.left.equalTo(self.snp_left).offset(5)
-            make.bottom.equalTo(self.snp_bottom).offset(-5)
+            make.top.equalTo(self).offset(5)
+            make.left.equalTo(self).offset(5)
+            make.bottom.equalTo(self).offset(-5)
             make.right.equalTo(sendBtn.snp_left)
         }
         sendBtn.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(textField.snp_right)
-            make.top.equalTo(self.snp_top).offset(5)
-            make.right.equalTo(self.snp_right).offset(-5)
-            make.bottom.equalTo(self.snp_bottom).offset(-5)
+            make.top.equalTo(self).offset(5)
+            make.right.equalTo(self).offset(-5)
+            make.bottom.equalTo(self).offset(-5)
             make.width.equalTo(44)
         }
     }
     
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        CGContextSaveGState(ctx)
+        
+        CGContextSetLineWidth(ctx, 0.5)
+        UIColor.grayColor().setStroke()
+        
+        CGContextMoveToPoint(ctx, 0, 0)
+        CGContextAddLineToPoint(ctx, rect.width, 0)
+        CGContextMoveToPoint(ctx, 0, rect.height)
+        CGContextAddLineToPoint(ctx, rect.width, rect.height)
+        
+        CGContextRestoreGState(ctx)
+    }
     // MARK: 注册键盘呼出监听
     func registerKeyboardNotification() {
         NSNotificationCenter.defaultCenter().addObserver(
