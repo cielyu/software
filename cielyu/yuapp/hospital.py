@@ -6,6 +6,7 @@ import datetime
 from django.core import serializers
 from django import template
 from django.shortcuts import render_to_response
+import time
 
 
 ##########################################
@@ -90,16 +91,14 @@ def want(request):
         hospital = request.POST.get("hospital")
         department = request.POST.get("department")
         date = request.POST.get("date")
-        period = request.POST.get("period")
-        if name and date and period and hospital and department:
+        if name and date and hospital and department:
             ac_list = Doctor.objects.all()
             for ac in ac_list:
                 if ac.dname == name and ac.hospital == hospital and ac.department == department:
-                    aa = Apptouser(docname=name, date=date, period=period, num=50,ahospital=hospital,adepartment=department)
+                    bb = time.mktime(time.strptime(date, '%Y-%m-%d %H:%M:%S'))
+                    aa = Apptouser(docname=name, date=bb, num=50, ahospital=hospital, adepartment=department)
                     aa.save()
                     return render_to_response("wantget.html")
-                else:
-                    return JsonResponse({'status': 'failed'}, safe=False)
         else:
             return JsonResponse({'status': 'failed'}, safe=False)
 
@@ -130,13 +129,19 @@ def hospitalcheck(request):
 #                                        #
 ##########################################
 def hdoctor(request):
-    hospital = request.POST.get("hospital")
-    department = request.POST.get("department")
-    aa_list = Doctor.objects.filter(hospital=hospital, department=department).distinct()
-    fp = open(r'E:\sever\software\cielyu\templates\doctor.html', 'r')
-    t = template.Template(fp.read())
-    html = t.render(template.Context({'aa_list': aa_list}))
-    return HttpResponse(html)
+    if request.method != 'POST':
+        return render_to_response("doctor-1.html")
+    else:
+        hospital = request.POST.get("hospital")
+        department = request.POST.get("department")
+        aa_list = []
+        bb_list = Doctor.objects.filter(hospital=hospital, department=department).distinct()
+        for bb in bb_list:
+            aa_list.append(bb.dname)
+        fp = open(r'E:\sever\software\cielyu\templates\doctor.html', 'r')
+        t = template.Template(fp.read())
+        html = t.render(template.Context({'aa_list': aa_list}))
+        return HttpResponse(html)
 
 
 ##########################################
@@ -152,9 +157,15 @@ def doctorcheck(request):
         department = request.POST.get("department")
         aa_list = []
         bb_list = Usertodoctor.objects.filter(dhospital=hospital, ddepartment=department)
+        print bb_list
         for bb in bb_list:
-            aa_list.append(bb)
-        return render_to_response("check.html", aa_list)
+            cc ='user:'+ bb.username+ ',doctor:'+ bb.udname +',hospital:'+ bb.dhospital+ ',department:'+bb.ddepartment+ ',time:'+ time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(bb.ddate))
+            aa_list.append(cc)
+        fp = open(r'E:\sever\software\cielyu\templates\check.html', 'r')
+        t = template.Template(fp.read())
+        html = t.render(template.Context({'aa_list': aa_list}))
+        return HttpResponse(html)
+        #return render_to_response("check.html", aa_list)
 
 
 ##########################################
