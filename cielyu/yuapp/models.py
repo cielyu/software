@@ -70,6 +70,7 @@ class Usertodoctor(models.Model):
 
 class Hospitallist(models.Model):
     honame = models.CharField(max_length=30)
+    hodepartment = models.CharField(max_length=30, null=True)
 
     def __unicode__(self):
         return self.honame

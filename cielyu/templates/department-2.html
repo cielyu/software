@@ -7,18 +7,10 @@
 </head>
 
 <body>
-<ul type="square">
-{% for bb in bb_list %}
-	<li>{{bb}}</li>
-{% endfor %}
-</ul>
-<form action="http://192.168.137.1:8000/hdoctor/" method="post">
-<p align="center"><input type="text" name="department" >
-<input type="submit" name="submit" value="提交"></p>
-</form>
-<form action="http://192.168.137.1:8000/adddepartment/" method="get">
-<p align="center">
-<input type="submit" name="submit" value="增加部门"></p>
+<form action="http://192.168.137.1:8000/adddepartment/" method="post">
+<p align="center">hospital:<input type="text" name="hospital"></p>
+<p align="center">department:<input type="text" name="department"></p>
+<p align="center"><input type="submit" name="submit" value="确认"></p>
 </form>
 <form action="http://192.168.137.1:8000/index/" method="get">
 <p align="center">

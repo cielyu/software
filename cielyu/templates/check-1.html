@@ -7,18 +7,12 @@
 </head>
 
 <body>
-<ul type="square">
-{% for aa in aa_list %}
-	<li>{{aa}}</li>
-{% endfor %}
-</ul>
-<div>
-<form action="http://192.168.137.1:8000/want/" method="get">
-<p align="center"><input type="submit" value="增添预约"></p>
+<form action="http://192.168.137.1:8000/doctorcheck/" method="get">
+<p align="center">hospital:<input type="text" name="hospital"></p>
+<p align="center">department:<input type="text" name="department"></p>
+<p align="center"><input type="submit" value="提交"><input type="reset" value="重置"></p>
 </form>
 <form action="http://192.168.137.1:8000/index/" method="get">
 <p align="center"><input type="submit" value="返回首页"></p>
-</form>
-</div>
 </body>
 </html>

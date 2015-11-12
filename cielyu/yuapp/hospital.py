@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 __author__ = 'Administrator'
-from models import Hospital, Apptouser, Doctor, Usertodoctor, Appuser
+from models import Hospital, Apptouser, Doctor, Usertodoctor, Appuser, Hospitallist
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 import datetime
 from django.core import serializers
@@ -15,7 +15,7 @@ from django.shortcuts import render_to_response
 ##########################################
 def hregister(request):
     if request.method != 'POST':
-        return render_to_response("cc.html")
+        return render_to_response("register.html")
     else:
         name = request.POST.get("username")
         pad = request.POST.get("password")
@@ -24,11 +24,11 @@ def hregister(request):
         for ac in ac_list:
             if ac.hname == name:
                 print name, pad, tel
-                return render_to_response("cc.html")
+                return render_to_response("register.html")
         else:
             ho = Hospital(hname=name, hpad=pad, htel=tel)
             ho.save()
-            return render_to_response("ccc.html")
+            return render_to_response("register-1.html")
 
 
 ##########################################
@@ -38,7 +38,7 @@ def hregister(request):
 ##########################################
 def hlogin(request):
     if request.method != 'POST':
-        return render_to_response("c.html")
+        return render_to_response("login.html")
     else:
         name = request.POST.get("username")
         pad = request.POST.get("password")
@@ -49,7 +49,7 @@ def hlogin(request):
                 return render_to_response("base.html")
         else:
             print "c"
-            return render_to_response("c.html")
+            return render_to_response("login.html")
 
 
 ##########################################
@@ -114,7 +114,10 @@ def hospitalcheck(request):
         return render_to_response("department.html")
     else:
         hospital = request.POST.get("hospital")
-        bb_list = Doctor.objects.filter(hospital=hospital)
+        bb_list = []
+        aa_list = Hospitallist.objects.filter(honame=hospital).distinct()
+        for aa in aa_list:
+            bb_list.append(aa.hodepartment)
         fp = open(r'E:\sever\software\cielyu\templates\department-1.html', 'r')
         t = template.Template(fp.read())
         html = t.render(template.Context({'bb_list': bb_list}))
@@ -129,7 +132,7 @@ def hospitalcheck(request):
 def hdoctor(request):
     hospital = request.POST.get("hospital")
     department = request.POST.get("department")
-    aa_list = Doctor.objects.filter(hospital=hospital, department=department)
+    aa_list = Doctor.objects.filter(hospital=hospital, department=department).distinct()
     fp = open(r'E:\sever\software\cielyu\templates\doctor.html', 'r')
     t = template.Template(fp.read())
     html = t.render(template.Context({'aa_list': aa_list}))
@@ -143,11 +146,14 @@ def hdoctor(request):
 ##########################################
 def doctorcheck(request):
     if request.method != 'POST':
-        return render_to_response("base.html")
+        return render_to_response("check-1.html")
     else:
         hospital = request.POST.get("hospital")
         department = request.POST.get("department")
-        aa_list = Usertodoctor.objects.filter(dhospital=hospital, ddepartment=department)
+        aa_list = []
+        bb_list = Usertodoctor.objects.filter(dhospital=hospital, ddepartment=department)
+        for bb in bb_list:
+            aa_list.append(bb)
         return render_to_response("check.html", aa_list)
 
 
@@ -179,7 +185,7 @@ def index(request):
     if request.method != 'POST':
         return render_to_response("base.html")
     else:
-        return render_to_response("c.html")
+        return render_to_response("login.html")
 
 
 def indexx(request):
@@ -191,6 +197,17 @@ def indexx(request):
 
 def adddepartment(request):
     if request.method != 'POST':
-        return render_to_response("base.html")
+        return render_to_response("department-2.html")
     else:
-        pass
+        name = request.POST.get("department")
+        hospital = request.POST.get("hospital")
+        aa = Hospitallist(honame=hospital, hodepartment=name)
+        aa.save()
+        bb_list = []
+        cc_list = Hospitallist.objects.filter(honame=hospital)
+        for cc in cc_list:
+            bb_list.append(cc.hodepartment)
+        fp = open(r'E:\sever\software\cielyu\templates\department-3.html', 'r')
+        t = template.Template(fp.read())
+        html = t.render(template.Context({'bb_list': bb_list}))
+        return HttpResponse(html)

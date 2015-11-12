@@ -7,6 +7,7 @@ import datetime
 from django.contrib import sessions
 import time
 import json
+from django.db.models import Q
 ##########################################
 #                                        #
 #    the file is for user                #

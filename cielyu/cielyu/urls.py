@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from yuapp.user import login, register, searchdoctor, usercheck, appointment, getlist, getdepartment, checkdata, getwant
-from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck, index, indexx, hdoctor
+from yuapp.hospital import hlogin, hregister, adddoctor, want, doctorcheck, hospitalcheck, index, indexx, hdoctor, adddepartment
 from yuapp.findpad import getpad
 
 urlpatterns = [
@@ -40,4 +40,5 @@ urlpatterns = [
     url(r'^index/$', index),
     url(r'^indexx/$', indexx),
     url(r'^hdoctor/$', hdoctor),
+    url(r'^adddepartment/$', adddepartment),
 ]
