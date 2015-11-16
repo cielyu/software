@@ -178,9 +178,8 @@ def badappointment(request):
     department = request.POST.get("hospital")
     dname = request.POST.get("doctor")
     date = request.POST.get("date")
-    period = request.POST.get("period")
     name = request.POST.get("username")
-    aa = Usertodoctor.objects.get(username=name, udname=dname, dhospital=hospital, ddepartment=department, ddate=date, dperiod=period).update(ugood=False)
+    aa = Usertodoctor.objects.get(username=name, udname=dname, dhospital=hospital, ddepartment=department, ddate=date).update(ugood=False)
     aa.save()
     cc = Appuser.objects.get(uname=name)
     bc = cc.udate

@@ -227,7 +227,7 @@ def getlist(request):
 def getdepartment(request):
     name = request.POST.get("hospital")
     aa = []
-    bb = Doctor.objects.filter(hospital=name)
+    bb = Doctor.objects.filter(hospital=name).distinct()
     for b in bb:
         #map(lambda x: aa.setdefault(b.department), b.department)
         aa.append(b.department)
